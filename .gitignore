@@ -1,3 +1,19 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+*.png
+*.jpg
+*.bmp
+*.gif
+*.psd
+*.clip
+*.ai
+
+*.ogg
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mov
+*.wmv

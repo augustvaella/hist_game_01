@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TestResource" load_steps=3 format=3 uid="uid://cr8k37w3dhfhm"]
+
+[ext_resource type="Script" path="res://test/src/test_resource.gd" id="1_xfvvg"]
+[ext_resource type="Texture2D" uid="uid://c7x3rs07in2li" path="res://test/assets/test_1.png" id="2_3eq43"]
+
+[resource]
+resource_name = "test resource 1"
+script = ExtResource("1_xfvvg")
+sprite = ExtResource("2_3eq43")
+text = "This is Test Resource 1"

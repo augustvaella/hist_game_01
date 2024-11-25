@@ -1,4 +1,5 @@
-class_name Startup extends Node2D
+class_name Startup extends Stage
 
 func _ready():
-	pass
+	var ans = get_child(0)
+	ans.play()
