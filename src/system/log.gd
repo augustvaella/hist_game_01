@@ -1,3 +1,4 @@
+# Log
 extends Node
 
 signal logged_error(text:String)

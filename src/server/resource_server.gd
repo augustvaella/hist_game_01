@@ -6,9 +6,9 @@ signal loaded_resource(resource: Resource)
 signal failed_load_resource(resource_path: String)
 signal invalid_resource(resource_path: String)
 
-var _resources: Dictionary #<resource_id:int, resource:Resource> 
-var _resource_name_table: Dictionary #<resource_name: String, resource_id: int>
-var _resource_path_table: Dictionary #<resource_path: String, resource_id: int>
+var _resources: Dictionary # <resource_id:int, resource:Resource>
+var _resource_name_table: Dictionary # <resource_name: String, resource_id: int>
+var _resource_path_table: Dictionary # <resource_path: String, resource_id: int>
 
 var _loading_path_table: LoadingPathTable
 var _is_process: bool
@@ -25,7 +25,7 @@ func _ready():
 func load_resource(resource_path: String):
 	var res = load(resource_path)
 	if res:
-		_on_load_resource
+		_on_load_resource(res)
 	else:
 		failed_load_resource.emit(resource_path)
 

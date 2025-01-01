@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cccnech4sdpi8"]
+[gd_scene load_steps=2 format=3 uid="uid://cccnech4sdpi8"]
 
 [ext_resource type="Script" path="res://src/startup/startup.gd" id="1_fr8sn"]
-[ext_resource type="SpriteFrames" uid="uid://ba7xa0wynedkn" path="res://assets/actor_sprite/sprite_frames/2024_1114_162952.tres" id="2_tlvyx"]
 
 [node name="Startup" type="Node2D"]
 script = ExtResource("1_fr8sn")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(375, 228)
-sprite_frames = ExtResource("2_tlvyx")

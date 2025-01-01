@@ -1,1 +1,1 @@
-class_name DuelState extends Resource
+class_name DuelState extends StageState

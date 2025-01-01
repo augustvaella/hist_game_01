@@ -1,22 +1,14 @@
 class_name Stage extends Node2D
 
-signal started(stage:Stage)
-signal finished(stage:Stage)
-
-func start():
-	_start()
-	started.emit(self)
+signal proceeded(stage: Stage, state: StageState)
+signal finished(stage: Stage, result: StageResult)
 
 
-func finish():
-	_finish()
-	finished.emit(self)
-	
-# to be overriden
-func _start():
-	pass
-	
+func proceed(state: StageState):
+	proceeded.emit(self, state)
+	var result:StageResult = await _proceed(state)
+	finished.emit(self, result)
 
 # to be overriden
-func _finish():
-	pass
+func _proceed(state: StageState)-> StageResult:
+	return null
