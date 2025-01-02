@@ -17,13 +17,7 @@ func _ready():
 	Master.user_resource_server.request_load_resource(USER_RESOURCE_SET_PATH)
 	await Master.user_resource_server.cleared_all_requested_load
 
-	var master_resources = []
-	print(master_resources is Array)
-	Master.master_resource_server.get_all_resources(master_resources)
-	for r in master_resources:
-		if r is PackedScene:
-			var rn = r.resource_name if not r.resource_name.is_empty() else r.resource_path
-			Master.instance_server.add_packed_scene(r, rn)
+	Master.master_instance_server.instantiate_packed_scenes()
 
 	Master.stage_server.instantiate_stages()
 	await Master.stage_server.finished_instantiate_stages
@@ -33,10 +27,7 @@ func _ready():
 	var initial_stage_state = Master.master_resource_server.get_resource(INITIAL_STAGE_STATE_NAME)
 	if initial_stage_state:
 		_set_stage(initial_stage_state)
-	#var r = Master.master_resource_server.get_resource("test resource 0")
-	#Master.master_resource_server.save_resource(r, USER_RESOURCE_RESTORE_PATH)
 	await changed_stage
-	print("aaaa")
 	change_stage(Master.master_resource_server.get_resource("test chat state"))
 
 
