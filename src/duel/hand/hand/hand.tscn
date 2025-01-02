@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://calrg52rn7822"]
+
+[ext_resource type="Script" path="res://src/duel/hand/hand/hand.gd" id="1_4c67p"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_4c67p")

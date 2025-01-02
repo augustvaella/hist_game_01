@@ -1,11 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf5qcl0cv5edn"]
+[gd_scene load_steps=13 format=3 uid="uid://bf5qcl0cv5edn"]
 
 [ext_resource type="Script" path="res://src/duel/duel.gd" id="1_1quas"]
-[ext_resource type="Texture2D" uid="uid://vx21rbkt16fa" path="res://assets/actor_sprite/png/2024_1114_162952/2024_1114_162952.png" id="2_k8s8b"]
+[ext_resource type="Script" path="res://src/duel/resolvers/friend_set_duel_resolver.gd" id="3_4tmwy"]
+[ext_resource type="Script" path="res://src/duel/resolvers/foe_set_duel_resolver.gd" id="4_12gb2"]
+[ext_resource type="Script" path="res://src/duel/resolvers/friend_turn_duel_resolver.gd" id="5_b756f"]
+[ext_resource type="Script" path="res://src/duel/resolvers/foe_turn_duel_resolver.gd" id="6_cg2ro"]
+[ext_resource type="Script" path="res://src/duel/resolvers/eval_result_duel_resolver.gd" id="7_pr8df"]
+[ext_resource type="Script" path="res://src/duel/resolvers/result_duel_resolver.gd" id="8_5h641"]
+[ext_resource type="PackedScene" uid="uid://hjt1tc87m8fk" path="res://src/duel/field/field.tscn" id="8_8h64d"]
+[ext_resource type="PackedScene" uid="uid://b0uxfvkdq063n" path="res://src/duel/foe/foe.tscn" id="9_3q72p"]
+[ext_resource type="PackedScene" uid="uid://dycs0buhlso02" path="res://src/duel/friend/friend.tscn" id="10_suqlp"]
+[ext_resource type="PackedScene" uid="uid://bjhc0sv622lgo" path="res://src/duel/hand/hand.tscn" id="11_ilwe1"]
+[ext_resource type="PackedScene" uid="uid://bvtu267ej8nq7" path="res://src/duel/info/info.tscn" id="12_yoepw"]
 
-[node name="Duel" type="Node2D"]
+[node name="Duel" type="Node2D" node_paths=PackedStringArray("initial_resolver", "field", "friend", "foe", "hand", "info")]
 script = ExtResource("1_1quas")
+initial_resolver = NodePath("FriendSet")
+field = NodePath("Field")
+friend = NodePath("Friend")
+foe = NodePath("Foe")
+hand = NodePath("Hand")
+info = NodePath("Info")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(439, 266)
-texture = ExtResource("2_k8s8b")
+[node name="FriendSet" type="Node" parent="."]
+script = ExtResource("3_4tmwy")
+
+[node name="FoeSet" type="Node" parent="."]
+script = ExtResource("4_12gb2")
+
+[node name="FriendTurn" type="Node" parent="."]
+script = ExtResource("5_b756f")
+
+[node name="FoeTurn" type="Node" parent="."]
+script = ExtResource("6_cg2ro")
+
+[node name="EvalResult" type="Node" parent="."]
+script = ExtResource("7_pr8df")
+
+[node name="Result" type="Node" parent="."]
+script = ExtResource("8_5h641")
+
+[node name="Field" parent="." instance=ExtResource("8_8h64d")]
+
+[node name="Foe" parent="." instance=ExtResource("9_3q72p")]
+
+[node name="Friend" parent="." instance=ExtResource("10_suqlp")]
+
+[node name="Hand" parent="." instance=ExtResource("11_ilwe1")]
+
+[node name="Info" parent="." instance=ExtResource("12_yoepw")]

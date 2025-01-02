@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerDeck" load_steps=7 format=3 uid="uid://cj02f4r8uf1tu"]
+
+[ext_resource type="Script" path="res://src/card/card.gd" id="1_e2uqj"]
+[ext_resource type="Resource" uid="uid://y0jvi2c44b34" path="res://assets/card/resource/card_prompt_alpha.tres" id="2_mljpd"]
+[ext_resource type="Script" path="res://src/deck/player_deck.gd" id="2_unt13"]
+[ext_resource type="Resource" uid="uid://hq4tlmkucr3s" path="res://assets/card/resource/card_responsive_alpha.tres" id="3_0q30t"]
+[ext_resource type="Resource" uid="uid://ch54mxuqypyip" path="res://assets/card/resource/card_defense_alpha.tres" id="4_o7k6k"]
+[ext_resource type="Resource" uid="uid://bgnnkj1wvk4td" path="res://assets/card/resource/card_trick_alpha.tres" id="5_fi6is"]
+
+[resource]
+resource_name = "test player deck"
+script = ExtResource("2_unt13")
+cards = Array[ExtResource("1_e2uqj")]([ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("5_fi6is")])

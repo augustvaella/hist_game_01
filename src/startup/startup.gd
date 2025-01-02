@@ -8,6 +8,8 @@ const INITIAL_STAGE_STATE_NAME: String = "test duel state"
 signal changed_stage(stage: Stage)
 
 func _ready():
+	Master.set_startup(self)
+
 	Master.master_resource_server.loading_resource.connect(Loading.reflesh_load_status)
 	Master.user_resource_server.loading_resource.connect(Loading.reflesh_load_status)
 
@@ -27,8 +29,6 @@ func _ready():
 	var initial_stage_state = Master.master_resource_server.get_resource(INITIAL_STAGE_STATE_NAME)
 	if initial_stage_state:
 		_set_stage(initial_stage_state)
-	await changed_stage
-	change_stage(Master.master_resource_server.get_resource("test chat state"))
 
 
 func _set_stage(stage_state: StageState):

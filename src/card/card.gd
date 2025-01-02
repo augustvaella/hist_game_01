@@ -1,1 +1,1 @@
-class_name Card extends Resource
+class_name Card extends Character

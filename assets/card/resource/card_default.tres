@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardBlank" load_steps=3 format=3 uid="uid://xxp3gqjh8l6v"]
+
+[ext_resource type="Texture2D" uid="uid://vi8idyaui6qo" path="res://assets/card/texture/card_alpha_default.png" id="1_47mij"]
+[ext_resource type="Script" path="res://src/card/card_blank.gd" id="1_o105p"]
+
+[resource]
+resource_name = "card default"
+script = ExtResource("1_o105p")
+display_name = "DISPLAY_NAME_CARD_DEFAULT"
+duel_texture = ExtResource("1_47mij")

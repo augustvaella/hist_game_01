@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3 uid="uid://cjv0dd8aqkavm"]
+
+[ext_resource type="Texture2D" uid="uid://rjqw20magqhi" path="res://assets/actor/texture/up/tsukushizume_up.png" id="1_1l3dh"]
+[ext_resource type="Script" path="res://src/actor/actor.gd" id="1_7oy1q"]
+
+[resource]
+resource_name = "actor tsukushizume"
+script = ExtResource("1_7oy1q")
+display_name = "DISPLAY_NAME_ACTOR_TSUKUSHIZUME"
+duel_texture = ExtResource("1_1l3dh")

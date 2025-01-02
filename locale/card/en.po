@@ -1,0 +1,33 @@
+#
+# AUTHOR NAME <EMAIL@DOMAIN.COM>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Project Name\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Last Translator\n"
+"Language-Team: none\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"PO-Revision-Date: 2024-07-15 21:30-0900\n"
+
+msgid "DISPLAY_NAME_CARD_DEFAULT"
+msgstr "Card Default"
+
+msgid "DISPLAY_NAME_CARD_PROMPT_ALPHA"
+msgstr "Prompt Alpha"
+
+msgid "DISPLAY_NAME_CARD_DEFENSE_ALPHA"
+msgstr "Defense Alpha"
+
+msgid "DISPLAY_NAME_CARD_RESPONSIVE_ALPHA"
+msgstr "Responsive Alpha"
+
+msgid "DISPLAY_NAME_CARD_TRICK_ALPHA"
+msgstr "Trick Alpha"
+
+msgid "DISPLAY_NAME_CARD_BURDEN_ALPHA"
+msgstr "Burden Alpha"
+

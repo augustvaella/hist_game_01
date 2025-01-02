@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dycs0buhlso02"]
+
+[ext_resource type="Script" path="res://src/duel/friend/friend.gd" id="1_oskid"]
+[ext_resource type="PackedScene" uid="uid://davulw8q6onlf" path="res://src/duel/actor/actor.tscn" id="2_78qwj"]
+
+[node name="Friend" type="Node2D" node_paths=PackedStringArray("actors")]
+script = ExtResource("1_oskid")
+actors = [NodePath("Actor0"), NodePath("Actor1"), NodePath("Actor2"), NodePath("Actor3"), NodePath("Actor4")]
+
+[node name="Actor0" parent="." instance=ExtResource("2_78qwj")]
+position = Vector2(789, 665)
+
+[node name="Actor1" parent="." instance=ExtResource("2_78qwj")]
+position = Vector2(1090, 678)
+
+[node name="Actor2" parent="." instance=ExtResource("2_78qwj")]
+position = Vector2(522, 682)
+
+[node name="Actor3" parent="." instance=ExtResource("2_78qwj")]
+position = Vector2(1318, 680)
+
+[node name="Actor4" parent="." instance=ExtResource("2_78qwj")]
+position = Vector2(174, 708)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bfbbgglmllwe7"]
+
+[ext_resource type="Texture2D" uid="uid://dr6rs4c6ntahb" path="res://assets/enemy/texture/enemy_3.png" id="1_qsb5e"]
+[ext_resource type="Script" path="res://src/enemy/enemy.gd" id="2_x2d81"]
+
+[resource]
+resource_name = "enemy 3"
+script = ExtResource("2_x2d81")
+display_name = "DISPLAY_NAME_ENEMY_3"
+duel_texture = ExtResource("1_qsb5e")

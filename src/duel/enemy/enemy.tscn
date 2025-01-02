@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cchfg5x2fawuo"]
+
+[ext_resource type="Script" path="res://src/duel/enemy/enemy.gd" id="1_2p85s"]
+[ext_resource type="Script" path="res://src/duel/enemy/body.gd" id="2_1k0g1"]
+[ext_resource type="Script" path="res://src/duel/enemy/info.gd" id="3_gltdw"]
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("body", "info")]
+script = ExtResource("1_2p85s")
+body = NodePath("Body")
+info = NodePath("Info")
+
+[node name="Body" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_1k0g1")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+
+[node name="Info" type="PanelContainer" parent="." node_paths=PackedStringArray("display_name")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_gltdw")
+display_name = NodePath("Label")
+
+[node name="Label" type="Label" parent="Info"]
+layout_mode = 2

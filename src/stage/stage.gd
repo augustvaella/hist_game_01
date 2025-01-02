@@ -5,6 +5,10 @@ signal finished(stage: Stage, state: StageState)
 
 var _state: StageState
 
+func _ready():
+	pass
+	
+
 func proceed(state: StageState):
 	_state = state
 	await _proceed()

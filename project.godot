@@ -84,6 +84,10 @@ Left={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://locale/actor/ja.po", "res://locale/actor/en.po", "res://locale/card/en.po", "res://locale/card/ja.po", "res://locale/chat/en.po", "res://locale/chat/ja.po", "res://locale/enemy/en.po", "res://locale/enemy/ja.po", "res://locale/system/en.po", "res://locale/system/ja.po")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

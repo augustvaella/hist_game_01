@@ -7,5 +7,15 @@ extends Node
 @export var master_instance_server: InstanceServer
 @export var stage_server: InstanceServer
 
+var _startup: Startup
+
 func _ready():
 	Log.change_level(log_level)
+
+
+func get_startup() -> Startup:
+	return _startup
+
+
+func set_startup(startup: Startup):
+	_startup = startup

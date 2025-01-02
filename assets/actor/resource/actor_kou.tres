@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3 uid="uid://cajnxt2gyiv8g"]
+
+[ext_resource type="Script" path="res://src/actor/actor.gd" id="1_3kfpa"]
+[ext_resource type="Texture2D" uid="uid://bk6knm2w0fdsk" path="res://assets/actor/texture/up/kou_up.png" id="1_c1vri"]
+
+[resource]
+resource_name = "actor kou"
+script = ExtResource("1_3kfpa")
+display_name = "DISPLAY_NAME_ACTOR_KOU"
+duel_texture = ExtResource("1_c1vri")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=7 format=3 uid="uid://ougpaup5ico4"]
+
+[ext_resource type="Resource" uid="uid://cffbf1jwleuvm" path="res://assets/actor/resource/actor_ashikaga.tres" id="1_lryqw"]
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_ql16e"]
+[ext_resource type="Resource" uid="uid://dpuyb06w2m3ru" path="res://assets/actor/resource/actor_ashikaga_little.tres" id="2_hfxkr"]
+[ext_resource type="Resource" uid="uid://bjmw3kgydnium" path="res://assets/actor/resource/actor_doyo.tres" id="3_xilnp"]
+[ext_resource type="Resource" uid="uid://cajnxt2gyiv8g" path="res://assets/actor/resource/actor_kou.tres" id="4_mk1gv"]
+[ext_resource type="Resource" uid="uid://cjv0dd8aqkavm" path="res://assets/actor/resource/actor_tsukushizume.tres" id="5_07pb6"]
+
+[resource]
+resource_name = "actor data"
+script = ExtResource("1_ql16e")
+childs = Array[Resource]([ExtResource("1_lryqw"), ExtResource("2_hfxkr"), ExtResource("3_xilnp"), ExtResource("4_mk1gv"), ExtResource("5_07pb6")])

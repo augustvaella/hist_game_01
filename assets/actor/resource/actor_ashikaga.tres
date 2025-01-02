@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3 uid="uid://cffbf1jwleuvm"]
+
+[ext_resource type="Texture2D" uid="uid://bvmo4o0hwluk4" path="res://assets/actor/texture/up/ashikaga_up.png" id="1_2fjsh"]
+[ext_resource type="Script" path="res://src/actor/actor.gd" id="1_am2jp"]
+
+[resource]
+resource_name = "actor ashikaga"
+script = ExtResource("1_am2jp")
+display_name = "DISPLAY_NAME_ACTOR_ASHIKAGA"
+duel_texture = ExtResource("1_2fjsh")

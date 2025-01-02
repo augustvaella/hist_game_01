@@ -1,4 +1,5 @@
-class_name Actor extends Resource
+class_name Actor extends Character
+
 
 # ActorSaveData
 # ActorInstance

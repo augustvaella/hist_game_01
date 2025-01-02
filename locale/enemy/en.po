@@ -1,0 +1,24 @@
+#
+# AUTHOR NAME <EMAIL@DOMAIN.COM>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Project Name\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Last Translator\n"
+"Language-Team: none\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"PO-Revision-Date: 2024-07-15 21:30-0900\n"
+
+msgid "DISPLAY_NAME_ENEMY_1"
+msgstr "Enemy One"
+
+
+msgid "DISPLAY_NAME_ENEMY_2"
+msgstr "Enemy Two"
+
+msgid "DISPLAY_NAME_ENEMY_3"
+msgstr "Enemy Three"

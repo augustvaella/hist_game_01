@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardTrick" load_steps=3 format=3 uid="uid://bgnnkj1wvk4td"]
+
+[ext_resource type="Texture2D" uid="uid://b2p0j4tg6f3br" path="res://assets/card/texture/card_alpha_trick.png" id="1_5qnh6"]
+[ext_resource type="Script" path="res://src/card/card_trick.gd" id="1_8iacp"]
+
+[resource]
+resource_name = "card trick alpha"
+script = ExtResource("1_8iacp")
+display_name = "DISPLAY_NAME_CARD_TRICK_ALPHA"
+duel_texture = ExtResource("1_5qnh6")

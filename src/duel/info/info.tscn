@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvtu267ej8nq7"]
+
+[ext_resource type="Script" path="res://src/duel/info/info.gd" id="1_5ug4a"]
+
+[node name="Info" type="Node2D"]
+script = ExtResource("1_5ug4a")

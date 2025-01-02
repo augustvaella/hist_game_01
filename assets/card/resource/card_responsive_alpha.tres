@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardResponsive" load_steps=3 format=3 uid="uid://hq4tlmkucr3s"]
+
+[ext_resource type="Texture2D" uid="uid://hgrv1ppu7bhj" path="res://assets/card/texture/card_alpha_responsive.png" id="1_rqusq"]
+[ext_resource type="Script" path="res://src/card/card_responsive.gd" id="1_xrp63"]
+
+[resource]
+resource_name = "card responsive alpha"
+script = ExtResource("1_xrp63")
+display_name = "DISPLAY_NAME_CARD_RESPONSIVE_ALPHA"
+duel_texture = ExtResource("1_rqusq")

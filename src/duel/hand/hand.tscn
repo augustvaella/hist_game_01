@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjhc0sv622lgo"]
+
+[ext_resource type="Script" path="res://src/duel/hand/hand.gd" id="1_83bis"]
+[ext_resource type="PackedScene" uid="uid://calrg52rn7822" path="res://src/duel/hand/hand/hand.tscn" id="2_3mb81"]
+[ext_resource type="PackedScene" uid="uid://bnb3lfawa24q" path="res://src/duel/hand/discard/discard.tscn" id="3_bbvao"]
+[ext_resource type="PackedScene" uid="uid://cskf6xm53pora" path="res://src/duel/hand/deck/deck.tscn" id="4_o22ef"]
+
+[node name="Hand" type="Node2D" node_paths=PackedStringArray("deck", "hand", "discard")]
+script = ExtResource("1_83bis")
+deck = NodePath("Deck")
+hand = NodePath("Hand")
+discard = NodePath("Discard")
+
+[node name="Hand" parent="." instance=ExtResource("2_3mb81")]
+
+[node name="Discard" parent="." instance=ExtResource("3_bbvao")]
+
+[node name="Deck" parent="." instance=ExtResource("4_o22ef")]

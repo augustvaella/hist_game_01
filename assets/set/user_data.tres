@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_qctfe"]
 
 [resource]
+resource_name = "user data"
 script = ExtResource("1_qctfe")
 childs = Array[Resource]([])

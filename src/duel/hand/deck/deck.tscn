@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cskf6xm53pora"]
+
+[ext_resource type="Script" path="res://src/duel/hand/deck/deck.gd" id="1_0p45r"]
+
+[node name="Deck" type="Node2D"]
+script = ExtResource("1_0p45r")

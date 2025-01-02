@@ -1,14 +1,47 @@
 class_name Duel extends Stage
 
+@export var initial_resolver: DuelResolver
+@export var resolvers: Dictionary
+
+@export var field: DuelField
+@export var friend: DuelFriend
+@export var foe: DuelFoe
+@export var hand: DuelHand
+@export var info: DuelInfo
+
+func _ready():
+	super._ready()
+	resolvers = {}
+	
+	for c in get_children():
+		if c is DuelResolver:
+			resolvers[c.name] = c
+		
+	proceeded.connect(func(stage: Stage, state: StageState): resolve_duel())
+
+
+func resolve_duel():
+	await get_tree().create_timer(1.0).timeout
+	# Duel Resolving
+	#   Friend Set
+	#   Foe Set
+	#   Friend Turn
+	#   Foe Turn 
+	#   Eval Result -> Friend Turn / Result
+	#   Result
+	# End Duel Resolving
+	var resolver: DuelResolver = initial_resolver
+	while resolver:
+		resolver.resolve(_state)
+		resolver = await resolver.next_resolver
+
+	Master.get_startup().change_stage(_state.get_next_stage_state())
+
+
 func _proceed():
-	var tween = get_tree().create_tween()
-	tween.tween_property(get_child(0), "position", Vector2(100, 200), 3.0)
-	tween.play()
-	await tween.finished
+	_state.set_duel(self)
+	await get_tree().create_timer(1.0).timeout
 
 
 func _finish():
-	var tween = get_tree().create_tween()
-	tween.tween_property(get_child(0), "position", Vector2(300, 300), 3.0)
-	tween.play()
-	await tween.finished
+	await get_tree().create_timer(1.0).timeout

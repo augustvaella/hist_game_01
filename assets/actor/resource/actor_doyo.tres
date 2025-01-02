@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3 uid="uid://bjmw3kgydnium"]
+
+[ext_resource type="Texture2D" uid="uid://ckb2a524mgbr5" path="res://assets/actor/texture/up/doyo_up.png" id="1_pqjje"]
+[ext_resource type="Script" path="res://src/actor/actor.gd" id="1_v0fjy"]
+
+[resource]
+resource_name = "actor doyo"
+script = ExtResource("1_v0fjy")
+display_name = "DISPLAY_NAME_ACTOR_DOYO"
+duel_texture = ExtResource("1_pqjje")
