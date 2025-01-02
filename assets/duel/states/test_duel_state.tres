@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DuelState" load_steps=2 format=3 uid="uid://qmmqykndgnap"]
+
+[ext_resource type="Script" path="res://src/duel/duel_state.gd" id="1_cm7ni"]
+
+[resource]
+resource_name = "test duel state"
+script = ExtResource("1_cm7ni")

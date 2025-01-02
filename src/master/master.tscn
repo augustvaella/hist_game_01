@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://src/master/master.gd" id="1_pcqh7"]
 [ext_resource type="Script" path="res://src/server/resource_server.gd" id="2_0o5l7"]
-[ext_resource type="Script" path="res://src/server/instance_server.gd" id="3_8k01a"]
 [ext_resource type="Script" path="res://src/server/resource_server_loader.gd" id="3_s0lqi"]
 [ext_resource type="Script" path="res://src/server/resource_server_saver.gd" id="4_veqxw"]
+[ext_resource type="Script" path="res://src/stage/stage_server.gd" id="5_6rmbp"]
 
-[node name="Master" type="Node" node_paths=PackedStringArray("master_resource_server", "user_resource_server", "instance_server")]
+[node name="Master" type="Node" node_paths=PackedStringArray("master_resource_server", "user_resource_server", "stage_server")]
 script = ExtResource("1_pcqh7")
-log_level = 4
+log_level = 3
 master_resource_server = NodePath("MasterResourceServer")
 user_resource_server = NodePath("UserResourceServer")
-instance_server = NodePath("InstanceServer")
+stage_server = NodePath("StageServer")
 
 [node name="MasterResourceServer" type="Node" parent="." node_paths=PackedStringArray("loader", "saver")]
 script = ExtResource("2_0o5l7")
@@ -35,5 +35,6 @@ script = ExtResource("3_s0lqi")
 [node name="ResourceServerSaver" type="Node" parent="UserResourceServer"]
 script = ExtResource("4_veqxw")
 
-[node name="InstanceServer" type="Node" parent="."]
-script = ExtResource("3_8k01a")
+[node name="StageServer" type="Node" parent="."]
+script = ExtResource("5_6rmbp")
+stage_paths = PackedStringArray("res://src/duel/duel.tscn")

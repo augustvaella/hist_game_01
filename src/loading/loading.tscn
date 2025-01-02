@@ -12,8 +12,9 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 5
 Label/font_sizes/font_size = 32
 
-[node name="Loading" type="Node2D"]
+[node name="Loading" type="Node2D" node_paths=PackedStringArray("label_progress")]
 script = ExtResource("1_4jc31")
+label_progress = NodePath("ProgressLabel")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 1281.0
@@ -25,7 +26,7 @@ text = "Loading..."
 horizontal_alignment = 2
 
 [node name="ProgressLabel" type="Label" parent="."]
-offset_left = 1457.0
+offset_left = 31.0
 offset_top = 752.0
 offset_right = 1579.0
 offset_bottom = 797.0

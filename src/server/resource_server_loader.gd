@@ -32,6 +32,7 @@ func _ready():
 
 func load_resource(resource_path: String):
 	var res = load(resource_path)
+		
 	if res:
 		_on_load_resource(res)
 	else:
@@ -216,8 +217,11 @@ class LoadingPathTable extends RefCounted:
 
 	func get_next() -> String:
 		_index += 1
-		if _table.size() == 0:
+		if is_empty():
 			return String()
 		if _index >= _table.size():
 			_index = 0
 		return _table[_index]
+
+	func is_empty() -> bool:
+		return _table.size() == 0

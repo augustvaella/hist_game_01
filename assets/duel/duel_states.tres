@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=3 format=3 uid="uid://73vgv20ssoej"]
+
+[ext_resource type="Resource" uid="uid://qmmqykndgnap" path="res://assets/duel/states/test_duel_state.tres" id="1_2dodr"]
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="2_2qema"]
+
+[resource]
+script = ExtResource("2_2qema")
+childs = Array[Resource]([ExtResource("1_2dodr")])

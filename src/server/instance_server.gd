@@ -1,6 +1,6 @@
 class_name InstanceServer extends Node
 
-var _scenes: Dictionary #
+var _scenes: Dictionary # Dictionary<String, Node>
 
 func _ready():
 	_scenes = {}
@@ -29,6 +29,11 @@ func add_scene(scene: Node, scene_name: String):
 		% [scene.get_instance_id(), scene_name])
 
 func add_packed_scene(packed_scene: PackedScene, scene_name: String):
+	if not packed_scene:
+		Log.log_error("[InstanceServer] PackedScene is null." \
+		% [])
+		return
+
 	var p = packed_scene.instantiate()
 	_scenes[scene_name] = p
 	Log.log_debug("[InstanceServer] instantiated and added Scene#%d %s(%s)" \
