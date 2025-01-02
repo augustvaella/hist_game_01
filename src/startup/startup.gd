@@ -17,6 +17,14 @@ func _ready():
 	Master.user_resource_server.request_load_resource(USER_RESOURCE_SET_PATH)
 	await Master.user_resource_server.cleared_all_requested_load
 
+	var master_resources = []
+	print(master_resources is Array)
+	Master.master_resource_server.get_all_resources(master_resources)
+	for r in master_resources:
+		if r is PackedScene:
+			var rn = r.resource_name if not r.resource_name.is_empty() else r.resource_path
+			Master.instance_server.add_packed_scene(r, rn)
+
 	Master.stage_server.instantiate_stages()
 	await Master.stage_server.finished_instantiate_stages
 
@@ -27,12 +35,16 @@ func _ready():
 		_set_stage(initial_stage_state)
 	#var r = Master.master_resource_server.get_resource("test resource 0")
 	#Master.master_resource_server.save_resource(r, USER_RESOURCE_RESTORE_PATH)
+	await changed_stage
+	print("aaaa")
+	change_stage(Master.master_resource_server.get_resource("test chat state"))
+
 
 func _set_stage(stage_state: StageState):
 	var sn = stage_state.get_stage_name()
 	if not Master.stage_server.has_scene(sn):
 		Log.log_error("[Startup] Scene(%s) counldn't changed." \
-			% [stage_state.stage_name])
+			% [sn])
 		return
 	var st = Master.stage_server.get_scene(sn)
 	add_child(st)
@@ -46,6 +58,7 @@ func change_stage(stage_state: StageState):
 	if ps:
 		ps.finish()
 		await ps.finished
+		remove_child(ps)
 
 	_set_stage(stage_state)
 

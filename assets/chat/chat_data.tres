@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=4 format=3 uid="uid://0ecek3sjehva"]
+
+[ext_resource type="Resource" uid="uid://cvofnhwhm1ljr" path="res://assets/chat/chat_states.tres" id="1_2cnmr"]
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_3gxbe"]
+[ext_resource type="PackedScene" uid="uid://bfu77vc7ch4u8" path="res://src/chat/chat.tscn" id="2_j7xuf"]
+
+[resource]
+script = ExtResource("1_3gxbe")
+childs = Array[Resource]([ExtResource("2_j7xuf"), ExtResource("1_2cnmr")])

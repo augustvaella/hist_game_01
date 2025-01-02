@@ -191,10 +191,6 @@ func get_resource_id(resource_id: int) -> Resource:
 
 
 func get_all_resources(resource_array: Array):
-	if not resource_array:
-		Log.log_error("[ResourceServerLoader] Array[Resource] is null")
-		return
-
 	resource_array.assign(_resources)
 
 

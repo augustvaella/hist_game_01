@@ -69,3 +69,7 @@ func get_packed_scene(scene_name: String) -> PackedScene:
 	Log.log_error("[InstanceServer] Scene(%s) couldn't packed" \
 		% [scene_name])
 	return null
+
+
+func get_all_instances(instance_array: Array):
+	instance_array.assign(_scenes.values())

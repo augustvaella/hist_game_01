@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf5qcl0cv5edn"]
+[gd_scene load_steps=3 format=3 uid="uid://bf5qcl0cv5edn"]
 
 [ext_resource type="Script" path="res://src/duel/duel.gd" id="1_1quas"]
+[ext_resource type="Texture2D" uid="uid://vx21rbkt16fa" path="res://assets/actor_sprite/png/2024_1114_162952/2024_1114_162952.png" id="2_k8s8b"]
 
 [node name="Duel" type="Node2D"]
 script = ExtResource("1_1quas")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(439, 266)
+texture = ExtResource("2_k8s8b")

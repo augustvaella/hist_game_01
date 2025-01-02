@@ -1,4 +1,4 @@
-class_name Duel extends Stage
+class_name Chat extends Stage
 
 func _proceed():
 	var tween = get_tree().create_tween()

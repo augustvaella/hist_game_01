@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ChatState" load_steps=2 format=3 uid="uid://dpexeovn25651"]
+
+[ext_resource type="Script" path="res://src/chat/chat_state.gd" id="1_8pkuy"]
+
+[resource]
+resource_name = "test chat state"
+script = ExtResource("1_8pkuy")

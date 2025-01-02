@@ -7,19 +7,20 @@ var _state: StageState
 
 func proceed(state: StageState):
 	_state = state
-	_proceed(state)
+	await _proceed()
 	proceeded.emit(self, state)
 
 
 # to be overriden
-func _proceed(state: StageState):
-	pass
+func _proceed():
+	return
 
 
 func finish():
+	await _finish()
 	finished.emit(_state)
 
 
 # to be overriden
 func _finish():
-	pass
+	return
