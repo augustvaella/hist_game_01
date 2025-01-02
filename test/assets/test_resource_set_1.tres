@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=3 format=3 uid="uid://d0kmxwwrytuie"]
+
+[ext_resource type="Resource" uid="uid://b8cdfw3fphl4g" path="res://test/assets/test_resource_set.tres" id="1_p0g1i"]
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_uk8jl"]
+
+[resource]
+script = ExtResource("1_uk8jl")
+childs = Array[Resource]([ExtResource("1_p0g1i")])

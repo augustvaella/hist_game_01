@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=5 format=3 uid="uid://b8cdfw3fphl4g"]
+
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_c0qdn"]
+[ext_resource type="Resource" uid="uid://bflxltj0nul40" path="res://test/assets/test_resource_0.tres" id="1_rdoty"]
+[ext_resource type="Resource" uid="uid://cr8k37w3dhfhm" path="res://test/assets/test_resource_1.tres" id="2_o7nkm"]
+[ext_resource type="Resource" uid="uid://bnuicveh083x3" path="res://test/assets/test_resource_2.tres" id="3_fqf86"]
+
+[resource]
+script = ExtResource("1_c0qdn")
+childs = Array[Resource]([ExtResource("1_rdoty"), ExtResource("2_o7nkm"), ExtResource("3_fqf86")])

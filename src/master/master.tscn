@@ -1,18 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnd77jwxxh2ru"]
+[gd_scene load_steps=6 format=3 uid="uid://dnd77jwxxh2ru"]
 
 [ext_resource type="Script" path="res://src/master/master.gd" id="1_pcqh7"]
 [ext_resource type="Script" path="res://src/server/resource_server.gd" id="2_0o5l7"]
 [ext_resource type="Script" path="res://src/server/instance_server.gd" id="3_8k01a"]
+[ext_resource type="Script" path="res://src/server/resource_server_loader.gd" id="3_s0lqi"]
+[ext_resource type="Script" path="res://src/server/resource_server_saver.gd" id="4_veqxw"]
 
-[node name="Master" type="Node" node_paths=PackedStringArray("resource_server", "instance_server")]
+[node name="Master" type="Node" node_paths=PackedStringArray("master_resource_server", "user_resource_server", "instance_server")]
 script = ExtResource("1_pcqh7")
 log_level = 4
-resource_server = NodePath("ResourceServer")
+master_resource_server = NodePath("MasterResourceServer")
+user_resource_server = NodePath("UserResourceServer")
 instance_server = NodePath("InstanceServer")
 
-[node name="ResourceServer" type="Node" parent="."]
+[node name="MasterResourceServer" type="Node" parent="." node_paths=PackedStringArray("loader", "saver")]
 script = ExtResource("2_0o5l7")
-count_per_process = 5
+loader = NodePath("ResourceServerLoader")
+saver = NodePath("ResourceServerSaver")
+
+[node name="ResourceServerLoader" type="Node" parent="MasterResourceServer"]
+script = ExtResource("3_s0lqi")
+
+[node name="ResourceServerSaver" type="Node" parent="MasterResourceServer"]
+script = ExtResource("4_veqxw")
+
+[node name="UserResourceServer" type="Node" parent="." node_paths=PackedStringArray("loader", "saver")]
+script = ExtResource("2_0o5l7")
+loader = NodePath("ResourceServerLoader")
+saver = NodePath("ResourceServerSaver")
+
+[node name="ResourceServerLoader" type="Node" parent="UserResourceServer"]
+script = ExtResource("3_s0lqi")
+
+[node name="ResourceServerSaver" type="Node" parent="UserResourceServer"]
+script = ExtResource("4_veqxw")
 
 [node name="InstanceServer" type="Node" parent="."]
 script = ExtResource("3_8k01a")
