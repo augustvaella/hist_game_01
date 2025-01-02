@@ -6,6 +6,10 @@ signal loaded_resource(resource: Resource)
 signal failed_load_resource(resource_path: String)
 signal invalid_resource(resource_path: String)
 
+signal cleared_all_requested_load
+
+signal error_save_resource(resource: Resource, path: String)
+
 @export var loader: ResourceServerLoader
 @export var saver: ResourceServerSaver
 
@@ -25,6 +29,13 @@ func _ready():
 	loader.invalid_resource.connect(\
 		func(resource_path: String): \
 			invalid_resource.emit(resource_path))
+	loader.cleared_all_requested_load.connect(\
+		func(): cleared_all_requested_load.emit())
+
+	saver.error_save_resource.connect(\
+		func(resource: Resource, path: String): \
+			error_save_resource.emit(resource, path))
+
 
 func load_resource(resource_path: String):
 	loader.load_resource(resource_path)
@@ -56,3 +67,7 @@ func get_packed_scenes(packed_scene_array: Array):
 
 func get_all_resources(resource_array: Array):
 	loader.get_all_resources(resource_array)
+
+
+func save_resource(resource: Resource, path: String):
+	saver.save_resource(resource, path)

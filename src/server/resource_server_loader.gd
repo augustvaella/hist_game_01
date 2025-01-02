@@ -8,6 +8,8 @@ signal loaded_resource(resource: ResourceSet)
 signal failed_load_resource(resource_path: String)
 signal invalid_resource(resource_path: String)
 
+signal cleared_all_requested_load
+
 var _resources: Array[Resource]
 var _resource_name_table: Dictionary # Dictionary<String, int>
 var _resource_id_table: Dictionary # Dictionary<int, int>
@@ -58,6 +60,10 @@ func _on_load_resource(resource: Resource):
 
 
 func add_resource(resource: Resource):
+	if not resource:
+		Log.log_error("[ResourceServerLoader] Resource to add is null")
+		return
+
 	var id = resource.get_instance_id()
 	var rn = resource.resource_name if not resource.resource_name.is_empty() else resource.resource_path
 	if has_resource_id(id):
@@ -77,32 +83,47 @@ func remove_resource(resource_name: String):
 	if _resource_name_table.has(resource_name):
 		var index = _resource_name_table[resource_name]
 		var id = _resources[index].get_instance_id()
+		var path = _resources[index].resource_path
 		_resource_name_table.erase(resource_name)
 		_resource_id_table.erase(id)
 		_resources[index] = null
+		Log.log_debug("[ResourceServerLoader] removed Resource#%d %s(%s)" \
+			% [id, resource_name, path])
 
 
 func remove_resource_id(resource_id: int):
 	if _resource_id_table.has(resource_id):
 		var index = _resource_id_table[resource_id]
 		var nm = _resources[index].resource_name
+		var path = _resources[index].resource_path
 		_resource_name_table.erase(nm)
 		_resource_id_table.erase(resource_id)
 		_resources[index] = null
+		Log.log_debug("[ResourceServerLoader] removed Resource#%d %s(%s)" \
+			% [resource_id, nm, path])
 
 
-func release_resource(resource_name: String):
+func free_resource(resource_name: String):
 	var r = get_resource(resource_name)
 	if r:
 		remove_resource(resource_name)
-		r.free()
+		_free_resource(r)
 
 
 func release_resource_id(resource_id: int):
 	var r = get_resource_id(resource_id)
 	if r:
 		remove_resource_id(resource_id)
-		r.free()
+		_free_resource(r)
+
+
+func _free_resource(resource: Resource):
+	var id = resource.get_instance_id()
+	var nm = resource.resource_name
+	var path = resource.resource_path
+	resource.free()
+	Log.log_debug("[ResourceServerLoader] freed Resource#%d %s(%s)" \
+		% [id, nm, path])
 
 
 func request_load_resource(resource_path: String):
@@ -148,6 +169,7 @@ func _process_load():
 		var path = _loading_path_table.get_next()
 		if path.is_empty():
 			_is_process = false
+			cleared_all_requested_load.emit()
 			return
 		_on_load_process(path)
 
@@ -168,6 +190,10 @@ func get_resource_id(resource_id: int) -> Resource:
 
 
 func get_all_resources(resource_array: Array):
+	if not resource_array:
+		Log.log_error("[ResourceServerLoader] Array[Resource] is null")
+		return
+
 	resource_array.assign(_resources)
 
 
