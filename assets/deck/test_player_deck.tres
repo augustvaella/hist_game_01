@@ -10,4 +10,4 @@
 [resource]
 resource_name = "test player deck"
 script = ExtResource("2_unt13")
-cards = Array[ExtResource("1_e2uqj")]([ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("5_fi6is")])
+cards = Array[ExtResource("1_e2uqj")]([ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("2_mljpd"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("3_0q30t"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("4_o7k6k"), ExtResource("5_fi6is"), ExtResource("4_o7k6k"), ExtResource("2_mljpd"), ExtResource("3_0q30t"), ExtResource("5_fi6is"), ExtResource("4_o7k6k"), ExtResource("2_mljpd"), ExtResource("3_0q30t"), ExtResource("5_fi6is"), ExtResource("4_o7k6k"), ExtResource("2_mljpd")])

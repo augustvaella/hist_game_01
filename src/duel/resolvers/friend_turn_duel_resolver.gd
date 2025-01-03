@@ -6,4 +6,6 @@ func resolve(state: StageState):
 
 func on_input(state: StageState, event: InputEvent):
 	if event.is_action_pressed("Left"):
-		pass
+		state.check_left_hand()
+	elif event.is_action_pressed("Right"):
+		state.check_right_hand()

@@ -1,7 +1,8 @@
-class_name DuelCharacter extends Node2D
+class_name DuelCharacter extends LinkedCheckableNode
 
 @export var body: DuelCharacterBody
 @export var info: DuelCharacterInfo
+
 
 func set_character(character: Character):
 	body.set_character(character)

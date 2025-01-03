@@ -6,3 +6,9 @@ func set_actor(actor: Actor):
 	
 	body.set_actor(actor)
 	info.set_actor(actor)
+
+func _on_check():
+	info.display_name.text = "[%s]" % info.display_name.text
+
+func _on_uncheck():
+	info.display_name.text = "%s" % info.display_name.text

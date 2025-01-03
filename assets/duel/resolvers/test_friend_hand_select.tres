@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FriendHandSelectDuelResolver" load_steps=2 format=3 uid="uid://bmkdrrr1ba6as"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/friend_hand_select.gd" id="1_phrux"]
+
+[resource]
+script = ExtResource("1_phrux")

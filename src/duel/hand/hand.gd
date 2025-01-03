@@ -16,3 +16,26 @@ func draw(state: DuelState):
 	if c:
 		hand.add_card(state, c)
 	await get_tree().create_timer(0.1).timeout
+
+
+func get_current_checked_hand() -> DuelCard:
+	return hand.get_current_checked()
+
+
+func get_all_checked_hand(array: Array):
+	hand.get_checked(array)
+
+
+func get_all_unchecked_hand(array: Array):
+	hand.get_unchecked(array)
+
+
+func check_left_hand():
+	hand.check_left()
+
+
+func check_right_hand():
+	hand.check_right()
+
+func check_initial_hand():
+	hand.check_initial()

@@ -13,6 +13,7 @@ signal listened_event(event: Event)
 func _ready():
 	super._ready()
 	proceeded.connect(func(stage: Stage, state: StageState): resolve_duel())
+	listened_event.connect(func(event): _state.event_queue.append(event))
 
 
 func _input(event: InputEvent):

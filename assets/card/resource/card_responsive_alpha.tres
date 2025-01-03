@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CardResponsive" load_steps=3 format=3 uid="uid://hq4tlmkucr3s"]
+[gd_resource type="Resource" script_class="CardResponsive" load_steps=4 format=3 uid="uid://hq4tlmkucr3s"]
 
 [ext_resource type="Texture2D" uid="uid://hgrv1ppu7bhj" path="res://assets/card/texture/card_alpha_responsive.png" id="1_rqusq"]
+[ext_resource type="Script" path="res://src/card/challenge.gd" id="1_rtfgr"]
 [ext_resource type="Script" path="res://src/card/card_responsive.gd" id="1_xrp63"]
 
 [resource]
@@ -8,3 +9,6 @@ resource_name = "card responsive alpha"
 script = ExtResource("1_xrp63")
 display_name = "DISPLAY_NAME_CARD_RESPONSIVE_ALPHA"
 texture = ExtResource("1_rqusq")
+opponent_select = 0
+card_select = 0
+challenges = Array[ExtResource("1_rtfgr")]([])

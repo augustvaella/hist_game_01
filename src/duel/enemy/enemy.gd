@@ -5,3 +5,10 @@ func set_enemy(enemy: Enemy):
 
 	body.set_enemy(enemy)
 	info.set_enemy(enemy)
+
+
+func _on_check():
+	info.display_name.text = "[%s]" % info.display_name.text
+
+func _on_uncheck():
+	info.display_name.text = "%s" % info.display_name.text

@@ -5,7 +5,7 @@ var _card: Card
 
 func set_card(card: Card):
 	_card = card
-	texture = card.texture
+	self.texture = card.texture
 	info.set_card(card)
 
 
@@ -14,11 +14,11 @@ func get_card() -> Card:
 
 
 func _on_check():
-	scale = Vector2(1.5, 1.5)
+	info.set_display_name("[%s]" % _card.display_name)
 
 
 func _on_uncheck():
-	scale = Vector2(1.0, 1.0)
+	info.set_display_name("%s" % _card.display_name)
 
 
 func _is_checkable() -> bool:

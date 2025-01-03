@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EnemySelectDuelResolver" load_steps=2 format=3 uid="uid://cs87nxdv0udub"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/enemy_select.gd" id="1_jenbq"]
+
+[resource]
+script = ExtResource("1_jenbq")

@@ -1,5 +1,7 @@
 class_name DuelFriend extends Node2D
+
 const FRIEND_COUNT: int = 5
+
 @export var actors: Array[DuelActor]
 
 func set_state(state: DuelState):
@@ -11,3 +13,18 @@ func set_state(state: DuelState):
 
 func set_actor(actor: Actor, index: int):
 	actors[index].set_actor(actor)
+
+
+func start_check_actor():
+	actors[0].check()
+
+
+func left_check():
+	var a = actors.filter(func(actor): return actor.is_checked)
+	if a.size() > 0:
+		if a != actors[0]:
+			actors.map(func(actor): actor.uncheck())
+
+
+func right_check():
+	pass
