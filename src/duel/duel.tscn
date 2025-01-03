@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bf5qcl0cv5edn"]
+[gd_scene load_steps=14 format=3 uid="uid://bf5qcl0cv5edn"]
 
 [ext_resource type="Script" path="res://src/duel/duel.gd" id="1_1quas"]
 [ext_resource type="Script" path="res://src/duel/resolvers/friend_set_duel_resolver.gd" id="3_4tmwy"]
@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dycs0buhlso02" path="res://src/duel/friend/friend.tscn" id="10_suqlp"]
 [ext_resource type="PackedScene" uid="uid://bjhc0sv622lgo" path="res://src/duel/hand/hand.tscn" id="11_ilwe1"]
 [ext_resource type="PackedScene" uid="uid://bvtu267ej8nq7" path="res://src/duel/info/info.tscn" id="12_yoepw"]
+[ext_resource type="Script" path="res://src/duel/card/server.gd" id="13_4xdye"]
 
-[node name="Duel" type="Node2D" node_paths=PackedStringArray("initial_resolver", "field", "friend", "foe", "hand", "info")]
+[node name="Duel" type="Node2D" node_paths=PackedStringArray("initial_resolver", "field", "friend", "foe", "hand", "info", "card_server")]
 script = ExtResource("1_1quas")
 initial_resolver = NodePath("FriendSet")
 field = NodePath("Field")
@@ -21,6 +22,7 @@ friend = NodePath("Friend")
 foe = NodePath("Foe")
 hand = NodePath("Hand")
 info = NodePath("Info")
+card_server = NodePath("DuelCardServer")
 
 [node name="FriendSet" type="Node" parent="."]
 script = ExtResource("3_4tmwy")
@@ -49,3 +51,6 @@ script = ExtResource("8_5h641")
 [node name="Hand" parent="." instance=ExtResource("11_ilwe1")]
 
 [node name="Info" parent="." instance=ExtResource("12_yoepw")]
+
+[node name="DuelCardServer" type="Node" parent="."]
+script = ExtResource("13_4xdye")

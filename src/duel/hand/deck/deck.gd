@@ -1,18 +1,16 @@
 class_name DuelDeck extends Node2D
 
-var _deck: Array[DuelCard]
-
 func set_state(state: DuelState):
-	set_deck(state.deck)
+	await get_tree().create_timer(0.05).timeout
 
 
 func set_deck(deck: PlayerDeck):
-	_deck.clear()
-	for d in deck.cards:
-		var c = Master.master_instance_server.copy_scene("res://src/duel/card/card.tscn")
-		c.set_card(d)
-		_deck.push_back(c)
+	pass
 
 
-func draw() -> DuelCard:
-	return _deck.pop_back()
+func draw(state: DuelState) -> DuelCard:
+	var rc = state.draw_card_from_deck()
+	if rc:
+		var c = state._duel.card_server.get_card(rc)
+		return c
+	return null

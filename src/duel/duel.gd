@@ -9,6 +9,8 @@ class_name Duel extends Stage
 @export var hand: DuelHand
 @export var info: DuelInfo
 
+@export var card_server: DuelCardServer
+
 func _ready():
 	super._ready()
 	resolvers = {}

@@ -3,10 +3,9 @@ class_name DuelCardHand extends Control
 @export var container: Container
 
 func set_state(state: DuelState):
-	set_deck(state.hand)
+	await get_tree().create_timer(0.05).timeout
 
-func set_deck(deck: HandDeck):
-	pass
 
-func add_card(card: DuelCard):
+func add_card(state: DuelState, card: DuelCard):
+	state.add_card_to_hand(card.get_card())
 	container.add_child(card)
