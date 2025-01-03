@@ -58,7 +58,7 @@ func add_card_to_hand(card: Card):
 	hand.add_card(card)
 
 func _on_input(event: DuelInputEvent):
-	_current_resolver.on_input(event.get_input_event())
+	_current_resolver.on_input(self, event.get_input_event())
 
 
 func event_loop():

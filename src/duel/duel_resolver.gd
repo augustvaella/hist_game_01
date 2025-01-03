@@ -1,4 +1,4 @@
 class_name DuelResolver extends Resolver
 
-func on_input(event: InputEvent):
+func on_input(state: StageState, event: InputEvent):
 	pass
