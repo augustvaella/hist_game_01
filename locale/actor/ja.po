@@ -17,7 +17,7 @@ msgid "DISPLAY_NAME_ACTOR_ASHIKAGA"
 msgstr "あしかが"
 
 msgid "DISPLAY_NAME_ACTOR_ASHIKAGA_LITTLE"
-msgstr "こあしかが"
+msgstr "いもかが"
 
 msgid "DISPLAY_NAME_ACTOR_TSUKUSHIZUME"
 msgstr "つくしずめ"

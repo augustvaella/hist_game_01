@@ -10,6 +10,13 @@ func has_scene(scene_name: String) -> bool:
 	return _scenes.has(scene_name)
 
 
+func copy_scene(scene_name: String) -> Node:
+	var c = get_scene(scene_name)
+	if c:
+		return c.duplicate()
+	return null
+
+
 func get_scene(scene_name: String) -> Node:
 	if _scenes.has(scene_name):
 		return _scenes[scene_name] as Node

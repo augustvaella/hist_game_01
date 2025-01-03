@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://calrg52rn7822"]
+[gd_scene load_steps=3 format=3 uid="uid://calrg52rn7822"]
 
 [ext_resource type="Script" path="res://src/duel/hand/hand/hand.gd" id="1_4c67p"]
+[ext_resource type="Script" path="res://src/container/fan_container.gd" id="2_c00q1"]
 
-[node name="Hand" type="Node2D"]
+[node name="Hand" type="Control" node_paths=PackedStringArray("container")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_4c67p")
+container = NodePath("Container")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 538.0
+offset_right = 1492.0
+offset_bottom = 832.0
+script = ExtResource("2_c00q1")

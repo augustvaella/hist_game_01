@@ -7,4 +7,4 @@
 resource_name = "card responsive alpha"
 script = ExtResource("1_xrp63")
 display_name = "DISPLAY_NAME_CARD_RESPONSIVE_ALPHA"
-duel_texture = ExtResource("1_rqusq")
+texture = ExtResource("1_rqusq")

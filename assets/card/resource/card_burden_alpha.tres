@@ -7,4 +7,4 @@
 resource_name = "card burden alpha"
 script = ExtResource("1_ts2jv")
 display_name = "DISPLAY_NAME_CARD_BURDEN_ALPHA"
-duel_texture = ExtResource("1_dl73s")
+texture = ExtResource("1_dl73s")

@@ -1,4 +1,4 @@
-class_name DuelCardInfo extends DuelCharacterInfo
+class_name DuelCardInfo extends ItemInfo
 
-func set_card(card:Card):
-	super.set_character(card)
+func set_card(card: Card):
+	set_display_name(card.display_name)

@@ -7,4 +7,4 @@
 resource_name = "card defense alpha"
 script = ExtResource("1_5ccix")
 display_name = "DISPLAY_NAME_CARD_DEFENSE_ALPHA"
-duel_texture = ExtResource("1_3m2bc")
+texture = ExtResource("1_3m2bc")

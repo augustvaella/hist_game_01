@@ -7,4 +7,4 @@
 resource_name = "card default"
 script = ExtResource("1_o105p")
 display_name = "DISPLAY_NAME_CARD_DEFAULT"
-duel_texture = ExtResource("1_47mij")
+texture = ExtResource("1_47mij")

@@ -7,4 +7,4 @@
 resource_name = "card trick alpha"
 script = ExtResource("1_8iacp")
 display_name = "DISPLAY_NAME_CARD_TRICK_ALPHA"
-duel_texture = ExtResource("1_5qnh6")
+texture = ExtResource("1_5qnh6")

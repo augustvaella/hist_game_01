@@ -1,7 +1,5 @@
-class_name DuelCard extends DuelCharacter
+class_name DuelCard extends Item
 
 func set_card(card: Card):
-	super.set_character(card)
-	
-	body.set_card(card)
+	texture = card.texture
 	info.set_card(card)

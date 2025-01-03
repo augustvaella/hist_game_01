@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="ResourceSet" load_steps=8 format=3 uid="uid://dlsksqok4jxkl"]
 
-[ext_resource type="Texture2D" uid="uid://vi8idyaui6qo" path="res://assets/card/texture/card_alpha_default.png" id="1_6xhux"]
 [ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_h4r7y"]
-[ext_resource type="Texture2D" uid="uid://cac1mgnl4vdl2" path="res://assets/card/texture/card_alpha_burden.png" id="2_6jlra"]
-[ext_resource type="Texture2D" uid="uid://bqa23b01d5r68" path="res://assets/card/texture/card_alpha_defense.png" id="3_2ibtl"]
-[ext_resource type="Texture2D" uid="uid://dmesy6wqaah8y" path="res://assets/card/texture/card_alpha_prompt.png" id="4_w3com"]
-[ext_resource type="Texture2D" uid="uid://hgrv1ppu7bhj" path="res://assets/card/texture/card_alpha_responsive.png" id="5_wdmyu"]
-[ext_resource type="Texture2D" uid="uid://b2p0j4tg6f3br" path="res://assets/card/texture/card_alpha_trick.png" id="6_wswqv"]
+[ext_resource type="Resource" uid="uid://cx6vrtiacm6h7" path="res://assets/card/resource/card_burden_alpha.tres" id="1_pufa8"]
+[ext_resource type="Resource" uid="uid://xxp3gqjh8l6v" path="res://assets/card/resource/card_default.tres" id="2_ekpqo"]
+[ext_resource type="Resource" uid="uid://ch54mxuqypyip" path="res://assets/card/resource/card_defense_alpha.tres" id="3_r1phj"]
+[ext_resource type="Resource" uid="uid://y0jvi2c44b34" path="res://assets/card/resource/card_prompt_alpha.tres" id="4_og70f"]
+[ext_resource type="Resource" uid="uid://hq4tlmkucr3s" path="res://assets/card/resource/card_responsive_alpha.tres" id="5_778pm"]
+[ext_resource type="Resource" uid="uid://bgnnkj1wvk4td" path="res://assets/card/resource/card_trick_alpha.tres" id="6_02btn"]
 
 [resource]
 resource_name = "card data"
 script = ExtResource("1_h4r7y")
-childs = Array[Resource]([ExtResource("1_6xhux"), ExtResource("2_6jlra"), ExtResource("3_2ibtl"), ExtResource("4_w3com"), ExtResource("5_wdmyu"), ExtResource("6_wswqv")])
+childs = Array[Resource]([ExtResource("1_pufa8"), ExtResource("2_ekpqo"), ExtResource("3_r1phj"), ExtResource("4_og70f"), ExtResource("5_778pm"), ExtResource("6_02btn")])

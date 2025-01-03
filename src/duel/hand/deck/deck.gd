@@ -9,7 +9,7 @@ func set_state(state: DuelState):
 func set_deck(deck: PlayerDeck):
 	_deck.clear()
 	for d in deck.cards:
-		var c = Master.master_instance_server.get_scene("res://src/duel/card/card.tscn")
+		var c = Master.master_instance_server.copy_scene("res://src/duel/card/card.tscn")
 		c.set_card(d)
 		_deck.push_back(c)
 
