@@ -3,6 +3,7 @@ class_name DuelState extends StageState
 # resolver
 @export var initial_resolver: DuelResolver
 @export var resolvers: Dictionary # Dictionary<String, DuelResolver>
+var _current_resolver: DuelResolver
 
 # Duel Controlers
 var _duel: Duel
@@ -56,18 +57,25 @@ func draw_card_from_deck() -> Card:
 func add_card_to_hand(card: Card):
 	hand.add_card(card)
 
+func _on_input(event: DuelInputEvent):
+	_current_resolver.on_input(event.get_input_event())
 
-func resolve_duel():
-	var resolver: DuelResolver = initial_resolver
-	while resolver:
-		resolver.resolve(self)
+
+func event_loop():
+	while true:
 		var event = await _duel.listened_event
 		if event is DuelNextResolverEvent:
-			resolver = event.get_resolver()
+			return event.get_resolver()
 		elif event is DuelInputEvent:
-			pass
+			_on_input(event)
 		elif event is DuelFinishEvent:
-			resolver = null
+			return null
+
+func resolve_duel():
+	_current_resolver = initial_resolver
+	while _current_resolver:
+		_current_resolver.resolve(self)
+		_current_resolver = await event_loop()
 
 	Master.get_startup().change_stage(get_next_stage_state())
 

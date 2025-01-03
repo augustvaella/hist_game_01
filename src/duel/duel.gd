@@ -15,6 +15,10 @@ func _ready():
 	proceeded.connect(func(stage: Stage, state: StageState): resolve_duel())
 
 
+func _input(event: InputEvent):
+	listened_event.emit(DuelInputEvent.new(event))
+
+
 func resolve_duel():
 	_state.resolve_duel()
 
