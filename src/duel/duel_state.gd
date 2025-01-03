@@ -61,7 +61,13 @@ func resolve_duel():
 	var resolver: DuelResolver = initial_resolver
 	while resolver:
 		resolver.resolve(self)
-		resolver = await resolver.next_resolver
+		var event = await _duel.listened_event
+		if event is DuelNextResolverEvent:
+			resolver = event.get_resolver()
+		elif event is DuelInputEvent:
+			pass
+		elif event is DuelFinishEvent:
+			resolver = null
 
 	Master.get_startup().change_stage(get_next_stage_state())
 

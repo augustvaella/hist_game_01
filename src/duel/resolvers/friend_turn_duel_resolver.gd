@@ -1,6 +1,4 @@
 class_name FriendTurnDuelResolver extends DuelResolver
 
-func resolve(state: DuelState):
+func resolve(state: StageState):
 	state.begin_friend_turn()
-
-	# next_resolver.emit(state.get_duel().resolvers["FoeTurn"])

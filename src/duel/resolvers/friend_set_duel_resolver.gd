@@ -1,7 +1,7 @@
 class_name FriendSetDuelResolver extends DuelResolver
 
-func resolve(state: DuelState):
+func resolve(state: StageState):
 	await state.set_friend()
 	await state.set_hand()
 
-	next_resolver.emit(state.resolvers["FoeSet"])
+	state.get_duel().listened_event.emit(DuelNextResolverEvent.new(state.resolvers["FoeSet"]))

@@ -1,6 +1,6 @@
 class_name FoeSetDuelResolver extends DuelResolver
 
-func resolve(state: DuelState):
+func resolve(state: StageState):
 	await state.set_foe()
 
-	next_resolver.emit(state.resolvers["FriendTurn"])
+	state.get_duel().listened_event.emit(DuelNextResolverEvent.new(state.resolvers["FriendTurn"]))

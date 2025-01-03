@@ -1,5 +1,7 @@
 class_name Duel extends Stage
 
+signal listened_event(event: Event)
+
 @export var field: DuelField
 @export var friend: DuelFriend
 @export var foe: DuelFoe
