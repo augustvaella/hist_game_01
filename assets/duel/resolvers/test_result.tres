@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ResultDuelResolver" load_steps=2 format=3 uid="uid://cioja1s3ehpyp"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/result_duel_resolver.gd" id="1_v0p2e"]
+
+[resource]
+script = ExtResource("1_v0p2e")

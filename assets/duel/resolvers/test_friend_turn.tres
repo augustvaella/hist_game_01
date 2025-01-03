@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FriendTurnDuelResolver" load_steps=2 format=3 uid="uid://bhqhwc1c1k70o"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/friend_turn_duel_resolver.gd" id="1_fhsev"]
+
+[resource]
+script = ExtResource("1_fhsev")

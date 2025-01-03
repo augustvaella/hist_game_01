@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FoeTurnDuelResolver" load_steps=2 format=3 uid="uid://l3kol84hrfe0"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/foe_turn_duel_resolver.gd" id="1_ftma2"]
+
+[resource]
+script = ExtResource("1_ftma2")

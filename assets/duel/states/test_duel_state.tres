@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TestDuelState" load_steps=19 format=3 uid="uid://qmmqykndgnap"]
+[gd_resource type="Resource" script_class="TestDuelState" load_steps=25 format=3 uid="uid://qmmqykndgnap"]
 
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
 [ext_resource type="Script" path="res://src/duel/test_duel_state.gd" id="1_ispbk"]
@@ -16,6 +16,12 @@
 [ext_resource type="Resource" uid="uid://cjv0dd8aqkavm" path="res://assets/actor/resource/actor_tsukushizume.tres" id="7_njreg"]
 [ext_resource type="Resource" uid="uid://cj02f4r8uf1tu" path="res://assets/deck/test_player_deck.tres" id="11_cb63m"]
 [ext_resource type="Script" path="res://src/deck/hand_deck.gd" id="14_0g6h2"]
+[ext_resource type="Resource" uid="uid://de745isg0a6sh" path="res://assets/duel/resolvers/test_friend_set.tres" id="15_2sjia"]
+[ext_resource type="Resource" uid="uid://duhetfmbe7seb" path="res://assets/duel/resolvers/test_foe_set.tres" id="17_4oa52"]
+[ext_resource type="Resource" uid="uid://bhqhwc1c1k70o" path="res://assets/duel/resolvers/test_friend_turn.tres" id="18_3x6ah"]
+[ext_resource type="Resource" uid="uid://l3kol84hrfe0" path="res://assets/duel/resolvers/test_foe_turn.tres" id="19_nsug5"]
+[ext_resource type="Resource" uid="uid://8is86asqycio" path="res://assets/duel/resolvers/test_eval_result.tres" id="20_ejwkp"]
+[ext_resource type="Resource" uid="uid://cioja1s3ehpyp" path="res://assets/duel/resolvers/test_result.tres" id="21_dvy6f"]
 
 [sub_resource type="Resource" id="Resource_681jv"]
 script = ExtResource("3_6ttpc")
@@ -29,6 +35,15 @@ cards = Array[ExtResource("2_l53nq")]([])
 resource_name = "test duel state"
 script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
+initial_resolver = ExtResource("15_2sjia")
+resolvers = {
+"EvalResult": ExtResource("20_ejwkp"),
+"FoeSet": ExtResource("17_4oa52"),
+"FoeTurn": ExtResource("19_nsug5"),
+"FriendSet": ExtResource("15_2sjia"),
+"FriendTurn": ExtResource("18_3x6ah"),
+"Result": ExtResource("21_dvy6f")
+}
 friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
 deck = ExtResource("11_cb63m")
 hand = SubResource("Resource_7ty5t")

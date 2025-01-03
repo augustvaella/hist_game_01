@@ -1,4 +1,4 @@
-class_name DuelResolver extends Node
+class_name DuelResolver extends Resource
 
 signal next_resolver(resolver: DuelResolver)
 
