@@ -5,5 +5,5 @@ func resolve(state: StageState):
 
 
 func on_input(state: StageState, event: InputEvent):
-	if event.is_action_pressed("Accept"):
+	if event.is_action_pressed("Left"):
 		pass

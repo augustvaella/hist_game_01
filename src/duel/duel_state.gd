@@ -57,19 +57,26 @@ func draw_card_from_deck() -> Card:
 func add_card_to_hand(card: Card):
 	hand.add_card(card)
 
+
 func _on_input(event: DuelInputEvent):
 	_current_resolver.on_input(self, event.get_input_event())
+
+
+func _on_event(event: Event):
+	_current_resolver.on_event(self, event)
 
 
 func event_loop():
 	while true:
 		var event = await _duel.listened_event
-		if event is DuelNextResolverEvent:
+		if event is DuelFinishEvent:
+			return null
+		elif event is DuelNextResolverEvent:
 			return event.get_resolver()
 		elif event is DuelInputEvent:
 			_on_input(event)
-		elif event is DuelFinishEvent:
-			return null
+		else:
+			_on_event(event)
 
 func resolve_duel():
 	_current_resolver = initial_resolver
