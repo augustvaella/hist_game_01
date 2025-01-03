@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TestDuelState" load_steps=29 format=3 uid="uid://qmmqykndgnap"]
+[gd_resource type="Resource" script_class="TestDuelState" load_steps=30 format=3 uid="uid://qmmqykndgnap"]
 
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
 [ext_resource type="Script" path="res://src/duel/test_duel_state.gd" id="1_ispbk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/deck/discard_deck.gd" id="3_6ttpc"]
 [ext_resource type="Resource" uid="uid://d1dua14icml5t" path="res://assets/enemy/resource/enemy_2.tres" id="3_d3h37"]
 [ext_resource type="Resource" uid="uid://cffbf1jwleuvm" path="res://assets/actor/resource/actor_ashikaga.tres" id="3_fdab0"]
+[ext_resource type="Script" path="res://src/system/event.gd" id="4_4lgt2"]
 [ext_resource type="Resource" uid="uid://dpuyb06w2m3ru" path="res://assets/actor/resource/actor_ashikaga_little.tres" id="4_7p1wx"]
 [ext_resource type="Resource" uid="uid://bfbbgglmllwe7" path="res://assets/enemy/resource/enemy_3.tres" id="4_uvcbb"]
 [ext_resource type="Resource" uid="uid://bjmw3kgydnium" path="res://assets/actor/resource/actor_doyo.tres" id="5_yhf0b"]
@@ -40,6 +41,11 @@ cards = Array[ExtResource("2_l53nq")]([])
 resource_name = "test duel state"
 script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
+friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
+deck = ExtResource("11_cb63m")
+hand = SubResource("Resource_7ty5t")
+discard = SubResource("Resource_681jv")
+foe_enemies = Array[ExtResource("1_f5esq")]([ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb"), ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb")])
 initial_resolver = ExtResource("15_2sjia")
 resolvers = {
 "EvalResult": ExtResource("20_ejwkp"),
@@ -53,9 +59,5 @@ resolvers = {
 "friend hand select": ExtResource("23_3q84s"),
 "friend select": ExtResource("24_4vqjf")
 }
-friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
-deck = ExtResource("11_cb63m")
-hand = SubResource("Resource_7ty5t")
-discard = SubResource("Resource_681jv")
-foe_enemies = Array[ExtResource("1_f5esq")]([ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb"), ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb")])
 register = {}
+event_queue = Array[ExtResource("4_4lgt2")]([])

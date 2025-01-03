@@ -7,6 +7,6 @@ func set_state(state: DuelState):
 func draw(state: DuelState) -> DuelCard:
 	var rc = state.draw_card_from_deck()
 	if rc:
-		var c = state.duel.card_server.get_card(rc)
+		var c = state.stage.card_server.get_card(rc)
 		return c
 	return null

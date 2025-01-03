@@ -4,4 +4,4 @@ func resolve(state: StageState):
 	await state.set_friend()
 	await state.set_hand()
 
-	state.get_duel().listened_event.emit(DuelNextResolverEvent.new(state.resolvers["FoeSet"]))
+	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["FoeSet"]))
