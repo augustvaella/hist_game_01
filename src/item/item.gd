@@ -1,3 +1,3 @@
-class_name Item extends LinkedCheckableNode
+class_name Item extends LinkedNode
 
 @export var info: ItemInfo

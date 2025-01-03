@@ -1,4 +1,4 @@
-class_name DuelCharacter extends LinkedCheckableNode
+class_name DuelCharacter extends LinkedNode
 
 @export var body: DuelCharacterBody
 @export var info: DuelCharacterInfo
