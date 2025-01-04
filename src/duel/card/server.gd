@@ -10,9 +10,10 @@ func _create_object() -> Object:
 
 func get_card(card: Card) -> DuelCard:
 	var c = get_object()
-	c.set_card(card) 
+	c.set_element(card)
 	return c
 
 
 func return_card(card: DuelCard):
+	card.reset_element()
 	return_object(card)

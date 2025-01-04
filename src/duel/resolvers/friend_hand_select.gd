@@ -5,6 +5,8 @@ const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 
 func resolve(state: StageState):
 	state.stage.hand.show_hand()
+	if not state.stage.hand.is_exist_checked():
+		state.stage.hand.check_initial()
 	state.register[REGISTER_KEY_CHALLENGER] = state.stage.friend.current_character
 	if not state.stage.friend.next_current_character():
 		state.stage.hand.hide_hand()
@@ -23,6 +25,8 @@ func on_input(state: StageState, event: InputEvent):
 func select_opponent(state: DuelState):
 	var c = state.get_checked_hand() # DuelCard
 	state.register[REGISTER_KEY_CARD] = c
+	state.stage.discard.discard(state, c)
+
 	match c.card.opponent_select:
 		Card.OpponentSelect.NONE:
 			state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend challenge"]))

@@ -64,7 +64,7 @@ func is_exist_checked() -> bool:
 
 
 func check_initial():
-	if not is_exist_checked():
+	if is_exist() and not is_exist_checked():
 		collector.get_child(0).check()
 
 		

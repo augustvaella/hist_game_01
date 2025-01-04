@@ -1,41 +1,24 @@
-class_name DuelHand extends Node2D
+class_name DuelCardCollector extends CheckableNodeCollector
 
-
-@export var deck: DuelDeck
-@export var hand: DuelCardHand
-@export var discard: DuelDiscard
+@export var deck: Deck
 
 func set_state(state: DuelState):
-	await deck.set_state(state)
-	await hand.set_state(state)
-	await discard.set_state(state)
+	pass
 
 
-func draw(state: DuelState):
-	var c = deck.draw(state)
-	if c:
-		hand.add_card(state, c)
-	await get_tree().create_timer(0.1).timeout
+func instantiate_card(state: DuelState, card: Card):
+	var c = state.stage.card_server.get_card(card)
+	add_node(c)
+
+func return_card(state: DuelState, card: DuelCard):
+	remove_node(card)
+	state.stage.card_server.return_card(card)
+
+func add_card_to_deck(state: DuelState, card: DuelCard, deck: Deck):
+	deck.push_back_card(card.card)
+	add_node(card)
 
 
-func get_current_checked_hand() -> DuelCard:
-	return hand.get_current_checked()
-
-
-func get_all_checked_hand(array: Array):
-	hand.get_checked(array)
-
-
-func get_all_unchecked_hand(array: Array):
-	hand.get_unchecked(array)
-
-
-func check_left_hand():
-	hand.check_left()
-
-
-func check_right_hand():
-	hand.check_right()
-
-func check_initial_hand():
-	hand.check_initial()
+func remove_card_to_deck(state: DuelState, card: DuelCard, deck: Deck):
+	deck.erase_card(card.card)
+	remove_node(card)

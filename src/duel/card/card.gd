@@ -2,11 +2,16 @@ class_name DuelCard extends Item
 
 @export var card: Card
 
-func set_card(card: Card):
+func set_element(card: Card):
+	#super.set_element(card)
 	self.card = card
 	self.texture = card.texture
-	info.set_card(card)
+	info.set_element(card)
 
+func reset_element():
+	#super.reset_element()
+	self.card = null
+	self.texture = null
 
 func get_card() -> Card:
 	return card

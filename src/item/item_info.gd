@@ -4,3 +4,6 @@ class_name ItemInfo extends Control
 
 func set_display_name(text: String):
 	display_name.text = text
+
+#func reset_element():
+#	display_name.text = String()
