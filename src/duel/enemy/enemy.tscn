@@ -15,11 +15,27 @@ sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
 
-[node name="Info" type="PanelContainer" parent="." node_paths=PackedStringArray("display_name")]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Info" type="Control" parent="." node_paths=PackedStringArray("vital", "display_name")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 85.0
 script = ExtResource("3_gltdw")
+vital = NodePath("Label2")
 display_name = NodePath("Label")
 
 [node name="Label" type="Label" parent="Info"]
 layout_mode = 2
+offset_left = -7.0
+offset_top = -2.0
+offset_right = 77.0
+offset_bottom = 21.0
+
+[node name="Label2" type="Label" parent="Info"]
+layout_mode = 2
+offset_left = -6.0
+offset_top = 28.0
+offset_right = 78.0
+offset_bottom = 51.0

@@ -1,10 +1,34 @@
-[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3 uid="uid://cjv0dd8aqkavm"]
+[gd_resource type="Resource" script_class="Actor" load_steps=9 format=3 uid="uid://cjv0dd8aqkavm"]
 
 [ext_resource type="Texture2D" uid="uid://rjqw20magqhi" path="res://assets/actor/texture/up/tsukushizume_up.png" id="1_1l3dh"]
+[ext_resource type="Script" path="res://src/actor/army.gd" id="1_4wmur"]
 [ext_resource type="Script" path="res://src/actor/actor.gd" id="1_7oy1q"]
+[ext_resource type="Script" path="res://src/actor/morale.gd" id="3_0mx3d"]
+[ext_resource type="Script" path="res://src/actor/supply.gd" id="5_83jr3"]
+
+[sub_resource type="Resource" id="Resource_ak041"]
+script = ExtResource("1_4wmur")
+_value = 1000
+_min_value = 0
+_max_value = 10000
+
+[sub_resource type="Resource" id="Resource_ahmdh"]
+script = ExtResource("3_0mx3d")
+_value = 80
+_min_value = 0
+_max_value = 100
+
+[sub_resource type="Resource" id="Resource_ngbbb"]
+script = ExtResource("5_83jr3")
+_value = 1000
+_min_value = 0
+_max_value = 10000
 
 [resource]
 resource_name = "actor tsukushizume"
 script = ExtResource("1_7oy1q")
+morale = SubResource("Resource_ahmdh")
+army = SubResource("Resource_ak041")
+supply = SubResource("Resource_ngbbb")
 display_name = "DISPLAY_NAME_ACTOR_TSUKUSHIZUME"
 duel_texture = ExtResource("1_1l3dh")

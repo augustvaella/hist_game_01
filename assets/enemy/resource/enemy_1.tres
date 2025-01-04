@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cca5pnu1swo1m"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://cca5pnu1swo1m"]
 
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_57di1"]
 [ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="1_d484p"]
+[ext_resource type="Script" path="res://src/enemy/vital.gd" id="3_hmjlf"]
+
+[sub_resource type="Resource" id="Resource_xa3d4"]
+script = ExtResource("3_hmjlf")
+_value = 500
+_min_value = 0
+_max_value = 500
 
 [resource]
 resource_name = "enemy 1"
 script = ExtResource("1_57di1")
+vital = SubResource("Resource_xa3d4")
 display_name = "DISPLAY_NAME_ENEMY_1"
 duel_texture = ExtResource("1_d484p")

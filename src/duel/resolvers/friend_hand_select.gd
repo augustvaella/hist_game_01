@@ -1,9 +1,10 @@
 class_name FriendHandSelectDuelResolver extends DuelResolver
 
 const REGISTER_KEY_CARD: String = "friend hand select"
+const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 
 func resolve(state: StageState):
-	pass
+	state.register[REGISTER_KEY_CHALLENGER] = state.stage.friend.characters[0]
 
 func on_input(state: StageState, event: InputEvent):
 	if event.is_action_pressed("Left"):
@@ -11,12 +12,13 @@ func on_input(state: StageState, event: InputEvent):
 	elif event.is_action_pressed("Right"):
 		state.check_right_hand()
 	elif event.is_action_pressed("Accept"):
-		select_opponent(state, state.get_checked_hand())
+		select_opponent(state)
 
 
-func select_opponent(state: DuelState, card: DuelCard):
-	state.register[REGISTER_KEY_CARD] = card
-	match card.card.opponent_select:
+func select_opponent(state: DuelState):
+	var c = state.get_checked_hand() # DuelCard
+	state.register[REGISTER_KEY_CARD] = c
+	match c.card.opponent_select:
 		Card.OpponentSelect.NONE:
 			state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend challenge"]))
 		Card.OpponentSelect.ENEMY_SINGLE:

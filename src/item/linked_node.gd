@@ -15,3 +15,14 @@ func get_post_node() -> Node:
 	elif index == count - 1:
 		return null
 	return get_parent().get_child(index + 1)
+
+
+func is_index_in_bound(index: int) -> bool:
+	var count = get_parent().get_child_count()
+	return index > -count and index < count
+
+
+func get_sibling_node(index: int) -> Node:
+	if is_index_in_bound(index):
+		return get_parent().get_child(index)
+	return null

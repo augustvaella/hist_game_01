@@ -15,11 +15,41 @@ sprite = NodePath("Sprite")
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
 
-[node name="Info" type="PanelContainer" parent="." node_paths=PackedStringArray("display_name")]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Info" type="Control" parent="." node_paths=PackedStringArray("army", "morale", "supply", "display_name")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 181.0
+offset_bottom = 163.0
 script = ExtResource("3_47udh")
+army = NodePath("Label")
+morale = NodePath("Label2")
+supply = NodePath("Label3")
 display_name = NodePath("DisplayName")
 
 [node name="DisplayName" type="Label" parent="Info"]
 layout_mode = 2
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 178.0
+offset_bottom = 25.0
+
+[node name="Label" type="Label" parent="Info"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 32.0
+offset_right = 180.0
+offset_bottom = 55.0
+
+[node name="Label2" type="Label" parent="Info"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 52.0
+offset_right = 182.0
+offset_bottom = 75.0
+
+[node name="Label3" type="Label" parent="Info"]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 104.0
+offset_right = 184.0
+offset_bottom = 127.0

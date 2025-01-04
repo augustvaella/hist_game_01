@@ -3,8 +3,7 @@ class_name FriendSelectDuelResolver extends DuelResolver
 const REGISTER_KEY_TYPE: String = "friend select" # DuelOpponentSelectEvent
 
 func resolve(state: StageState):
-	pass
-	# state.get_duel().listened_event.emit(DuelNextResolverEvent.new(state.resolvers["friend hand select"]))
+	state.stage.friend.check_initial()
 
 
 func on_input(state: StageState, event: InputEvent):
@@ -13,9 +12,11 @@ func on_input(state: StageState, event: InputEvent):
 	elif event.is_action_pressed("Right"):
 		state.check_right_actor()
 	elif event.is_action_pressed("Accept"):
-		pass
-		#select_opponent(state, state.get_checked_hand())
+		select_opponent(state)
 
 
-func select_opponent(state: DuelState, actor: Actor):
-	pass
+func select_opponent(state: DuelState):
+	state.select_friend_actors()
+	await state.stage.get_tree().create_timer(0.5)
+	state.register[ChallengeDuelResolver.REGISTER_KEY_IS_FRIEND_TURN] = true
+	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["challenge"]))

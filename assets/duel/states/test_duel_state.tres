@@ -1,20 +1,21 @@
-[gd_resource type="Resource" script_class="TestDuelState" load_steps=30 format=3 uid="uid://qmmqykndgnap"]
+[gd_resource type="Resource" script_class="TestDuelState" load_steps=44 format=3 uid="uid://qmmqykndgnap"]
 
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
 [ext_resource type="Script" path="res://src/duel/test_duel_state.gd" id="1_ispbk"]
 [ext_resource type="Resource" uid="uid://dpexeovn25651" path="res://assets/chat/states/test_chat_state.tres" id="1_sudcx"]
 [ext_resource type="Script" path="res://src/actor/actor.gd" id="2_8t55l"]
-[ext_resource type="Resource" uid="uid://cca5pnu1swo1m" path="res://assets/enemy/resource/enemy_1.tres" id="2_blwf7"]
 [ext_resource type="Script" path="res://src/card/card.gd" id="2_l53nq"]
 [ext_resource type="Script" path="res://src/deck/discard_deck.gd" id="3_6ttpc"]
-[ext_resource type="Resource" uid="uid://d1dua14icml5t" path="res://assets/enemy/resource/enemy_2.tres" id="3_d3h37"]
 [ext_resource type="Resource" uid="uid://cffbf1jwleuvm" path="res://assets/actor/resource/actor_ashikaga.tres" id="3_fdab0"]
 [ext_resource type="Script" path="res://src/system/event.gd" id="4_4lgt2"]
 [ext_resource type="Resource" uid="uid://dpuyb06w2m3ru" path="res://assets/actor/resource/actor_ashikaga_little.tres" id="4_7p1wx"]
-[ext_resource type="Resource" uid="uid://bfbbgglmllwe7" path="res://assets/enemy/resource/enemy_3.tres" id="4_uvcbb"]
 [ext_resource type="Resource" uid="uid://bjmw3kgydnium" path="res://assets/actor/resource/actor_doyo.tres" id="5_yhf0b"]
+[ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="6_j81i7"]
 [ext_resource type="Resource" uid="uid://cajnxt2gyiv8g" path="res://assets/actor/resource/actor_kou.tres" id="6_tfhlp"]
+[ext_resource type="Script" path="res://src/enemy/vital.gd" id="7_6t15j"]
 [ext_resource type="Resource" uid="uid://cjv0dd8aqkavm" path="res://assets/actor/resource/actor_tsukushizume.tres" id="7_njreg"]
+[ext_resource type="Texture2D" uid="uid://dospo4fec847n" path="res://assets/enemy/texture/enemy_2.png" id="8_gdoqm"]
+[ext_resource type="Texture2D" uid="uid://dr6rs4c6ntahb" path="res://assets/enemy/texture/enemy_3.png" id="9_cqtei"]
 [ext_resource type="Resource" uid="uid://cj02f4r8uf1tu" path="res://assets/deck/test_player_deck.tres" id="11_cb63m"]
 [ext_resource type="Script" path="res://src/deck/hand_deck.gd" id="14_0g6h2"]
 [ext_resource type="Resource" uid="uid://de745isg0a6sh" path="res://assets/duel/resolvers/test_friend_set.tres" id="15_2sjia"]
@@ -27,10 +28,83 @@
 [ext_resource type="Resource" uid="uid://bmkdrrr1ba6as" path="res://assets/duel/resolvers/test_friend_hand_select.tres" id="23_3q84s"]
 [ext_resource type="Resource" uid="uid://bagmlm5sha0u0" path="res://assets/duel/resolvers/test_friend_select.tres" id="24_4vqjf"]
 [ext_resource type="Resource" uid="uid://cs87nxdv0udub" path="res://assets/duel/resolvers/test_enemy_select.tres" id="25_n8ems"]
+[ext_resource type="Resource" uid="uid://ck0ulodwhltpf" path="res://assets/duel/resolvers/test_friend_challenge.tres" id="27_bsjjx"]
 
 [sub_resource type="Resource" id="Resource_681jv"]
 script = ExtResource("3_6ttpc")
 cards = Array[ExtResource("2_l53nq")]([])
+
+[sub_resource type="Resource" id="Resource_u2tmn"]
+script = ExtResource("7_6t15j")
+_value = 500
+_min_value = 0
+_max_value = 500
+
+[sub_resource type="Resource" id="Resource_fa485"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_u2tmn")
+display_name = "DISPLAY_NAME_ENEMY_1"
+duel_texture = ExtResource("6_j81i7")
+
+[sub_resource type="Resource" id="Resource_x1x66"]
+script = ExtResource("7_6t15j")
+_value = 500
+_min_value = 0
+_max_value = 500
+
+[sub_resource type="Resource" id="Resource_0q56v"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_x1x66")
+display_name = "DISPLAY_NAME_ENEMY_1"
+duel_texture = ExtResource("6_j81i7")
+
+[sub_resource type="Resource" id="Resource_ot1tj"]
+script = ExtResource("7_6t15j")
+_value = 1000
+_min_value = 0
+_max_value = 1000
+
+[sub_resource type="Resource" id="Resource_vco22"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_ot1tj")
+display_name = "DISPLAY_NAME_ENEMY_2"
+duel_texture = ExtResource("8_gdoqm")
+
+[sub_resource type="Resource" id="Resource_mi30p"]
+script = ExtResource("7_6t15j")
+_value = 1000
+_min_value = 0
+_max_value = 1000
+
+[sub_resource type="Resource" id="Resource_kjgfw"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_mi30p")
+display_name = "DISPLAY_NAME_ENEMY_2"
+duel_texture = ExtResource("8_gdoqm")
+
+[sub_resource type="Resource" id="Resource_olujt"]
+script = ExtResource("7_6t15j")
+_value = 2000
+_min_value = 0
+_max_value = 2000
+
+[sub_resource type="Resource" id="Resource_kjisp"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_olujt")
+display_name = "DISPLAY_NAME_ENEMY_3"
+duel_texture = ExtResource("9_cqtei")
+
+[sub_resource type="Resource" id="Resource_1vyu8"]
+script = ExtResource("7_6t15j")
+_value = 2000
+_min_value = 0
+_max_value = 2000
+
+[sub_resource type="Resource" id="Resource_fgtde"]
+script = ExtResource("1_f5esq")
+vital = SubResource("Resource_1vyu8")
+display_name = "DISPLAY_NAME_ENEMY_3"
+duel_texture = ExtResource("9_cqtei")
 
 [sub_resource type="Resource" id="Resource_7ty5t"]
 script = ExtResource("14_0g6h2")
@@ -45,7 +119,7 @@ friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResour
 deck = ExtResource("11_cb63m")
 hand = SubResource("Resource_7ty5t")
 discard = SubResource("Resource_681jv")
-foe_enemies = Array[ExtResource("1_f5esq")]([ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb"), ExtResource("2_blwf7"), ExtResource("3_d3h37"), ExtResource("4_uvcbb")])
+foe_enemies = Array[ExtResource("1_f5esq")]([SubResource("Resource_fa485"), SubResource("Resource_0q56v"), SubResource("Resource_vco22"), SubResource("Resource_kjgfw"), SubResource("Resource_kjisp"), SubResource("Resource_fgtde")])
 initial_resolver = ExtResource("15_2sjia")
 resolvers = {
 "EvalResult": ExtResource("20_ejwkp"),
@@ -54,6 +128,7 @@ resolvers = {
 "FriendSet": ExtResource("15_2sjia"),
 "FriendTurn": ExtResource("18_3x6ah"),
 "Result": ExtResource("21_dvy6f"),
+"challenge": ExtResource("27_bsjjx"),
 "enemy select": ExtResource("25_n8ems"),
 "friend draw hand": ExtResource("22_w1sef"),
 "friend hand select": ExtResource("23_3q84s"),

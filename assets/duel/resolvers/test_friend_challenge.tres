@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="FriendChallengeDuelResolver" load_steps=2 format=3 uid="uid://ck0ulodwhltpf"]
+[gd_resource type="Resource" script_class="ChallengeDuelResolver" load_steps=2 format=3 uid="uid://ck0ulodwhltpf"]
 
-[ext_resource type="Script" path="res://src/duel/resolvers/friend_challenge.gd" id="1_0gtij"]
+[ext_resource type="Script" path="res://src/duel/resolvers/challenge.gd" id="1_lw1qd"]
 
 [resource]
-script = ExtResource("1_0gtij")
+script = ExtResource("1_lw1qd")

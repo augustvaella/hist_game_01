@@ -68,7 +68,19 @@ func check_left_enemy():
 
 func check_right_enemy():
 	stage.foe.check_right()
-	
+
+
+func select_friend_actors():
+	var key = ChallengeDuelResolver.REGISTER_KEY_TYPE
+	register[key] = []
+	stage.friend.get_all_checked(register[key])
+	stage.friend.uncheck_all()
+
+func select_foe_enemies():
+	var key = ChallengeDuelResolver.REGISTER_KEY_TYPE
+	register[key] = []
+	stage.foe.get_all_checked(register[key])
+	stage.foe.uncheck_all()
 
 func get_checked_hand() -> DuelCard:
 	return stage.hand.get_current_checked()

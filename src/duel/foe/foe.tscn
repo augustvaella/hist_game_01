@@ -14,13 +14,13 @@ position = Vector2(880, 311)
 position = Vector2(642, 280)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(383, 184)
+position = Vector2(1140, 207)
 
 [node name="Enemy4" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(1110, 201)
+position = Vector2(406, 210)
 
 [node name="Enemy5" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(181, 105)
+position = Vector2(1328, 96)
 
 [node name="Enemy6" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(1359, 120)
+position = Vector2(206, 104)

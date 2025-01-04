@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ChallengeAttack" load_steps=2 format=3 uid="uid://bomb5ibdhjisx"]
+
+[ext_resource type="Script" path="res://src/challenge/attack.gd" id="1_j27ib"]
+
+[resource]
+script = ExtResource("1_j27ib")
