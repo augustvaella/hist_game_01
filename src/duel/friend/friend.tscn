@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://src/duel/friend/friend.gd" id="1_oskid"]
 [ext_resource type="PackedScene" uid="uid://davulw8q6onlf" path="res://src/duel/actor/actor.tscn" id="2_78qwj"]
 
-[node name="Friend" type="Node2D" node_paths=PackedStringArray("actors")]
+[node name="Friend" type="Node2D" node_paths=PackedStringArray("characters")]
 script = ExtResource("1_oskid")
-actors = [NodePath("Actor0"), NodePath("Actor1"), NodePath("Actor2"), NodePath("Actor3"), NodePath("Actor4")]
+characters = [NodePath("Actor0"), NodePath("Actor1"), NodePath("Actor2"), NodePath("Actor3"), NodePath("Actor4")]
 
 [node name="Actor0" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(789, 665)

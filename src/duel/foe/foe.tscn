@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://src/duel/foe/foe.gd" id="1_g4rfk"]
 [ext_resource type="PackedScene" uid="uid://cchfg5x2fawuo" path="res://src/duel/enemy/enemy.tscn" id="2_0iihn"]
 
-[node name="Foe" type="Node2D" node_paths=PackedStringArray("enemies")]
+[node name="Foe" type="Node2D" node_paths=PackedStringArray("characters")]
 script = ExtResource("1_g4rfk")
-enemies = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6")]
+characters = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_0iihn")]
 position = Vector2(880, 311)

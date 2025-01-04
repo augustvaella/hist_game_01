@@ -1,30 +1,5 @@
-class_name DuelFriend extends Node2D
-
-const FRIEND_COUNT: int = 5
-
-@export var actors: Array[DuelActor]
+class_name DuelFriend extends CharacterField
 
 func set_state(state: DuelState):
-	var count = FRIEND_COUNT if state.friend_actors.size() > FRIEND_COUNT else state.friend_actors.size()
-	for i in range(count):
-		set_actor(state.friend_actors[i], i)
+	set_characters(state.friend_actors)
 	await get_tree().create_timer(1.0).timeout
-
-
-func set_actor(actor: Actor, index: int):
-	actors[index].set_actor(actor)
-
-
-func start_check_actor():
-	actors[0].check()
-
-
-func left_check():
-	var a = actors.filter(func(actor): return actor.is_checked)
-	if a.size() > 0:
-		if a != actors[0]:
-			actors.map(func(actor): actor.uncheck())
-
-
-func right_check():
-	pass

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CardBurden" load_steps=3 format=3 uid="uid://cx6vrtiacm6h7"]
+[gd_resource type="Resource" script_class="CardBurden" load_steps=4 format=3 uid="uid://cx6vrtiacm6h7"]
 
 [ext_resource type="Texture2D" uid="uid://cac1mgnl4vdl2" path="res://assets/card/texture/card_alpha_burden.png" id="1_dl73s"]
+[ext_resource type="Script" path="res://src/card/challenge.gd" id="1_s7k8e"]
 [ext_resource type="Script" path="res://src/card/card_burden.gd" id="1_ts2jv"]
 
 [resource]
@@ -8,3 +9,6 @@ resource_name = "card burden alpha"
 script = ExtResource("1_ts2jv")
 display_name = "DISPLAY_NAME_CARD_BURDEN_ALPHA"
 texture = ExtResource("1_dl73s")
+opponent_select = 0
+card_select = 0
+challenges = Array[ExtResource("1_s7k8e")]([])

@@ -52,7 +52,6 @@ func event_loop():
 				_on_input(event)
 			else:
 				_on_event(event)
-
 		await stage.get_tree().process_frame
 
 
@@ -61,7 +60,4 @@ func resolve_stage():
 	while current_resolver:
 		current_resolver.resolve(self)
 		current_resolver = await event_loop()
-		print(current_resolver)
-
-
 	Master.get_startup().change_stage(get_next_stage_state())

@@ -1,4 +1,4 @@
 class_name DuelActorBody extends DuelCharacterBody
 
-func set_actor(actor: Actor):
-	super.set_character(actor)
+func set_character(character: Character):
+	super.set_character(character)

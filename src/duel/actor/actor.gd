@@ -1,11 +1,7 @@
 class_name DuelActor extends DuelCharacter
-
-func set_actor(actor: Actor):
-	super.set_character(actor)
-	# set_actor
-	
-	body.set_actor(actor)
-	info.set_actor(actor)
+#
+func set_character(character: Character):
+	super.set_character(character)
 
 func _on_check():
 	info.display_name.text = "[%s]" % info.display_name.text

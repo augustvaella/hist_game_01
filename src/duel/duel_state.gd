@@ -47,12 +47,17 @@ func check_right_hand():
 	stage.hand.check_right_hand()
 
 
+func check_left_actor():
+	stage.friend.left_check()
+
+
+func check_right_actor():
+	stage.friend.right_check()
+
+
 func get_checked_hand() -> DuelCard:
 	return stage.hand.current_get_checked_hand()
 
-
-func event_handler(event: Event) -> Event:
-	return null
 
 	# Duel Resolving
 	#   Friend Set
