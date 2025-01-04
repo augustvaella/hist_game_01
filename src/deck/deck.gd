@@ -15,7 +15,11 @@ func insert_card(card: Card, index: int):
 		return
 	Log.error("[Deck] #%d couldn't insert_card(%s, %d)" % \
 		[get_instance_id(), index, card])
-	
+
+
+func erase_card(card: Card):
+	cards.erase(card)
+
 
 func pop_front_card() -> Card:
 	return cards.pop_front()

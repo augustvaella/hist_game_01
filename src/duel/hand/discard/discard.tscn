@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnb3lfawa24q"]
+[gd_scene load_steps=3 format=3 uid="uid://bnb3lfawa24q"]
 
 [ext_resource type="Script" path="res://src/duel/hand/discard/discard.gd" id="1_1vlci"]
+[ext_resource type="Script" path="res://src/duel/hand/discard/container.gd" id="2_2ffvv"]
 
-[node name="Discard" type="Node2D"]
+[node name="Discard" type="Control" node_paths=PackedStringArray("collector")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_1vlci")
+collector = NodePath("Container")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_2ffvv")

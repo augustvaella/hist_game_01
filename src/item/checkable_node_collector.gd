@@ -33,6 +33,16 @@ func get_current_checked() -> CheckableNode:
 	return null
 
 
+func get_top() -> Node:
+	if collector.get_child_count() > 0:
+		return collector.get_child(0)
+	return null
+
+
+func is_exist() -> bool:
+	return collector.get_child_count() > 0
+
+
 func is_all_checked() -> bool:
 	var a = []
 	get_all_checked(a)
