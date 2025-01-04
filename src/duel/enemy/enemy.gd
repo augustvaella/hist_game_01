@@ -10,3 +10,6 @@ func _on_check():
 
 func _on_uncheck():
 	info.display_name.text = "%s" % info.display_name.text
+
+func _is_checkable():
+	return true

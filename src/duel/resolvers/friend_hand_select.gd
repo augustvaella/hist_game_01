@@ -16,7 +16,7 @@ func on_input(state: StageState, event: InputEvent):
 
 func select_opponent(state: DuelState, card: DuelCard):
 	state.register[REGISTER_KEY_CARD] = card
-	match card.opponent_select:
+	match card.card.opponent_select:
 		Card.OpponentSelect.NONE:
 			state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend challenge"]))
 		Card.OpponentSelect.ENEMY_SINGLE:

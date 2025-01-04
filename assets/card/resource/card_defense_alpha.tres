@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CardDefensive" load_steps=4 format=3 uid="uid://ch54mxuqypyip"]
 
-[ext_resource type="Script" path="res://src/card/challenge.gd" id="1_3gx5i"]
 [ext_resource type="Texture2D" uid="uid://bqa23b01d5r68" path="res://assets/card/texture/card_alpha_defense.png" id="1_3m2bc"]
 [ext_resource type="Script" path="res://src/card/card_defensive.gd" id="1_5ccix"]
+[ext_resource type="Script" path="res://src/challenge/challenge.gd" id="1_dlw7a"]
 
 [resource]
 resource_name = "card defense alpha"
 script = ExtResource("1_5ccix")
 display_name = "DISPLAY_NAME_CARD_DEFENSE_ALPHA"
 texture = ExtResource("1_3m2bc")
-opponent_select = 0
+opponent_select = 3
 card_select = 0
-challenges = Array[ExtResource("1_3gx5i")]([])
+challenges = Array[ExtResource("1_dlw7a")]([])

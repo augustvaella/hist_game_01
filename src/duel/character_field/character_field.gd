@@ -1,7 +1,7 @@
 class_name CharacterField extends Node2D
 
 @export var characters: Array[DuelCharacter]
-
+@export var is_checkable: bool
 
 func get_max_character_count() -> int:
 	return characters.size()
@@ -58,3 +58,17 @@ func right_check():
 				characters.map(func(chara): chara.check() if chara == p else chara.uncheck())
 	else:
 		default_check()
+
+
+func enable_checkable():
+	is_checkable = true
+	check_initial()
+
+
+func disable_checkable():
+	is_checkable = false
+	characters.map(func(chara): chara.uncheck())
+
+
+func check_initial():
+	characters[0].check()

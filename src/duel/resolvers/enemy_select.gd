@@ -9,6 +9,11 @@ func resolve(state: StageState):
 
 func on_input(state: StageState, event: InputEvent):
 	if event.is_action_pressed("Left"):
-		pass
+		state.check_left_enemy()
 	elif event.is_action_pressed("Right"):
-		pass
+		state.check_right_enemy()
+	elif event.is_action_pressed("Accept"):
+		select_opponent(state, state.get_checked_hand())
+
+func select_opponent(state: DuelState, enemy: Enemy):
+	pass

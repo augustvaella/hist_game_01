@@ -55,8 +55,16 @@ func check_right_actor():
 	stage.friend.right_check()
 
 
+func check_left_enemy():
+	stage.foe.left_check()
+
+
+func check_right_enemy():
+	stage.foe.right_check()
+	
+
 func get_checked_hand() -> DuelCard:
-	return stage.hand.current_get_checked_hand()
+	return stage.hand.get_current_checked_hand()
 
 
 	# Duel Resolving

@@ -1,24 +1,23 @@
 class_name DuelCard extends Item
 
-var _card: Card
-
+@export var card: Card
 
 func set_card(card: Card):
-	_card = card
+	self.card = card
 	self.texture = card.texture
 	info.set_card(card)
 
 
 func get_card() -> Card:
-	return _card
+	return card
 
 
 func _on_check():
-	info.set_display_name("[%s]" % _card.display_name)
+	info.set_display_name("[%s]" % card.display_name)
 
 
 func _on_uncheck():
-	info.set_display_name("%s" % _card.display_name)
+	info.set_display_name("%s" % card.display_name)
 
 
 func _is_checkable() -> bool:
