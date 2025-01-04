@@ -1,7 +1,6 @@
-class_name CharacterField extends Node2D
+class_name CharacterField extends CheckableNodeCollector
 
 @export var characters: Array[DuelCharacter]
-@export var is_checkable: bool
 
 func get_max_character_count() -> int:
 	return characters.size()
@@ -32,43 +31,3 @@ func get_character(index: int) -> DuelCharacter:
 	if is_index_in_bound(index):
 		return characters[index]
 	return null
-
-
-func default_check():
-	characters[0].check()
-
-
-func left_check():
-	var a = characters.filter(func(chara): return chara.is_checked)
-	if a.size() > 0:
-		if a != characters[0]:
-			var p = a[0].get_pre_node()
-			if p:
-				characters.map(func(chara): chara.check() if chara == p else chara.uncheck())
-	else:
-		default_check()
-
-
-func right_check():
-	var a = characters.filter(func(chara): return chara.is_checked)
-	if a.size() > 0:
-		if a != characters[0]:
-			var p = a[0].get_post_node()
-			if p:
-				characters.map(func(chara): chara.check() if chara == p else chara.uncheck())
-	else:
-		default_check()
-
-
-func enable_checkable():
-	is_checkable = true
-	check_initial()
-
-
-func disable_checkable():
-	is_checkable = false
-	characters.map(func(chara): chara.uncheck())
-
-
-func check_initial():
-	characters[0].check()

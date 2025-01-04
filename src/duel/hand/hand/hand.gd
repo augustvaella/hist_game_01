@@ -1,6 +1,6 @@
 class_name DuelCardHand extends Control
 
-@export var container: Container
+@export var container: CheckableNodeCollector
 
 func get_current_checked() -> DuelCard:
 	return container.get_current_checked()
@@ -19,7 +19,7 @@ func set_state(state: DuelState):
 
 func add_card(state: DuelState, card: DuelCard):
 	state.add_card_to_hand(card.get_card())
-	container.add_child(card)
+	container.add_node(card)
 	if not container.is_exist_checked():
 		check_initial()
 
