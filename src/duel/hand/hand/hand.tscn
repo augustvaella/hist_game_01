@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://calrg52rn7822"]
+[gd_scene load_steps=3 format=3 uid="uid://calrg52rn7822"]
 
 [ext_resource type="Script" path="res://src/duel/hand/hand/hand.gd" id="1_4c67p"]
 [ext_resource type="Script" path="res://src/duel/hand/hand/container.gd" id="2_sfjob"]
-[ext_resource type="Script" path="res://src/item/checkable_node_collector.gd" id="3_ojtxu"]
 
-[node name="Hand" type="Control" node_paths=PackedStringArray("container")]
+[node name="Hand" type="Control" node_paths=PackedStringArray("collector")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4c67p")
-container = NodePath("CheckableNodeCollector")
+collector = NodePath("Container")
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0
@@ -17,7 +16,3 @@ offset_top = 538.0
 offset_right = 1492.0
 offset_bottom = 832.0
 script = ExtResource("2_sfjob")
-
-[node name="CheckableNodeCollector" type="Node" parent="." node_paths=PackedStringArray("collector")]
-script = ExtResource("3_ojtxu")
-collector = NodePath("../Container")

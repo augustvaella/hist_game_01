@@ -13,7 +13,8 @@ func on_input(state: StageState, event: InputEvent):
 	elif event.is_action_pressed("Right"):
 		state.check_right_actor()
 	elif event.is_action_pressed("Accept"):
-		select_opponent(state, state.get_checked_hand())
+		pass
+		#select_opponent(state, state.get_checked_hand())
 
 
 func select_opponent(state: DuelState, actor: Actor):

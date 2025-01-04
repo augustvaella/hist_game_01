@@ -3,7 +3,9 @@ class_name Duel extends Stage
 @export var field: DuelField
 @export var friend: DuelFriend
 @export var foe: DuelFoe
-@export var hand: DuelHand
+@export var hand: DuelCardHand
+@export var deck: DuelDeck
+@export var discard: DuelDiscard
 @export var info: DuelInfo
 
 @export var card_server: DuelCardServer

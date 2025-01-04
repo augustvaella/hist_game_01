@@ -1,21 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf5qcl0cv5edn"]
+[gd_scene load_steps=10 format=3 uid="uid://bf5qcl0cv5edn"]
 
 [ext_resource type="Script" path="res://src/duel/duel.gd" id="1_1quas"]
+[ext_resource type="PackedScene" uid="uid://cskf6xm53pora" path="res://src/duel/hand/deck/deck.tscn" id="7_5nd4o"]
 [ext_resource type="PackedScene" uid="uid://hjt1tc87m8fk" path="res://src/duel/field/field.tscn" id="8_8h64d"]
+[ext_resource type="PackedScene" uid="uid://bnb3lfawa24q" path="res://src/duel/hand/discard/discard.tscn" id="8_caxot"]
 [ext_resource type="PackedScene" uid="uid://b0uxfvkdq063n" path="res://src/duel/foe/foe.tscn" id="9_3q72p"]
+[ext_resource type="PackedScene" uid="uid://calrg52rn7822" path="res://src/duel/hand/hand/hand.tscn" id="9_moj6x"]
 [ext_resource type="PackedScene" uid="uid://dycs0buhlso02" path="res://src/duel/friend/friend.tscn" id="10_suqlp"]
-[ext_resource type="PackedScene" uid="uid://bjhc0sv622lgo" path="res://src/duel/hand/hand.tscn" id="11_ilwe1"]
 [ext_resource type="PackedScene" uid="uid://bvtu267ej8nq7" path="res://src/duel/info/info.tscn" id="12_yoepw"]
 [ext_resource type="Script" path="res://src/duel/card/server.gd" id="13_4xdye"]
 
-[node name="Duel" type="Node2D" node_paths=PackedStringArray("field", "friend", "foe", "hand", "info", "card_server")]
+[node name="Duel" type="Node2D" node_paths=PackedStringArray("field", "friend", "foe", "hand", "deck", "discard", "info", "card_server")]
 script = ExtResource("1_1quas")
 field = NodePath("Field")
 friend = NodePath("Friend")
 foe = NodePath("Foe")
 hand = NodePath("Hand")
+deck = NodePath("Deck")
+discard = NodePath("Discard")
 info = NodePath("Info")
 card_server = NodePath("DuelCardServer")
+
+[node name="DuelCardServer" type="Node" parent="."]
+script = ExtResource("13_4xdye")
 
 [node name="Field" parent="." instance=ExtResource("8_8h64d")]
 
@@ -23,9 +30,10 @@ card_server = NodePath("DuelCardServer")
 
 [node name="Friend" parent="." instance=ExtResource("10_suqlp")]
 
-[node name="Hand" parent="." instance=ExtResource("11_ilwe1")]
-
 [node name="Info" parent="." instance=ExtResource("12_yoepw")]
 
-[node name="DuelCardServer" type="Node" parent="."]
-script = ExtResource("13_4xdye")
+[node name="Deck" parent="." instance=ExtResource("7_5nd4o")]
+
+[node name="Discard" parent="." instance=ExtResource("8_caxot")]
+
+[node name="Hand" parent="." instance=ExtResource("9_moj6x")]

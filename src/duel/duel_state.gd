@@ -19,6 +19,14 @@ func set_hand():
 	await stage.hand.set_state(self)
 
 
+func set_deck():
+	await stage.deck.set_state(self)
+
+
+func set_discard():
+	await stage.discard.set_state(self)
+
+
 func set_friend():
 	await stage.friend.set_state(self)
 
@@ -28,43 +36,42 @@ func set_foe():
 
 
 func friend_hand_draw():
-	await stage.hand.draw(self)
-
+	var c = stage.deck.draw(self)
+	if c:
+		stage.hand.add_node(c)
+	await stage.get_tree().create_timer(0.1).timeout
+	
 
 func draw_card_from_deck() -> Card:
 	return deck.draw()
 
 
-func add_card_to_hand(card: Card):
-	hand.add_card(card)
-
-
 func check_left_hand():
-	stage.hand.check_left_hand()
+	stage.hand.check_left()
 
 
 func check_right_hand():
-	stage.hand.check_right_hand()
+	stage.hand.check_right()
 
 
 func check_left_actor():
-	stage.friend.left_check()
+	stage.friend.check_left()
 
 
 func check_right_actor():
-	stage.friend.right_check()
+	stage.friend.check_right()
 
 
 func check_left_enemy():
-	stage.foe.left_check()
+	stage.foe.check_left()
 
 
 func check_right_enemy():
-	stage.foe.right_check()
+	stage.foe.check_right()
 	
 
 func get_checked_hand() -> DuelCard:
-	return stage.hand.get_current_checked_hand()
+	return stage.hand.get_current_checked()
 
 
 	# Duel Resolving
