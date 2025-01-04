@@ -6,4 +6,6 @@ func resolve(state: StageState):
 	await state.set_discard()
 	await state.set_hand()
 
+	state.register[EvalResultDuelResolver.REGISTER_KEY_REST_TURNS] = 5
+
 	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["FoeSet"]))

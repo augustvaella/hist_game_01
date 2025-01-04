@@ -4,7 +4,12 @@ const REGISTER_KEY_CARD: String = "friend hand select"
 const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 
 func resolve(state: StageState):
-	state.register[REGISTER_KEY_CHALLENGER] = state.stage.friend.characters[0]
+	state.stage.hand.show_hand()
+	state.register[REGISTER_KEY_CHALLENGER] = state.stage.friend.current_character
+	if not state.stage.friend.next_current_character():
+		state.stage.hand.hide_hand()
+		next_resolver(state, "FoeTurn")
+
 
 func on_input(state: StageState, event: InputEvent):
 	if event.is_action_pressed("Left"):
@@ -33,3 +38,4 @@ func select_opponent(state: DuelState):
 		Card.OpponentSelect.FRIEND_ALL:
 			state.register[FriendSelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEvent.FriendAll.new()
 			state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend select"]))
+	state.stage.hand.hide_hand()

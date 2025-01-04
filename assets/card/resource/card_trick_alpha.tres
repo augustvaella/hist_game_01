@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="CardTrick" load_steps=4 format=3 uid="uid://bgnnkj1wvk4td"]
+[gd_resource type="Resource" script_class="CardTrick" load_steps=5 format=3 uid="uid://bgnnkj1wvk4td"]
 
 [ext_resource type="Texture2D" uid="uid://b2p0j4tg6f3br" path="res://assets/card/texture/card_alpha_trick.png" id="1_5qnh6"]
 [ext_resource type="Script" path="res://src/card/card_trick.gd" id="1_8iacp"]
-[ext_resource type="Script" path="res://src/challenge/challenge.gd" id="1_gc5pg"]
+[ext_resource type="Script" path="res://src/challenge/attack.gd" id="1_fv8c5"]
+
+[sub_resource type="Resource" id="Resource_iuqof"]
+script = ExtResource("1_fv8c5")
 
 [resource]
 resource_name = "card trick alpha"
@@ -11,4 +14,4 @@ display_name = "DISPLAY_NAME_CARD_TRICK_ALPHA"
 texture = ExtResource("1_5qnh6")
 opponent_select = 4
 card_select = 0
-challenges = Array[ExtResource("1_gc5pg")]([])
+challenge = SubResource("Resource_iuqof")

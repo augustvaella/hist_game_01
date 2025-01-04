@@ -1,13 +1,26 @@
 class_name CharacterField extends CheckableNodeCollector
 
 @export var characters: Array[DuelCharacter]
+@export var current_character: DuelCharacter
 
 func get_max_character_count() -> int:
 	return characters.size()
 
 
 func set_state(state: DuelState):
-	pass
+	reset_current_character()
+
+
+func reset_current_character():
+	current_character = characters[0]
+
+func next_current_character() -> bool:
+	var next_index = characters.find(current_character) + 1
+	if next_index > 0 and next_index < get_max_character_count():
+		current_character = characters[next_index]
+		return true
+	reset_current_character()
+	return false
 
 
 func set_characters(charas: Array):

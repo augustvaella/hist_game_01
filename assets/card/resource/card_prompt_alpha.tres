@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="CardPrompt" load_steps=6 format=3 uid="uid://y0jvi2c44b34"]
+[gd_resource type="Resource" script_class="CardPrompt" load_steps=5 format=3 uid="uid://y0jvi2c44b34"]
 
-[ext_resource type="Script" path="res://src/challenge/challenge.gd" id="1_2ddd3"]
 [ext_resource type="Texture2D" uid="uid://dmesy6wqaah8y" path="res://assets/card/texture/card_alpha_prompt.png" id="1_6xwch"]
 [ext_resource type="Script" path="res://src/card/card_prompt.gd" id="1_flgdq"]
 [ext_resource type="Script" path="res://src/challenge/attack.gd" id="2_dr70b"]
 
-[sub_resource type="Resource" id="Resource_x1rbu"]
+[sub_resource type="Resource" id="Resource_u7g32"]
 script = ExtResource("2_dr70b")
 
 [resource]
@@ -15,4 +14,4 @@ display_name = "DISPLAY_NAME_CARD_PROMPT_ALPHA"
 texture = ExtResource("1_6xwch")
 opponent_select = 1
 card_select = 0
-challenges = Array[ExtResource("1_2ddd3")]([SubResource("Resource_x1rbu")])
+challenge = SubResource("Resource_u7g32")

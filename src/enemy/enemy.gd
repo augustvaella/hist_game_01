@@ -1,6 +1,7 @@
 class_name Enemy extends Character
 
 @export var vital: Vital
+@export var challenge_options: ChallengeOptions
 
 func damage_normal(state: StageState, challenger: Character):
 	if challenger is Actor:
