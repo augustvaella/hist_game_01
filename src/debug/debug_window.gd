@@ -1,4 +1,7 @@
 class_name DebugWindow extends Window
+## self-made debugging tool
+##
+
 
 @export var label: RichTextLabel
 @export var line_edit: LineEdit

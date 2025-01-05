@@ -49,6 +49,9 @@ func has_resource_id(resource_id: int) -> bool:
 
 
 func _on_load_resource(resource: Resource):
+	if resource is SetupResource:
+		resource.setup()
+
 	if resource is ResourceSet:
 		var res: Array[Resource] = []
 		resource.get_all_resources(res)

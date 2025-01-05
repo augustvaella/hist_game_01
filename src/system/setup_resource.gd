@@ -1,6 +1,7 @@
 class_name SetupResource extends Resource
 ## SetupResource is used when once setup is needed.
 
+## setup() guard
 var _is_setup: bool
 
 func setup():
