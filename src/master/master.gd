@@ -29,3 +29,5 @@ func get_startup() -> Startup:
 
 func set_startup(startup: Startup):
 	_startup = startup
+	if is_debug:
+		debug_window.set_startup(startup)
