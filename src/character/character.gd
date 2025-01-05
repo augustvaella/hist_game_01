@@ -14,8 +14,7 @@ var _changed_callables: Array[Callable]
 
 
 func _setup():
-	_changed_callables = []
-	changed.connect(call_changed)
+	changed.connect(func(): listened_object.emit(Changed.new()))
 
 
 func call_changed():
@@ -23,12 +22,12 @@ func call_changed():
 
 
 func set_listen_object(callable: Callable):
-	_changed_callables.append(callable)
+	#_changed_callables.append(callable)
 	listened_object.connect(callable)
 
 
 func cancel_listen_object(callable: Callable):
-	_changed_callables.erase(callable)
+	#_changed_callables.erase(callable)
 	listened_object.disconnect(callable)
 
 
