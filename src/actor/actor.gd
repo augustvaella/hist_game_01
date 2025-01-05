@@ -5,6 +5,7 @@ class_name Actor extends Character
 @export var supply: Supply
 
 func _setup():
+	super._setup()
 	morale.changed.connect(func(): changed.emit())
 	army.changed.connect(func(): changed.emit())
 	supply.changed.connect(func(): changed.emit())

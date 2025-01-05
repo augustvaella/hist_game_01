@@ -6,3 +6,6 @@ func get_next_stage_state() -> StageState:
 
 func eval_result() -> bool:
 	return true if turn.is_reached() else false
+
+func _setup():
+	super._setup()

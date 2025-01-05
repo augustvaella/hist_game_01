@@ -16,8 +16,8 @@ class_name DuelState extends StageState
 func get_stage_name() -> String:
 	return "duel"
 
-func _setup_state():
-	turn.setup()
+func _setup():
+	turn.changed.connect(func(): if turn.is_reached(): turn.reached_max.emit())
 
 # to be overriden
 # return true is GOTO Result

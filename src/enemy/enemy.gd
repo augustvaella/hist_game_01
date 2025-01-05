@@ -4,6 +4,7 @@ class_name Enemy extends Character
 @export var challenge_options: ChallengeOptions
 
 func _setup():
+	super._setup()
 	vital.changed.connect(func(): changed.emit())
 
 func damage_normal(state: StageState, challenger: Character):

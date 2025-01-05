@@ -11,6 +11,3 @@ func reset():
 
 func is_reached() -> bool:
 	return value == max_value
-
-func setup():
-	changed.connect(func(): if is_reached(): reached_max.emit())

@@ -1,4 +1,4 @@
-class_name StageState extends Resource
+class_name StageState extends SetupResource
 
 # resolver
 @export var initial_resolver: DuelResolver
@@ -9,17 +9,6 @@ class_name StageState extends Resource
 @export var event_queue: Array[Event]
 
 var stage: Stage
-
-var _is_setup: bool
-
-# to be overriden
-func _setup_state():
-	pass
-
-func setup():
-	if not _is_setup:
-		_is_setup = true
-		_setup_state()
 
 
 func set_stage(stage: Stage):
