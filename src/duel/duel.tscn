@@ -27,13 +27,27 @@ script = ExtResource("13_4xdye")
 [node name="Field" parent="." instance=ExtResource("8_8h64d")]
 
 [node name="Foe" parent="." instance=ExtResource("9_3q72p")]
+position = Vector2(754, 54)
 
 [node name="Friend" parent="." instance=ExtResource("10_suqlp")]
+position = Vector2(764, 692)
 
 [node name="Info" parent="." instance=ExtResource("12_yoepw")]
 
 [node name="Deck" parent="." instance=ExtResource("7_5nd4o")]
+offset_left = 34.0
+offset_top = 838.0
+offset_right = 34.0
+offset_bottom = 838.0
 
 [node name="Discard" parent="." instance=ExtResource("8_caxot")]
+offset_left = 1490.0
+offset_top = 846.0
+offset_right = 1490.0
+offset_bottom = 846.0
 
 [node name="Hand" parent="." instance=ExtResource("9_moj6x")]
+offset_left = 380.0
+offset_top = 822.0
+offset_right = 380.0
+offset_bottom = 822.0

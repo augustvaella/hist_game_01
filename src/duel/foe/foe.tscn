@@ -8,19 +8,19 @@ script = ExtResource("1_g4rfk")
 characters = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(880, 311)
+position = Vector2(148, 217)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(642, 280)
+position = Vector2(-144, 216)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(1140, 207)
+position = Vector2(357, 143)
 
 [node name="Enemy4" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(406, 210)
+position = Vector2(-307, 144)
 
 [node name="Enemy5" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(1328, 96)
+position = Vector2(490, 61)
 
 [node name="Enemy6" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(206, 104)
+position = Vector2(-499, 47)

@@ -9,16 +9,16 @@ characters = [NodePath("Actor0"), NodePath("Actor1"), NodePath("Actor2"), NodePa
 current_character = NodePath("Actor0")
 
 [node name="Actor0" parent="." instance=ExtResource("2_78qwj")]
-position = Vector2(789, 665)
+position = Vector2(-3, -43)
 
 [node name="Actor1" parent="." instance=ExtResource("2_78qwj")]
-position = Vector2(1090, 678)
+position = Vector2(254, -30)
 
 [node name="Actor2" parent="." instance=ExtResource("2_78qwj")]
-position = Vector2(522, 682)
+position = Vector2(-246, -4)
 
 [node name="Actor3" parent="." instance=ExtResource("2_78qwj")]
-position = Vector2(1318, 680)
+position = Vector2(466, 14)
 
 [node name="Actor4" parent="." instance=ExtResource("2_78qwj")]
-position = Vector2(174, 708)
+position = Vector2(-480, 4)

@@ -11,8 +11,6 @@ collector = NodePath("Container")
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0
-offset_left = 85.0
-offset_top = 538.0
-offset_right = 1492.0
-offset_bottom = 832.0
+offset_right = 1407.0
+offset_bottom = 294.0
 script = ExtResource("2_sfjob")

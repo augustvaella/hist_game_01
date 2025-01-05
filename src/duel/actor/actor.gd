@@ -6,10 +6,12 @@ func set_character(character: Character):
 
 
 func _on_check():
-	info.display_name.text = "[%s]" % character.display_name
+	self.modulate = Color(1.0, 0.5, 0.5, 1.0)
+	#info.display_name.text = "[%s]" % character.display_name
 
 func _on_uncheck():
-	info.display_name.text = "%s" % character.display_name
+	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	#info.display_name.text = "%s" % character.display_name
 
 func _is_checkable():
 	return true

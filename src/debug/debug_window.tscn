@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2nq5lx272vag"]
+
+[ext_resource type="Script" path="res://src/debug/debug_window.gd" id="1_kd1wt"]
+
+[node name="DebugWindow" type="Window" node_paths=PackedStringArray("label_upper", "label_lower", "line_edit")]
+title = "Debug Window"
+position = Vector2i(50, 36)
+size = Vector2i(800, 600)
+script = ExtResource("1_kd1wt")
+label_upper = NodePath("Control/VBoxContainer/RichTextLabel2")
+label_lower = NodePath("Control/VBoxContainer/RichTextLabel")
+line_edit = NodePath("Control/VBoxContainer/LineEdit")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(800, 280)
+layout_mode = 2
+text = "AAAA"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(800, 280)
+layout_mode = 2
+text = "BBB"
+scroll_following = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(800, 35)
+layout_mode = 2
+text = "CCC"

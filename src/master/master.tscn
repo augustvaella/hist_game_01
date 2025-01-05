@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnd77jwxxh2ru"]
+[gd_scene load_steps=8 format=3 uid="uid://dnd77jwxxh2ru"]
 
 [ext_resource type="Script" path="res://src/master/master.gd" id="1_pcqh7"]
 [ext_resource type="Script" path="res://src/server/resource_server.gd" id="2_0o5l7"]
+[ext_resource type="PackedScene" uid="uid://d2nq5lx272vag" path="res://src/debug/debug_window.tscn" id="2_3jd1t"]
 [ext_resource type="Script" path="res://src/server/resource_server_loader.gd" id="3_s0lqi"]
 [ext_resource type="Script" path="res://src/server/resource_server_saver.gd" id="4_veqxw"]
 [ext_resource type="Script" path="res://src/server/master_instance_server.gd" id="5_0ho6o"]
@@ -14,6 +15,8 @@ master_resource_server = NodePath("MasterResourceServer")
 user_resource_server = NodePath("UserResourceServer")
 master_instance_server = NodePath("MasterInstanceServer")
 stage_server = NodePath("StageServer")
+is_debug = true
+packed_scene_debug_window = ExtResource("2_3jd1t")
 
 [node name="MasterResourceServer" type="Node" parent="." node_paths=PackedStringArray("loader", "saver")]
 script = ExtResource("2_0o5l7")

@@ -7,10 +7,20 @@ extends Node
 @export var master_instance_server: InstanceServer
 @export var stage_server: InstanceServer
 
+@export var is_debug: bool
+@export var packed_scene_debug_window: PackedScene
+var debug_window: DebugWindow
+
 var _startup: Startup
 
 func _ready():
 	Log.change_level(log_level)
+	
+	if is_debug:
+		get_viewport().set_embedding_subwindows(false)
+		debug_window = packed_scene_debug_window.instantiate()
+		add_child(debug_window)
+		get_viewport().set_embedding_subwindows(true)
 
 
 func get_startup() -> Startup:

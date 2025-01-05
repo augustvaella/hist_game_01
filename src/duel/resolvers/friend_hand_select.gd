@@ -25,7 +25,6 @@ func on_input(state: StageState, event: InputEvent):
 func select_opponent(state: DuelState):
 	var c = state.get_checked_hand() # DuelCard
 	state.register[REGISTER_KEY_CARD] = c
-	state.stage.discard.discard(state, c)
 
 	match c.card.opponent_select:
 		Card.OpponentSelect.NONE:

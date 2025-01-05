@@ -18,10 +18,12 @@ func get_card() -> Card:
 
 
 func _on_check():
-	info.set_display_name("[%s]" % card.display_name)
+	self.modulate = Color(1.0, 0.5, 0.5, 1.0)
+	#info.set_display_name("[%s]" % card.display_name)
 
 
 func _on_uncheck():
+	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	info.set_display_name("%s" % card.display_name)
 
 
