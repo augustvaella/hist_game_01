@@ -16,6 +16,11 @@ func _on_uncheck():
 func _is_checkable():
 	return true
 
+func _mark_character():
+	body.modulate = Color(0.5, 1.0, 0.5, 1.0)
+
+func _unmark_character():
+	body.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func get_pre_node() -> Node:
 	match get_index():

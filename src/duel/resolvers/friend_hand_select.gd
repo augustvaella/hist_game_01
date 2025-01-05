@@ -5,12 +5,19 @@ const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 
 func resolve(state: StageState):
 	state.stage.hand.show_hand()
+
 	if not state.stage.hand.is_exist_checked():
 		state.stage.hand.check_initial()
-	state.register[REGISTER_KEY_CHALLENGER] = state.stage.friend.current_character
-	if not state.stage.friend.next_current_character():
+
+	var current_chara = state.stage.friend.next_current_character()
+
+	if current_chara is DuelCharacter.Empty:
 		state.stage.hand.hide_hand()
+		state.stage.friend.unmark_all_characters()
 		next_resolver(state, "FoeTurn")
+		return
+
+	state.register[REGISTER_KEY_CHALLENGER] = current_chara
 
 
 func on_input(state: StageState, event: InputEvent):

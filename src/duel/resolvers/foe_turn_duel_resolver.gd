@@ -6,10 +6,14 @@ func resolve(state: StageState):
 	#state.register[REGISTER_KEY_CHALLENGER] = ch
 
 	while true:
-		var ch = state.stage.foe.current_character
+		var ch = state.stage.foe.next_current_character()
+
+		if ch is DuelCharacter.Empty:
+			state.stage.foe.unmark_all_characters()
+			break
+
 		var op = state.stage.friend.characters.pick_random().character
 		state.stage.foe.current_character.character.challenge_options.challenge(state, ch.character, op)
 		await state.stage.get_tree().create_timer(0.5).timeout
-		if not state.stage.foe.next_current_character():
-			break
+
 	next_resolver(state, "EvalResult")
