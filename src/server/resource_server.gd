@@ -1,4 +1,5 @@
 class_name ResourceServer extends Node
+## ResourceServer does Resource's load and save.
 
 signal requested_load_resource(resource_path: String, error: Error)
 signal loading_resource(resource_path: String, progress: Array)

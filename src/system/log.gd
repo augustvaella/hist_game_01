@@ -1,16 +1,14 @@
-# Log
 extends Node
+## Log
 
-signal logged_error(text:String)
-signal logged_warn(text:String)
-signal logged_info(text:String)
-signal logged_debug(text:String)
-signal logged_trace(text:String)
+signal logged_error(text: String)
+signal logged_warn(text: String)
+signal logged_info(text: String)
+signal logged_debug(text: String)
+signal logged_trace(text: String)
 
 var _level: LogLevel
 var _handlers: Array[Callable]
-
-
 
 func _ready():
 	_handlers = [
@@ -22,7 +20,6 @@ func _ready():
 	]
 	
 	change_level(LogLevel.INFO)
-
 
 
 func change_level(level: LogLevel):
@@ -60,35 +57,28 @@ func change_level(level: LogLevel):
 			_handlers[4] = _log_trace
 
 
-
-func _dummy(_text:String):
+func _dummy(_text: String):
 	pass
 
 
-
-func log_error(text:String):
+func log_error(text: String):
 	_handlers[0].call(text)
 
 
-
-func log_warn(text:String):
+func log_warn(text: String):
 	_handlers[1].call(text)
 
 
-
-func log_info(text:String):
+func log_info(text: String):
 	_handlers[2].call(text)
 
 
-
-func log_debug(text:String):
+func log_debug(text: String):
 	_handlers[3].call(text)
 
 
-
-func log_trace(text:String):
+func log_trace(text: String):
 	_handlers[4].call(text)
-
 
 
 func _log_error(text: String):
@@ -96,11 +86,9 @@ func _log_error(text: String):
 	logged_error.emit(text)
 
 
-
 func _log_warn(text: String):
 	print_rich("[color=yellow]%s" % text)
 	logged_warn.emit(text)
-
 
 
 func _log_info(text: String):
@@ -108,11 +96,9 @@ func _log_info(text: String):
 	logged_info.emit(text)
 
 
-
 func _log_debug(text: String):
 	print_rich("[color=cyan]%s" % text)
 	logged_debug.emit(text)
-
 
 
 func _log_trace(text: String):
@@ -120,10 +106,10 @@ func _log_trace(text: String):
 	logged_trace.emit(text)
 
 
-enum LogLevel{
+enum LogLevel {
 	ERROR,
 	WARN,
 	INFO,
 	DEBUG,
 	TRACE,
-} 
+}

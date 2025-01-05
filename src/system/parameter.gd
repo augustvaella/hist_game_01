@@ -1,7 +1,5 @@
 class_name Parameter extends Resource
 
-signal changed_value(value: int, min: int, max: int)
-
 @export var _value: int
 @export var _min_value: int
 @export var _max_value: int
@@ -17,7 +15,6 @@ var value: int:
 		else:
 			_value = v
 		emit_changed()
-		changed_value.emit(_value, _min_value, _max_value)
 
 var max_value: int:
 	get:
@@ -26,7 +23,6 @@ var max_value: int:
 		_max_value = v
 		_value = _value if _value < _max_value else _max_value
 		emit_changed()
-		changed_value.emit(_value, _min_value, _max_value)
 
 var min_value: int:
 	get:
@@ -35,7 +31,6 @@ var min_value: int:
 		_min_value = v
 		_value = _value if _value > _min_value else _min_value
 		emit_changed()
-		changed_value.emit(_value, _min_value, _max_value)
 
 func get_value() -> int:
 	return value

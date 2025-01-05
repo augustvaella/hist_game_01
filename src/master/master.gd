@@ -1,12 +1,12 @@
-# Master
 extends Node
+## Singleton Master governs the game.
 
 @export var log_level: Log.LogLevel
 @export var master_resource_server: ResourceServer
 @export var user_resource_server: ResourceServer
 @export var master_instance_server: InstanceServer
 @export var stage_server: InstanceServer
-@export var effect_servers: Dictionary #<String, EffectServer>
+@export var effect_servers: Dictionary # <String, EffectServer>
 
 @export var is_debug: bool
 @export var packed_scene_debug_window: PackedScene

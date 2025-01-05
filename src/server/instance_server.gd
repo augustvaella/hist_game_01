@@ -1,4 +1,5 @@
 class_name InstanceServer extends Node
+## the Server instantiates PackedScenes and stores those scenes(Node) named the PackedScene's path(Resource.resource_path)
 
 var _scenes: Dictionary # Dictionary<String, Node>
 

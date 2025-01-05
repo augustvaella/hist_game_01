@@ -1,4 +1,5 @@
 class_name SetupResource extends Resource
+## SetupResource is used when once setup is needed.
 
 var _is_setup: bool
 

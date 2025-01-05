@@ -1,4 +1,6 @@
 class_name ResourceSet extends Resource
+## Resource collector to be loaded comfortably
+## ResourceSet is not stored on ResourceServer.
 
 @export var childs: Array[Resource]
 
@@ -23,8 +25,8 @@ func set_resource(resource: Resource):
 	emit_changed()
 
 
-func remove_resource(resource_name: String):
-	var arr = childs.filter(func(resource): resource.resource_name == resource_name)
+func remove_resource(resource_string: String):
+	var arr = childs.filter(func(resource): resource.resource_name == resource_string)
 	for r in arr:
 		childs.erase(r)
 		emit_changed()

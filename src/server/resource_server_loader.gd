@@ -30,6 +30,7 @@ func _ready():
 		count_per_process = DEFAULT_COUNT_PER_PROCESS
 
 
+## load Resource synchronously
 func load_resource(resource_path: String):
 	var res = load(resource_path)
 		
@@ -127,6 +128,7 @@ func _free_resource(resource: Resource):
 		% [id, nm, path])
 
 
+## load Resource asynchronously
 func request_load_resource(resource_path: String):
 	var error = ResourceLoader.load_threaded_request(resource_path)
 	if error == Error.OK:

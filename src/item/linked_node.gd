@@ -1,5 +1,5 @@
 class_name LinkedNode extends CheckableNode
-
+## Linked Node knows the pre- and post-positioned sibling Node.
 
 func get_pre_node() -> Node:
 	var index = get_index()

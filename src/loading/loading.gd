@@ -1,4 +1,6 @@
 extends Node2D
+## Singleton Loading to view Now Loading announcement
+
 
 @export var label_progress: Label
 

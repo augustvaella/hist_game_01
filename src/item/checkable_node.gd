@@ -1,4 +1,5 @@
 class_name CheckableNode extends Node
+## CheckableNode is able to be checked to pointing the Node like UI options.
 
 @export var is_checked: bool
 

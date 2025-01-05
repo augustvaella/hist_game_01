@@ -1,4 +1,5 @@
 class_name ObjectPool extends Node
+## Object Recycling
 
 var _pool: Array[Object]
 

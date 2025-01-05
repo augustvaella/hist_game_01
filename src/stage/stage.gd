@@ -1,4 +1,5 @@
 class_name Stage extends Node2D
+## Stage is a state in the game on Startup.
 
 signal proceeded(stage: Stage, state: StageState)
 signal finished(stage: Stage, state: StageState)
@@ -12,8 +13,8 @@ func _ready():
 
 func proceed(state: StageState):
 	_state = state
-	_state.set_stage(self)
 	_state.setup()
+	_state.set_stage(self)
 	listened_event.connect(transfer_event_to_state)
 	await _proceed()
 	proceeded.emit(self, state)
