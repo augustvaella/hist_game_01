@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnd77jwxxh2ru"]
+[gd_scene load_steps=9 format=3 uid="uid://dnd77jwxxh2ru"]
 
 [ext_resource type="Script" path="res://src/master/master.gd" id="1_pcqh7"]
 [ext_resource type="Script" path="res://src/server/resource_server.gd" id="2_0o5l7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/server/resource_server_saver.gd" id="4_veqxw"]
 [ext_resource type="Script" path="res://src/server/master_instance_server.gd" id="5_0ho6o"]
 [ext_resource type="Script" path="res://src/stage/stage_server.gd" id="5_6rmbp"]
+[ext_resource type="Script" path="res://src/effect/server.gd" id="8_wdk7t"]
 
 [node name="Master" type="Node" node_paths=PackedStringArray("master_resource_server", "user_resource_server", "master_instance_server", "stage_server")]
 script = ExtResource("1_pcqh7")
@@ -48,3 +49,9 @@ master_resource_server = NodePath("../MasterResourceServer")
 script = ExtResource("5_6rmbp")
 master_instance_server = NodePath("../MasterInstanceServer")
 master_resource_server = NodePath("../MasterResourceServer")
+
+[node name="EffectServers" type="Node" parent="."]
+
+[node name="number" type="Node" parent="EffectServers"]
+script = ExtResource("8_wdk7t")
+instance_path = "res://src/effect/number/number.tscn"

@@ -5,7 +5,7 @@ func set_character(character: Character):
 
 func _listen_object(object: Object):
 	if object is EffectNumber.Pop:
-		do_effect(EffectNumberServer.get_effect(), object)
+		Master.effect_servers["number"].get_effect(self, object).do_effect()
 
 func _on_check():
 	self.modulate = Color(1.0, 0.5, 0.5, 1.0)
