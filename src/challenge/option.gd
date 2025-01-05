@@ -1,4 +1,5 @@
 class_name ChallengeOptions extends Resource
+## Challenge selector automatically loaded on Enemy ...
 
 @export var options: Array[Challenge]
 
