@@ -1,5 +1,5 @@
 class_name Item extends LinkedNode
-## Item is a simple Node to be able to set without StageState
+## Item is a simple Node
 
 @export var element: Element
 @export var info: ItemInfo
