@@ -1,4 +1,5 @@
 class_name DuelCharacter extends LinkedNode
+## DuelCharacter is an envelope of Character to be dealed as UI(Node2D) on script.
 
 signal changed_character(character: Character)
 

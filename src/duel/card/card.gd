@@ -1,4 +1,5 @@
 class_name DuelCard extends Item
+## DuelCard is an envelope of Card to be dealed as UI(Control) on script.
 
 @export var card: Card
 

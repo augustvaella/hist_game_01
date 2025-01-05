@@ -1,12 +1,19 @@
 class_name CheckableNodeCollector extends Node
+## CheckableNodeCollector deals CheckableNode to govern checking.
+
 
 @export var is_checkable: bool
+
+## the pointer to the Node contains CheckableNode
+## if null to pointing self
 @export var collector: Node
+
 @export var mode: Mode
 
+## Checking rule mode
 enum Mode {
-	SINGLE,
-	ALL,
+	SINGLE, ## one Node be checked and able to change checking
+	ALL, ## all Node be checked and disable to change checking
 }
 
 func mode_single():

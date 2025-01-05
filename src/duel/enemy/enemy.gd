@@ -1,4 +1,5 @@
 class_name DuelEnemy extends DuelCharacter
+## DuelEnemy is an envelope of Enemy to be dealed as UI(Node2D) on script.
 
 func set_character(character: Character):
 	super.set_character(character)
