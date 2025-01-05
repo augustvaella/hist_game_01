@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://src/debug/debug_window.gd" id="1_kd1wt"]
 
-[node name="DebugWindow" type="Window" node_paths=PackedStringArray("label_upper", "label_lower", "line_edit")]
+[node name="DebugWindow" type="Window" node_paths=PackedStringArray("label", "line_edit")]
 title = "Debug Window"
 position = Vector2i(50, 36)
 size = Vector2i(800, 600)
 script = ExtResource("1_kd1wt")
-label_upper = NodePath("Control/VBoxContainer/RichTextLabel2")
-label_lower = NodePath("Control/VBoxContainer/RichTextLabel")
+label = NodePath("Control/VBoxContainer/RichTextLabel")
 line_edit = NodePath("Control/VBoxContainer/LineEdit")
 
 [node name="Control" type="Control" parent="."]
@@ -20,14 +19,12 @@ layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(800, 280)
-layout_mode = 2
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(800, 280)
+custom_minimum_size = Vector2(800, 560)
 layout_mode = 2
+focus_mode = 2
 scroll_following = true
+selection_enabled = true
 
 [node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(800, 35)

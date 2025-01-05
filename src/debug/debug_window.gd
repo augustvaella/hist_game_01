@@ -1,7 +1,6 @@
 class_name DebugWindow extends Window
 
-@export var label_upper: RichTextLabel
-@export var label_lower: RichTextLabel
+@export var label: RichTextLabel
 @export var line_edit: LineEdit
 
 var _splitter: RegEx
@@ -10,11 +9,11 @@ var _handlers: Dictionary
 var _startup: Startup
 
 func _ready():
-	Log.logged_error.connect(func(text:String): show_label_lower(text))
-	Log.logged_warn.connect(func(text:String): show_label_lower(text))
-	Log.logged_info.connect(func(text:String): show_label_lower(text))
-	Log.logged_debug.connect(func(text:String): show_label_lower(text))
-	Log.logged_trace.connect(func(text:String): show_label_lower(text))
+	Log.logged_error.connect(func(text: String): show_label(text))
+	Log.logged_warn.connect(func(text: String): show_label(text))
+	Log.logged_info.connect(func(text: String): show_label(text))
+	Log.logged_debug.connect(func(text: String): show_label(text))
+	Log.logged_trace.connect(func(text: String): show_label(text))
 
 	_splitter = RegEx.new()
 	_splitter.compile("(\"[^\"]*\")|[^\\s+]+")
@@ -25,11 +24,9 @@ func _ready():
 func set_startup(startup: Startup):
 	_startup = startup
 
-func show_label_upper(text: String):
-	label_upper.text = text
 
-func show_label_lower(text: String):
-	label_lower.text = "%s\n%s" % [label_lower.text, text]
+func show_label(text: String):
+	label.text = "%s\n%s" % [label.text, text]
 
 func clear_line_edit():
 	line_edit.text = String()
@@ -38,7 +35,7 @@ func input_line_edit():
 	var elm = []
 	parse_line(line_edit.text, elm)
 	#for e in elm:
-	#	show_label_lower(e)
+	#	show_label(e)
 	if elm.size() > 0 and _handlers.has(elm[0]):
 		_handlers[elm[0]].call(elm.slice(1, elm.size()))
 	clear_line_edit()
@@ -46,7 +43,10 @@ func input_line_edit():
 
 func set_handlers():
 	_handlers = {
-		"echo": func(args: PackedStringArray): show_label_lower(args[0]),
+		"echo": func(args: PackedStringArray): show_label(args[0]),
+		"deck": func(args: PackedStringArray): show_duel_deck(),
+		"hand": func(args: PackedStringArray): show_duel_hand(),
+		"discard": func(args: PackedStringArray): show_duel_discard(),
 	}
 
 func _input(event: InputEvent):
@@ -69,3 +69,23 @@ func _process(delta: float):
 func show_stage_state(state: StageState):
 	#show_label_upper(var_to_str(state.get_property_list()))
 	pass
+
+func get_stage_state() -> StageState:
+	if not _startup or _startup.get_child_count() == 0:
+		return null
+	return _startup.get_current_stage()._state
+	
+func show_duel_deck():
+	var s = get_stage_state()
+	if s and s is DuelState:
+		show_label(var_to_str(s.deck.cards))
+
+func show_duel_hand():
+	var s = get_stage_state()
+	if s and s is DuelState:
+		show_label(var_to_str(s.hand.cards))
+
+func show_duel_discard():
+	var s = get_stage_state()
+	if s and s is DuelState:
+		show_label(var_to_str(s.discard.cards))

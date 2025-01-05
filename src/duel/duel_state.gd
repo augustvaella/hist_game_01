@@ -35,16 +35,6 @@ func set_foe():
 	await stage.foe.set_state(self)
 
 
-func friend_hand_draw():
-	var rc = deck.draw()
-	if rc:
-		var c = stage.card_server.get_card(rc)
-		stage.hand.add_node(c)
-	else:
-		pass
-	await stage.get_tree().create_timer(0.1).timeout
-	
-
 func check_left_hand():
 	stage.hand.check_left()
 
