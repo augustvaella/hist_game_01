@@ -2,7 +2,19 @@ class_name CheckableNodeCollector extends Node
 
 @export var is_checkable: bool
 @export var collector: Node
+@export var mode: Mode
 
+enum Mode {
+	SINGLE,
+	ALL,
+}
+
+func mode_single():
+	mode = Mode.SINGLE
+
+func mode_all():
+	mode = Mode.ALL
+	
 func _ready():
 	if not collector:
 		collector = self
@@ -64,11 +76,15 @@ func is_exist_checked() -> bool:
 
 
 func check_initial():
+	if mode == Mode.ALL:
+		return
 	if is_exist() and not is_exist_checked():
 		collector.get_child(0).check()
 
 		
 func check_left():
+	if mode == Mode.ALL:
+		return
 	var a = []
 	get_all_checked(a)
 	if a.size() == 0:
@@ -81,6 +97,8 @@ func check_left():
 
 
 func check_right():
+	if mode == Mode.ALL:
+		return
 	var a = []
 	get_all_checked(a)
 	if a.size() == 0:
@@ -93,6 +111,8 @@ func check_right():
 
 
 func check_single(index: int):
+	if mode == Mode.ALL:
+		return
 	if is_index_in_bound(index):
 		var chk = collector.get_child(index)
 		if chk:
@@ -102,6 +122,8 @@ func check_single(index: int):
 
 
 func check_at(index: int):
+	if mode == Mode.ALL:
+		return
 	if is_index_in_bound(index):
 		var chk = collector.get_child(index)
 		collector.get_children().map(func(c): c.check() if c == chk else c.uncheck())
@@ -110,6 +132,8 @@ func check_at(index: int):
 
 
 func uncheck_single(index: int):
+	if mode == Mode.ALL:
+		return
 	if is_index_in_bound(index):
 		var chk = collector.get_child(index)
 		collector.get_children().map(func(c): c.uncheck() if c == chk else c.check())
@@ -118,6 +142,8 @@ func uncheck_single(index: int):
 
 
 func uncheck_at(index: int):
+	if mode == Mode.ALL:
+		return
 	if is_index_in_bound(index):
 		var chk = collector.get_child(index)
 		if chk:
@@ -127,6 +153,8 @@ func uncheck_at(index: int):
 
 
 func check_all():
+	if mode == Mode.SINGLE:
+		return
 	collector.get_children().map(func(item): item.check())
 
 

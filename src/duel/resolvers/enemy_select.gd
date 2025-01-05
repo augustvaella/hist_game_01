@@ -3,7 +3,11 @@ class_name EnemySelectDuelResolver extends DuelResolver
 const REGISTER_KEY_TYPE: String = "enemy select" # DuelOpponentSelectEvent
 
 func resolve(state: StageState):
-	state.stage.foe.check_initial()
+	match state.stage.foe.mode:
+		CheckableNodeCollector.Mode.SINGLE:
+			state.stage.foe.check_initial()
+		CheckableNodeCollector.Mode.ALL:
+			state.stage.foe.check_all()
 
 
 func on_input(state: StageState, event: InputEvent):

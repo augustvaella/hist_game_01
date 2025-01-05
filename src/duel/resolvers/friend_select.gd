@@ -3,7 +3,11 @@ class_name FriendSelectDuelResolver extends DuelResolver
 const REGISTER_KEY_TYPE: String = "friend select" # DuelOpponentSelectEvent
 
 func resolve(state: StageState):
-	state.stage.friend.check_initial()
+	match state.stage.friend.mode:
+		CheckableNodeCollector.Mode.SINGLE:
+			state.stage.friend.check_initial()
+		CheckableNodeCollector.Mode.ALL:
+			state.stage.friend.check_all()
 
 
 func on_input(state: StageState, event: InputEvent):
