@@ -3,8 +3,8 @@ class_name EffectNumber extends Effect
 func _ready():
 	self.text = String()
 
-func pop_number(number: int):
-	self.text = "%d" % number
+func pop_number(object: Pop):
+	self.text = "%d" % object.get_number()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(0, 0), 0)
 	tween.tween_property(self, "position", Vector2(100, 100), 0.3)
@@ -14,7 +14,7 @@ func pop_number(number: int):
 
 func do_effect(object: Object):
 	if object is Pop:
-		pop_number(object.get_number())
+		pop_number(object)
 
 class Pop extends RefCounted:
 	var _number: int

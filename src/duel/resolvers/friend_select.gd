@@ -13,6 +13,8 @@ func on_input(state: StageState, event: InputEvent):
 		state.check_right_actor()
 	elif event.is_action_pressed("Accept"):
 		select_opponent(state)
+	elif event.is_action_pressed("Ban"):
+		cancel_select(state)
 
 
 func select_opponent(state: DuelState):
@@ -20,3 +22,7 @@ func select_opponent(state: DuelState):
 	await state.stage.get_tree().create_timer(0.5)
 	state.register[ChallengeDuelResolver.REGISTER_KEY_IS_FRIEND_TURN] = true
 	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["challenge"]))
+
+func cancel_select(state: DuelState):
+	state.cancel_select_all()
+	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend hand select"]))

@@ -9,6 +9,7 @@ func set_state(state: DuelState):
 
 func discard(state: DuelState, card: DuelCard):
 	state.stage.hand.remove_card(state, card)
+	card.uncheck()
 	add_card(state, card)
 	await get_tree().create_timer(0.01).timeout
 

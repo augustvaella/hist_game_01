@@ -74,6 +74,9 @@ func select_foe_enemies():
 func get_checked_hand() -> DuelCard:
 	return stage.hand.get_current_checked()
 
+func cancel_select_all():
+	stage.foe.uncheck_all()
+	stage.friend.uncheck_all()
 
 	# Duel Resolving
 	#   Friend Set

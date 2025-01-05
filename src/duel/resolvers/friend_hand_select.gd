@@ -6,6 +6,9 @@ const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 func resolve(state: StageState):
 	state.stage.hand.show_hand()
 
+	if state.register[REGISTER_KEY_CARD]:
+		return
+
 	state.stage.hand.check_initial()
 
 	var current_chara = state.stage.friend.next_current_character()
