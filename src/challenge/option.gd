@@ -3,7 +3,7 @@ class_name ChallengeOptions extends Resource
 
 @export var options: Array[Challenge]
 
-func challenge(state: StageState, challenger: Character, opponent: Character):
+func challenge(state: StageState, challenger: Element, opponent: Element):
 	_choice_option().challenge(state, challenger, opponent)
 
 # to be overriden

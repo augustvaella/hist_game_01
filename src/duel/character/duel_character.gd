@@ -1,11 +1,8 @@
-class_name DuelCharacter extends LinkedNode
-## DuelCharacter is an envelope of Character to be dealed as UI(Node2D) on script.
+class_name DuelCharacter extends Item
+## DuelCharacter is an envelope of Element to be dealed as UI(Node2D) on script.
 
-signal changed_character(character: Character)
 
-@export var character: Character
 @export var body: DuelCharacterBody
-@export var info: DuelCharacterInfo
 
 @export var _mark: bool
 var mark: bool:
@@ -18,51 +15,47 @@ var mark: bool:
 		else:
 			_unmark_character()
 
-func reflesh_character():
-	body.reflesh_body(character)
-	info.reflesh_info(character)
-
 
 func do_effect(effect_node: Node, object: Object):
 		add_child(effect_node)
 		await effect_node.do_effect(object)
 
 
-# to be overriden
-func _listen_object(object: Object):
-	pass
-
-func listen_object(object: Object):
-	if object is Character.Changed:
-		reflesh_character()
-		changed_character.emit(character)
-	_listen_object(object)
-
-func set_character(character: Character):
-	self.character = character
-	character.setup()
+func set_element(character: Element):
+	super.set_element(character)
 	character.listened_object.connect(listen_object)
-	body.set_character(character)
-	info.set_character(character)
-	reflesh_character()
+	body.set_element(character)
+	info.set_element(character)
+	reflesh_element()
 
-func reset_character():
-	character.listened_object.disconnect(listen_object)
-	
+
+func reset_element():
+	super.reset_element()
+	body.reset_element()
+
+
+func reflesh_element():
+	super.reflesh_element()
+	body.reflesh_element(element)
+
 
 func mark_character():
 	mark = true
 
+
 func unmark_character():
 	mark = false
+
 
 # to be overriden
 func _mark_character():
 	pass
 
+
 # to be overriden
 func _unmark_character():
 	pass
+
 
 class Empty extends DuelCharacter:
 	pass

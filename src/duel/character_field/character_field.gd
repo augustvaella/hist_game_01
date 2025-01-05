@@ -22,7 +22,6 @@ func reset_current_character():
 	mark_current_character()
 	
 
-
 func next_current_character() -> DuelCharacter:
 	if not current_character:
 		current_character = characters[0]
@@ -50,9 +49,9 @@ func is_index_in_bound(index: int) -> bool:
 	return index > -count and index < count
 
 
-func set_character(character: Character, index: int):
+func set_character(character: Element, index: int):
 	if is_index_in_bound(index):
-		characters[index].set_character(character)
+		characters[index].set_element(character)
 
 
 func get_character(index: int) -> DuelCharacter:

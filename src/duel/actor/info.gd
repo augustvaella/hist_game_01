@@ -4,8 +4,8 @@ class_name DuelActorInfo extends DuelCharacterInfo
 @export var morale: Label
 @export var supply: Label
 
-func set_character(character: Character):
-	super.set_character(character)
+func set_element(character: Element):
+	super.set_element(character)
 
 	#army.text = "%d" % [character.army.value]
 	#morale.text = "%d" % [character.morale.value]
@@ -15,8 +15,8 @@ func set_character(character: Character):
 	#character.morale.changed_value.connect(reflesh_morale)
 	#character.supply.changed_value.connect(reflesh_supply)
 
-func reflesh_info(character: Character):
-	super.reflesh_info(character)
+func reflesh_element(character: Element):
+	super.reflesh_element(character)
 	army.text = "%d" % [character.army.value]
 	morale.text = "%d" % [character.morale.value]
 	supply.text = "%d" % [character.supply.value]

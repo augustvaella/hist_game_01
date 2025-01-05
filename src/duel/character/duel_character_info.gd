@@ -1,9 +1,10 @@
-class_name DuelCharacterInfo extends Control
-@export var display_name: Label
+class_name DuelCharacterInfo extends ItemInfo
 
-func set_character(character: Character):
-	display_name.text = character.display_name
+
+func set_element(character: Element):
+	super.set_element(character)
+
 
 # to be overriden
-func reflesh_info(character: Character):
-	pass
+func reflesh_element(character: Element):
+	super.reflesh_element(character)

@@ -1,7 +1,7 @@
 class_name Element extends SetupResource
 ## Element gives the unique informations to Item.
 
-## emitted when the Character object tells an event to another object.
+## emitted when the Element object tells an event to another object.
 signal listened_object(object: Object)
 
 @export var display_name: String

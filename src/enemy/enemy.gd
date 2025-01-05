@@ -7,7 +7,7 @@ func _setup():
 	super._setup()
 	vital.changed.connect(func(): changed.emit())
 
-func damage_normal(state: StageState, challenger: Character):
+func damage_normal(state: StageState, challenger: Element):
 	if challenger is Actor:
 		var k = challenger.army.value / 3
 		var v = vital.get_value() - k

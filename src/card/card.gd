@@ -39,7 +39,7 @@ enum Rarity {
 }
 
 
-func try_challenge(state: StageState, challenger: Character, opponent: Character):
+func try_challenge(state: StageState, challenger: Element, opponent: Element):
 	challenge.challenge(state, challenger, opponent)
 
 

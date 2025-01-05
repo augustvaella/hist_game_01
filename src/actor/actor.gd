@@ -10,7 +10,7 @@ func _setup():
 	army.changed.connect(func(): changed.emit())
 	supply.changed.connect(func(): changed.emit())
 
-func damage_normal(state: StageState, challenger: Character):
+func damage_normal(state: StageState, challenger: Element):
 	if challenger is Enemy:
 		var v = army.get_value() - morale.get_ratio() * (challenger.vital.get_value())
 		listened_object.emit(EffectNumber.Pop.new(v))

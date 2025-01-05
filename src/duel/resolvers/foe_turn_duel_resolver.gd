@@ -12,8 +12,8 @@ func resolve(state: StageState):
 			state.stage.foe.unmark_all_characters()
 			break
 
-		var op = state.stage.friend.characters.pick_random().character
-		state.stage.foe.current_character.character.challenge_options.challenge(state, ch.character, op)
+		var op = state.stage.friend.characters.pick_random().element
+		state.stage.foe.current_character.element.challenge_options.challenge(state, ch.element, op)
 		await state.stage.get_tree().create_timer(0.5).timeout
 
 	next_resolver(state, "EvalResult")

@@ -9,7 +9,7 @@ func resolve(state: StageState):
 	var opponents = state.register[REGISTER_KEY_TYPE]
 
 	state.stage.discard.discard(state, card)
-	opponents.map(func(op): card.card.try_challenge(state, challenger.character, op.character))
+	opponents.map(func(op): card.card.try_challenge(state, challenger.element, op.element))
 	await state.stage.get_tree().create_timer(0.5).timeout
 	state.register[FriendHandSelectDuelResolver.REGISTER_KEY_CARD] = null
 	next_resolver(state, "friend hand select")

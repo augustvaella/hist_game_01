@@ -9,10 +9,12 @@ func set_element(element: Element):
 	self.texture = element.texture
 	info.set_element(element)
 
+
 func reset_element():
 	super.reset_element()
 	self.card = null
 	self.texture = null
+
 
 func get_card() -> Card:
 	return card

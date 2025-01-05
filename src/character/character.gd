@@ -1,5 +1,5 @@
 class_name Character extends Element
-## Character needs StageState to set compared to Item.
+## Element needs StageState to set compared to Item.
 
 
 @export var chat_texture: Texture2D
@@ -12,5 +12,5 @@ func is_vital() -> bool:
 
 
 # to be overriden
-func damage_normal(state: StageState, challenger: Character):
+func damage_normal(state: StageState, challenger: Element):
 	pass

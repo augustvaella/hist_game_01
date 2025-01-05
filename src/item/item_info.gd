@@ -9,5 +9,10 @@ func set_display_name(text: String):
 func set_element(element: Element):
 	set_display_name(element.display_name)
 
+
 func reset_element():
 	display_name.text = String()
+
+
+func reflesh_element(element: Element):
+	set_display_name(element.display_name)
