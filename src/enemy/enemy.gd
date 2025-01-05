@@ -11,6 +11,7 @@ func damage_normal(state: StageState, challenger: Character):
 	if challenger is Actor:
 		var k = challenger.army.value / 3
 		var v = vital.get_value() - k
+		listened_object.emit(EffectNumber.Pop.new(v))
 		vital.set_value(v)
 
 

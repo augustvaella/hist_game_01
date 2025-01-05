@@ -7,22 +7,27 @@ signal listened_object(object: Object)
 @export var chat_texture: Texture2D
 @export var duel_texture: Texture2D
 
+var _changed_callables: Array[Callable]
+
 # CALL IT BEFORE USE! 
 # to be overriden
 func setup():
-	pass
+	_changed_callables = []
+	changed.connect(call_changed)
 
-func listen_character(callable: Callable):
-	changed.connect(func(): callable.call(Changed.new()))
+func call_changed():
+	_changed_callables.map(func(c): c.call(Changed.new()))
+
+func set_listen_object(callable: Callable):
+	_changed_callables.append(callable)
 	listened_object.connect(callable)
 
-func cancel_listen_character(callable: Callable):
-	changed.disconnect(callable)
+func cancel_listen_object(callable: Callable):
+	_changed_callables.erase(callable)
 	listened_object.disconnect(callable)
 	
-func reset_listen_character():
-	for c in changed.get_connections():
-		changed.disconnect(c)
+func reset_listen_object():
+	_changed_callables.clear()
 
 	for c in listened_object.get_connections():
 		listened_object.disconnect(c)

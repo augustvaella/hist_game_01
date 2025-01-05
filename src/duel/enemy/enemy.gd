@@ -1,7 +1,14 @@
 class_name DuelEnemy extends DuelCharacter
-#
+
 func set_character(character: Character):
 	super.set_character(character)
+
+
+func _listen_object(object: Object):
+	if object is EffectNumber.Pop:
+		var e = EffectNumberServer.get_effect()
+		add_child(e)
+		await e.pop_number(object.get_number())
 
 	
 func _on_check():

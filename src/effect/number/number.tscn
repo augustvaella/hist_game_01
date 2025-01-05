@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dukywlyo28vph"]
+[gd_scene load_steps=3 format=3 uid="uid://dukywlyo28vph"]
+
+[ext_resource type="Script" path="res://src/effect/number/number.gd" id="1_kdwv4"]
 
 [sub_resource type="Theme" id="Theme_nk4sg"]
 Label/colors/font_color = Color(1, 1, 1, 1)
@@ -14,3 +16,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_nk4sg")
 text = "12345"
+script = ExtResource("1_kdwv4")
