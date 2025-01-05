@@ -1,4 +1,5 @@
 class_name DuelActor extends DuelCharacter
+## DuelActor is an envelope of Actor to be dealed as UI(Node2D) on script.
 
 func set_character(character: Character):
 	super.set_character(character)
