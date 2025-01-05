@@ -6,8 +6,7 @@ const REGISTER_KEY_CHALLENGER: String = "friend challenger"
 func resolve(state: StageState):
 	state.stage.hand.show_hand()
 
-	if not state.stage.hand.is_exist_checked():
-		state.stage.hand.check_initial()
+	state.stage.hand.check_initial()
 
 	var current_chara = state.stage.friend.next_current_character()
 

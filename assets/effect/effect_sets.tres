@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=3 format=3 uid="uid://5r35o0k8vuor"]
+
+[ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_lbl27"]
+[ext_resource type="PackedScene" uid="uid://dukywlyo28vph" path="res://src/effect/number/number.tscn" id="1_ncwrn"]
+
+[resource]
+script = ExtResource("1_lbl27")
+childs = Array[Resource]([ExtResource("1_ncwrn")])

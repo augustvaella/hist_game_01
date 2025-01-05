@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dukywlyo28vph"]
+
+[sub_resource type="Theme" id="Theme_nk4sg"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 12
+Label/font_sizes/font_size = 48
+
+[node name="Number" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nk4sg")
+text = "12345"

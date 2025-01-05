@@ -3,7 +3,7 @@ class_name DuelEnemy extends DuelCharacter
 func set_character(character: Character):
 	super.set_character(character)
 
-
+	
 func _on_check():
 	self.modulate = Color(1.0, 0.5, 0.5, 1.0)
 	#info.display_name.text = "[%s]" % character.display_name

@@ -3,6 +3,10 @@ class_name Enemy extends Character
 @export var vital: Vital
 @export var challenge_options: ChallengeOptions
 
+func setup():
+	super.setup()
+	vital.setup_changed(func(): changed.emit())
+
 func damage_normal(state: StageState, challenger: Character):
 	if challenger is Actor:
 		var k = challenger.army.value / 3

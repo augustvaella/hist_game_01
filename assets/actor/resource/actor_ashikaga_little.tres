@@ -25,6 +25,7 @@ _min_value = 0
 _max_value = 10000
 
 [resource]
+resource_local_to_scene = true
 resource_name = "actor ashikaga little"
 script = ExtResource("1_7122m")
 morale = SubResource("Resource_0iqlp")

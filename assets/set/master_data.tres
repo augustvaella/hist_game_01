@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceSet" load_steps=7 format=3 uid="uid://3y4i8ov2psbg"]
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=8 format=3 uid="uid://3y4i8ov2psbg"]
 
 [ext_resource type="Resource" uid="uid://cf46imhnw5v74" path="res://assets/duel/duel_data.tres" id="1_6hrqo"]
 [ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_kag3r"]
@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://ougpaup5ico4" path="res://assets/actor/actor_data.tres" id="3_ihsej"]
 [ext_resource type="Resource" uid="uid://dlsksqok4jxkl" path="res://assets/card/card_data.tres" id="4_v82dc"]
 [ext_resource type="Resource" uid="uid://bvtftgihqe6y" path="res://assets/enemy/enemy_data.tres" id="5_ndapr"]
+[ext_resource type="Resource" uid="uid://5r35o0k8vuor" path="res://assets/effect/effect_sets.tres" id="6_cop7l"]
 
 [resource]
 resource_name = "master data"
 script = ExtResource("1_kag3r")
-childs = Array[Resource]([ExtResource("1_6hrqo"), ExtResource("2_wphjb"), ExtResource("3_ihsej"), ExtResource("4_v82dc"), ExtResource("5_ndapr")])
+childs = Array[Resource]([ExtResource("1_6hrqo"), ExtResource("2_wphjb"), ExtResource("3_ihsej"), ExtResource("4_v82dc"), ExtResource("5_ndapr"), ExtResource("6_cop7l")])

@@ -51,6 +51,7 @@ _min_value = 0
 _max_value = 500
 
 [sub_resource type="Resource" id="Resource_fa485"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_u2tmn")
 challenge_options = SubResource("Resource_8ulbd")
@@ -71,6 +72,7 @@ _min_value = 0
 _max_value = 500
 
 [sub_resource type="Resource" id="Resource_0q56v"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_x1x66")
 challenge_options = SubResource("Resource_xyist")
@@ -91,6 +93,7 @@ _min_value = 0
 _max_value = 1000
 
 [sub_resource type="Resource" id="Resource_vco22"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_ot1tj")
 challenge_options = SubResource("Resource_4h2r7")
@@ -111,6 +114,7 @@ _min_value = 0
 _max_value = 1000
 
 [sub_resource type="Resource" id="Resource_kjgfw"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_mi30p")
 challenge_options = SubResource("Resource_kydjp")
@@ -131,6 +135,7 @@ _min_value = 0
 _max_value = 2000
 
 [sub_resource type="Resource" id="Resource_kjisp"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_olujt")
 challenge_options = SubResource("Resource_hho6a")
@@ -151,6 +156,7 @@ _min_value = 0
 _max_value = 2000
 
 [sub_resource type="Resource" id="Resource_fgtde"]
+resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_1vyu8")
 challenge_options = SubResource("Resource_6fqyf")

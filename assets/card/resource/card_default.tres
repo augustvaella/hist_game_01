@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="CardBlank" load_steps=4 format=3 uid="uid://xxp3gqjh8l6v"]
+[gd_resource type="Resource" script_class="CardBlank" load_steps=3 format=3 uid="uid://xxp3gqjh8l6v"]
 
 [ext_resource type="Texture2D" uid="uid://vi8idyaui6qo" path="res://assets/card/texture/card_alpha_default.png" id="1_47mij"]
 [ext_resource type="Script" path="res://src/card/card_blank.gd" id="1_o105p"]
-[ext_resource type="Script" path="res://src/challenge/challenge.gd" id="1_tinma"]
 
 [resource]
 resource_name = "card default"
@@ -11,4 +10,3 @@ display_name = "DISPLAY_NAME_CARD_DEFAULT"
 texture = ExtResource("1_47mij")
 opponent_select = 0
 card_select = 0
-challenges = Array[ExtResource("1_tinma")]([])

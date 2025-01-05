@@ -3,3 +3,7 @@ class_name DuelCharacterInfo extends Control
 
 func set_character(character: Character):
 	display_name.text = character.display_name
+
+# to be overriden
+func reflesh_info(character: Character):
+	pass

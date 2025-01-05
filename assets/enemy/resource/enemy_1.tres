@@ -11,6 +11,7 @@ _min_value = 0
 _max_value = 500
 
 [resource]
+resource_local_to_scene = true
 resource_name = "enemy 1"
 script = ExtResource("1_57di1")
 vital = SubResource("Resource_xa3d4")

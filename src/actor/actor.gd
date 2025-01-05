@@ -4,10 +4,11 @@ class_name Actor extends Character
 @export var army: Army
 @export var supply: Supply
 
-# ActorSaveData
-# ActorInstance
-
-# derives Utsukushi, Mukutsukeshi
+func setup():
+	super.setup()
+	morale.setup_changed(func(): changed.emit())
+	army.setup_changed(func(): changed.emit())
+	supply.setup_changed(func(): changed.emit())
 
 func damage_normal(state: StageState, challenger: Character):
 	if challenger is Enemy:

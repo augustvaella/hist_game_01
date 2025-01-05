@@ -10,12 +10,13 @@ var value: int:
 	get:
 		return _value
 	set(v):
-		if v <= _min_value:
+		if v < _min_value:
 			_value = _min_value
-		elif v >= _max_value:
+		elif v > _max_value:
 			_value = _max_value
 		else:
 			_value = v
+		emit_changed()
 		changed_value.emit(_value, _min_value, _max_value)
 
 var max_value: int:
@@ -24,6 +25,7 @@ var max_value: int:
 	set(v):
 		_max_value = v
 		_value = _value if _value < _max_value else _max_value
+		emit_changed()
 		changed_value.emit(_value, _min_value, _max_value)
 
 var min_value: int:
@@ -32,7 +34,12 @@ var min_value: int:
 	set(v):
 		_min_value = v
 		_value = _value if _value > _min_value else _min_value
+		emit_changed()
 		changed_value.emit(_value, _min_value, _max_value)
+
+func setup_changed(callable: Callable):
+	if changed.get_connections().size() == 0:
+		changed.connect(callable)
 
 func get_value() -> int:
 	return value
