@@ -22,6 +22,11 @@ func reflesh_character():
 	info.reflesh_info(character)
 
 
+func do_effect(effect_node: Node, object: Object):
+		add_child(effect_node)
+		await effect_node.do_effect(object)
+
+
 # to be overriden
 func _listen_object(object: Object):
 	pass
