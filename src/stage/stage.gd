@@ -13,6 +13,7 @@ func _ready():
 func proceed(state: StageState):
 	_state = state
 	_state.set_stage(self)
+	_state.setup()
 	listened_event.connect(transfer_event_to_state)
 	await _proceed()
 	proceeded.emit(self, state)

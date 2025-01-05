@@ -1,5 +1,7 @@
 class_name DuelState extends StageState
+
 # Field
+@export var turn: DuelTurn
 
 # Friend
 @export var friend_actors: Array[Actor]
@@ -14,6 +16,13 @@ class_name DuelState extends StageState
 func get_stage_name() -> String:
 	return "duel"
 
+func _setup_state():
+	turn.setup()
+
+# to be overriden
+# return true is GOTO Result
+func eval_result() -> bool:
+	return false
 
 func set_hand():
 	await stage.hand.set_state(self)

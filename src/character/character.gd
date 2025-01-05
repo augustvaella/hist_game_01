@@ -8,12 +8,18 @@ signal listened_object(object: Object)
 @export var duel_texture: Texture2D
 
 var _changed_callables: Array[Callable]
+var _is_setup: bool
+
+# to be overriden
+func _setup():
+	pass
 
 # CALL IT BEFORE USE! 
-# to be overriden
 func setup():
-	_changed_callables = []
-	changed.connect(call_changed)
+	if not _is_setup:
+		_changed_callables = []
+		changed.connect(call_changed)
+		_setup()
 
 func call_changed():
 	_changed_callables.map(func(c): c.call(Changed.new()))

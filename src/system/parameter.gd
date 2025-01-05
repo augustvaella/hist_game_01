@@ -37,10 +37,6 @@ var min_value: int:
 		emit_changed()
 		changed_value.emit(_value, _min_value, _max_value)
 
-func setup_changed(callable: Callable):
-	if changed.get_connections().size() == 0:
-		changed.connect(callable)
-
 func get_value() -> int:
 	return value
 

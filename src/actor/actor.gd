@@ -4,11 +4,10 @@ class_name Actor extends Character
 @export var army: Army
 @export var supply: Supply
 
-func setup():
-	super.setup()
-	morale.setup_changed(func(): changed.emit())
-	army.setup_changed(func(): changed.emit())
-	supply.setup_changed(func(): changed.emit())
+func _setup():
+	morale.changed.connect(func(): changed.emit())
+	army.changed.connect(func(): changed.emit())
+	supply.changed.connect(func(): changed.emit())
 
 func damage_normal(state: StageState, challenger: Character):
 	if challenger is Enemy:

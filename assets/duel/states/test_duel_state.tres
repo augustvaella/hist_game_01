@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TestDuelState" load_steps=59 format=3 uid="uid://qmmqykndgnap"]
+[gd_resource type="Resource" script_class="TestDuelState" load_steps=61 format=3 uid="uid://qmmqykndgnap"]
 
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
 [ext_resource type="Script" path="res://src/duel/test_duel_state.gd" id="1_ispbk"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://bagmlm5sha0u0" path="res://assets/duel/resolvers/test_friend_select.tres" id="24_4vqjf"]
 [ext_resource type="Resource" uid="uid://cs87nxdv0udub" path="res://assets/duel/resolvers/test_enemy_select.tres" id="25_n8ems"]
 [ext_resource type="Resource" uid="uid://ck0ulodwhltpf" path="res://assets/duel/resolvers/test_friend_challenge.tres" id="27_bsjjx"]
+[ext_resource type="Script" path="res://src/duel/parameter/turn.gd" id="33_r7fj5"]
 
 [sub_resource type="Resource" id="Resource_681jv"]
 script = ExtResource("3_6ttpc")
@@ -168,10 +169,17 @@ script = ExtResource("14_0g6h2")
 default_max_count = 7
 cards = Array[ExtResource("2_l53nq")]([])
 
+[sub_resource type="Resource" id="Resource_0nxjy"]
+script = ExtResource("33_r7fj5")
+_value = 0
+_min_value = 0
+_max_value = 5
+
 [resource]
 resource_name = "test duel state"
 script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
+turn = SubResource("Resource_0nxjy")
 friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
 deck = ExtResource("11_cb63m")
 hand = SubResource("Resource_7ty5t")

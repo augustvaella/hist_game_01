@@ -1,12 +1,11 @@
 class_name FriendTurnDuelResolver extends DuelResolver
 
 func resolve(state: StageState):
-	pass
-	#state.begin_friend_turn()
+	state.turn.increase()
+	await state.stage.get_tree().create_timer(0.5).timeout
+
+	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend draw hand"]))
 
 
 func on_input(state: StageState, event: InputEvent):
-	if event.is_action_pressed("Left"):
-		state.check_left_hand()
-	elif event.is_action_pressed("Right"):
-		state.check_right_hand()
+	pass
