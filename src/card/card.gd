@@ -1,5 +1,7 @@
 class_name Card extends Resource
 ## Card is a gadget in the game to the player's choice on battle.
+##
+## Card Whole Texture(px) 150 x 210
 
 @export var display_name: String
 @export var display_flavor_text: String

@@ -5,6 +5,7 @@ signal challenged(challenge: Challenge)
 
 @export var display_name: String
 @export var display_document: String
+@export var texture: Texture2D
 @export var next_challenge: Challenge
 
 func challenge(state: StageState, challenger: Character, opponent: Character):
