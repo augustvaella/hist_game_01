@@ -2,7 +2,7 @@ class_name DebugWindow extends Window
 ## self-made debugging tool
 ##
 
-
+@export var init_position: Vector2
 @export var label: RichTextLabel
 @export var line_edit: LineEdit
 
@@ -12,6 +12,7 @@ var _handlers: Dictionary
 var _startup: Startup
 
 func _ready():
+	position = init_position
 	Log.logged_error.connect(func(text: String): show_label(text))
 	Log.logged_warn.connect(func(text: String): show_label(text))
 	Log.logged_info.connect(func(text: String): show_label(text))
@@ -23,6 +24,7 @@ func _ready():
 	set_handlers()
 	
 	show()
+	Master.get_tree().root.grab_focus()
 	
 func set_startup(startup: Startup):
 	_startup = startup
@@ -51,6 +53,7 @@ func set_handlers():
 		"hand": func(args: PackedStringArray): show_duel_hand(),
 		"discard": func(args: PackedStringArray): show_duel_discard(),
 		"foe": func(args: PackedStringArray): show_foe(),
+		"all": func(args: PackedStringArray): instance_list(),
 	}
 
 func _input(event: InputEvent):
@@ -100,11 +103,15 @@ func show_duel_discard():
 func show_foe():
 	var s = get_stage_state()
 	var t = ""
-	for item in get_stage().foe.items:
-		if item.element:
-			t = "%s, Enemy#%d:%s" % [t, item.element.get_instance_id(), item.element]
-		else:
-			t = "%s, null" % [t]
 	if s and s is DuelState:
-		show_label("foe_enemies:%s\nfoe_enemies_dead:%sDuelEnemies.element:%s" % [\
-			s.foe_enemies, s.foe_enemies_dead, t])
+		var r = []
+		var v = []
+		var d = []
+		s.foe_party.get_reserves(r)
+		s.foe_party.get_vitals(v)
+		s.foe_party.get_deads(d)
+		show_label("foe: Re:%s\nVi:%sDe:%s" % [ \
+			r, v, d])
+
+func instance_list():
+	show_label("instances:")

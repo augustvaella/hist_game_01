@@ -5,7 +5,7 @@ func _ready():
 	item_server = Master.item_servers.duel_actor
 
 func set_state(state: StageState):
-	elements = state.friend_actors
+	party = state.friend_party
 	formation = state.friend_formation
 	super.set_state(state)
 

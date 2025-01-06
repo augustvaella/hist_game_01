@@ -1,7 +1,6 @@
 class_name Character extends Element
 ## Element needs StageState to set compared to Item.
 
-
 @export var chat_texture: Texture2D
 @export var duel_texture: Texture2D
 
@@ -15,20 +14,29 @@ func is_vital() -> bool:
 func damage_normal(state: StageState, challenger: Element):
 	pass
 
+func eval_vital():
+	if not is_vital():
+		kill()
+
 
 # to be overriden
-func _kill(state: StageState):
+func _kill():
 	pass
 
 
-func kill(state: StageState):
-	_kill(state)
-	listened_object.emit(Killed.new(state))
+func kill():
+	_kill()
+	listened_object.emit(Killed.new())
 
 
 class Killed extends RefCounted:
-	var _state: StageState
-	func _init(state: StageState):
-		_state = state
-	func get_state() -> StageState:
-		return _state
+	pass
+
+class KilledEvent extends Event:
+	var _character: Character
+	func init(character: Character) -> KilledEvent:
+		Log.log_trace("[Character%d]%s" % [get_instance_id(), character])
+		_character = character
+		return self
+	func get_character() -> Character:
+		return _character

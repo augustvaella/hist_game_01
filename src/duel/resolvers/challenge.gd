@@ -33,11 +33,4 @@ func on_input(state: StageState, event: InputEvent):
 
 func challenge(state: StageState, card: Card, challenger: Element, opponent: Element):
 	card.try_challenge(state, challenger, opponent)
-
-	if state.is_all_friend_or_foe_dead(opponent):
-		next_resolver(state, "Result")
-
-	if state.is_all_friend_or_foe_dead(challenger):
-		next_resolver(state, "Result")
-	
 	return false

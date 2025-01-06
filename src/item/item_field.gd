@@ -5,6 +5,9 @@ class_name ItemField extends CheckableNodeCollector
 
 @export var item_server: ItemServer
 
+# items needs synchronizing to the collector's. children
+# -> Node.Signal
+
 # to be overriden
 func set_state(state: StageState):
 	pass
@@ -62,10 +65,4 @@ func add_item(index: int, element: Element):
 		items[index] = item_server.get_empty_item()
 		add_child(items[index])
 
-## condition: Callable<Item> -> bool
-func reserve_items(elements: Array, condition: Callable):
-	for item in items.filter(condition):
-		var e = elements.pop_front()
-		if e:
-			item.set_element(e)
 # func locate_item(index: int)

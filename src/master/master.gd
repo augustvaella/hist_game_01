@@ -40,3 +40,7 @@ func set_startup(startup: Startup):
 	_startup = startup
 	if is_debug:
 		debug_window.set_startup(startup)
+
+
+func emit_event_to_stage_state(event: Event):
+	_startup.transfer_event_to_state(event)

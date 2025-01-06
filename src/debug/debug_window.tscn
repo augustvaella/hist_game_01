@@ -4,9 +4,10 @@
 
 [node name="DebugWindow" type="Window" node_paths=PackedStringArray("label", "line_edit")]
 title = "Debug Window"
-position = Vector2i(50, 36)
+initial_position = 1
 size = Vector2i(800, 600)
 script = ExtResource("1_kd1wt")
+init_position = Vector2(2000, 100)
 label = NodePath("Control/VBoxContainer/RichTextLabel")
 line_edit = NodePath("Control/VBoxContainer/LineEdit")
 

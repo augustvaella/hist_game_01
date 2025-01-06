@@ -6,7 +6,7 @@ func _ready():
 
 
 func set_state(state: StageState):
-	elements = state.foe_enemies
+	party = state.foe_party
 	formation = state.foe_formation
 	super.set_state(state)
 

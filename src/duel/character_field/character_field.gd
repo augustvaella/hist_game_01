@@ -1,15 +1,17 @@
 class_name CharacterField extends ItemField
 
-@export var elements: Array
+@export var party: DuelParty
 @export var formation: DuelFormation
 
 func set_state(state: StageState):
 	super.set_state(state)
-	items.resize(formation.formations.size())
+	party.setup()
+	formation.setup()
+	items.resize(formation.get_size())
 	for i in range(items.size()):
-		var e = elements.pop_front()
+		var e = party.reserve_character()
 		add_item(i, e)
-		items[i].position = formation.formations[i]
+		items[i].position = formation.get_position(i)
 
 
 func return_killed_character():
@@ -34,3 +36,7 @@ func is_exist_vital() -> bool:
 
 func is_exist_dead() -> bool:
 	return not is_all_vital()
+
+func reserve_characters(party: DuelParty):
+	Log.log_trace("#%d.reserve_characters()" % [get_instance_id()])
+	items.map(func(item): item.reserve_character(party))

@@ -24,6 +24,8 @@ class_name DuelState extends StageState
 @export var friend_field_limit_count: int
 @export var friend_actors: Array[Actor]
 @export var friend_actors_dead: Array[Actor]
+
+@export var friend_party: DuelParty
 @export var friend_formation: DuelFormation
 
 @export var deck: PlayerDeck
@@ -36,6 +38,8 @@ class_name DuelState extends StageState
 @export var foe_field_limit_count: int
 @export var foe_enemies: Array[Enemy]
 @export var foe_enemies_dead: Array[Enemy]
+
+@export var foe_party: DuelParty
 @export var foe_formation: DuelFormation
 
 
@@ -122,35 +126,19 @@ func cancel_select_all():
 	stage.foe.uncheck_all()
 	stage.friend.uncheck_all()
 
-func is_all_friend_or_foe_dead(element: Element) -> bool:
-	if element is Actor:
-		return is_all_friends_dead(element)
-	elif element is Enemy:
-		return is_all_foes_dead(element)
-	return false
-
-func is_all_friends_dead(actor: Actor) -> bool:
-	if actor and not actor.is_vital():
-		actor.kill(self)
-	stage.friend.reserve_items(friend_actors, func(item): return is_character_killed(item))
-	if eval_result():
-		return true
-	return false
-
-func is_all_foes_dead(enemy: Enemy) -> bool:
-	if enemy and not enemy.is_vital():
-		enemy.kill(self)
-	stage.foe.reserve_items(foe_enemies, func(item): return is_character_killed(item))
-	if eval_result():
-		return true
-	return false
-
-func is_character_killed(item: Item) -> bool:
-	return not item.element or not item.element.is_vital()
-
 
 func _on_event(event: Event):
 	super._on_event(event)
+	if event is Character.KilledEvent:
+		var chara = event.get_character()
+		Log.log_debug("[DuelState#%d] Character.KilledEvent %s" % [get_instance_id(), chara])
+		Log.log_trace("#%d %s is Enemy: %s" % [get_instance_id(), chara, chara is Enemy])
+		if chara is Actor:
+			stage.friend.reserve_characters(friend_party)
+		elif chara is Enemy:
+			stage.foe.reserve_characters(foe_party)
+		if eval_result():
+			stage.listened_event.emit(Event.NextResolver.new(resolvers["Result"]))
 
 
 func _on_input(event: Event):

@@ -61,3 +61,7 @@ func get_current_stage() -> Stage:
 		return null
 
 	return get_child(0)
+
+
+func transfer_event_to_state(event: Event):
+	get_current_stage().transfer_event_to_state(event)

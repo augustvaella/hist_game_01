@@ -14,7 +14,7 @@
 
 [node name="Master" type="Node" node_paths=PackedStringArray("master_resource_server", "user_resource_server", "master_instance_server", "stage_server")]
 script = ExtResource("1_pcqh7")
-log_level = 3
+log_level = 4
 master_resource_server = NodePath("MasterResourceServer")
 user_resource_server = NodePath("UserResourceServer")
 master_instance_server = NodePath("MasterInstanceServer")

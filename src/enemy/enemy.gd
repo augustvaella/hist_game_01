@@ -6,6 +6,7 @@ class_name Enemy extends Character
 func _setup():
 	super._setup()
 	vital.changed.connect(func(): changed.emit())
+	vital.changed.connect(func(): eval_vital())
 
 func damage_normal(state: StageState, challenger: Element):
 	if challenger is Actor:
@@ -15,11 +16,5 @@ func damage_normal(state: StageState, challenger: Element):
 		listened_object.emit(EffectShaker.Normal.new())
 		vital.set_value(v)
 
-
 func is_vital() -> bool:
 	return vital.is_condition(func(v, d, u): return d < v)
-
-
-func _kill(state: StageState):
-	state.foe_enemies.erase(self)
-	state.foe_enemies_dead.push_back(self)
