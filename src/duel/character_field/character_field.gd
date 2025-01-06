@@ -1,5 +1,17 @@
 class_name CharacterField extends ItemField
 
+@export var elements: Array
+@export var formation: DuelFormation
+
+func set_state(state: StageState):
+	super.set_state(state)
+	items.resize(formation.formations.size())
+	for i in range(items.size()):
+		var e = elements.pop_front()
+		add_item(i, e)
+		items[i].position = formation.formations[i]
+
+
 func return_killed_character():
 	for chara in items:
 		if not chara.element.is_vital():

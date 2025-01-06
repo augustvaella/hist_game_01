@@ -7,6 +7,6 @@ func _notification(what):
 			fit_child_in_rect(c, r)
 			r.position += Vector2(100, 0)
 			if c.is_checked:
-				c.set_size(c.get_size() * 1.5)
+				c.scale = Vector2(0.3, 0.3)
 			else:
-				c.reset_size()
+				c.scale = Vector2(0.25, 0.25)

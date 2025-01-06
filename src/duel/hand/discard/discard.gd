@@ -1,5 +1,27 @@
 class_name DuelDiscard extends DuelCardCollector
 
+@export var panel: Panel
+
+func _ready():
+	super._ready()
+	panel.hide()
+
+func show_contents():
+	panel.set_global_position(Vector2(100.0, 20.0))
+	panel.show()
+
+
+func hide_contents():
+	#panel.position = Vector2(100.0, -300.0)
+	panel.hide()
+
+
+func toggle_visible_contents():
+	if panel.visible:
+		hide_contents()
+	else:
+		show_contents()
+
 func set_state(state: DuelState):
 	super.set_state(state)
 	for c in state.discard.cards:

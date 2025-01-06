@@ -3,14 +3,29 @@
 [ext_resource type="Script" path="res://src/duel/hand/deck/deck.gd" id="1_0p45r"]
 [ext_resource type="Script" path="res://src/duel/hand/deck/container.gd" id="2_4yaya"]
 
-[node name="Deck" type="Control" node_paths=PackedStringArray("collector")]
+[node name="Deck" type="Control" node_paths=PackedStringArray("panel", "collector")]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 210.0
 script = ExtResource("1_0p45r")
-collector = NodePath("Container")
+panel = NodePath("Panel")
+collector = NodePath("Panel/ScrollContainer/Container")
 
-[node name="Container" type="Container" parent="."]
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 800)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 800.0
+offset_bottom = 800.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 2
+offset_right = 800.0
+offset_bottom = 800.0
+horizontal_scroll_mode = 0
+
+[node name="Container" type="Container" parent="Panel/ScrollContainer"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 2
 script = ExtResource("2_4yaya")

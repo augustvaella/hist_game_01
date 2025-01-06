@@ -10,22 +10,34 @@ class_name DuelState extends StageState
 # End Duel Resolving
 
 # Result
+@export_category("Duel")
 @export var result: Result
 
+
 # Field
+@export_category("Field")
 @export var turn: DuelTurn
 
+
 # Friend
+@export_category("Friend")
 @export var friend_field_limit_count: int
 @export var friend_actors: Array[Actor]
 @export var friend_actors_dead: Array[Actor]
+@export var friend_formation: DuelFormation
+
 @export var deck: PlayerDeck
 @export var hand: HandDeck
 @export var discard: DiscardDeck
+
+
 # Foe
+@export_category("Foe")
 @export var foe_field_limit_count: int
 @export var foe_enemies: Array[Enemy]
 @export var foe_enemies_dead: Array[Enemy]
+@export var foe_formation: DuelFormation
+
 
 enum Result {
 	LOSE,
@@ -135,3 +147,17 @@ func is_all_foes_dead(enemy: Enemy) -> bool:
 
 func is_character_killed(item: Item) -> bool:
 	return not item.element or not item.element.is_vital()
+
+
+func _on_event(event: Event):
+	super._on_event(event)
+
+
+func _on_input(event: Event):
+	var ev = event.get_input_event()
+	if ev.is_action_pressed("Loud"):
+		stage.deck.toggle_visible_contents()
+	elif ev.is_action_pressed("Roar"):
+		stage.discard.toggle_visible_contents()
+
+	super._on_input(event)

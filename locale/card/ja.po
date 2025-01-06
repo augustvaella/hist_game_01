@@ -20,7 +20,7 @@ msgid "DISPLAY_NAME_CARD_PROMPT_ALPHA"
 msgstr "速決アルファ"
 
 msgid "DISPLAY_NAME_CARD_DEFENSE_ALPHA"
-msgstr "専守アルファ"
+msgstr "守衛アルファ"
 
 msgid "DISPLAY_NAME_CARD_RESPONSIVE_ALPHA"
 msgstr "機動アルファ"
