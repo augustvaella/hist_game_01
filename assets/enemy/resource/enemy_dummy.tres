@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://b4ev4r2k5qmix"]
+
+[ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_65x3b"]
+[ext_resource type="Script" path="res://src/challenge/challenge.gd" id="1_fb58i"]
+[ext_resource type="Script" path="res://src/challenge/option.gd" id="2_2f3xu"]
+[ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="3_pdabo"]
+[ext_resource type="Script" path="res://src/enemy/vital.gd" id="5_3dton"]
+
+[sub_resource type="Resource" id="Resource_6h0o2"]
+script = ExtResource("2_2f3xu")
+options = Array[ExtResource("1_fb58i")]([])
+
+[sub_resource type="Resource" id="Resource_fyg8a"]
+script = ExtResource("5_3dton")
+_value = 0
+_min_value = 0
+_max_value = 0
+
+[resource]
+resource_name = "enemy dummy"
+script = ExtResource("1_65x3b")
+vital = SubResource("Resource_fyg8a")
+challenge_options = SubResource("Resource_6h0o2")
+duel_texture = ExtResource("3_pdabo")
+display_name = "ENEMY_DUMMY"

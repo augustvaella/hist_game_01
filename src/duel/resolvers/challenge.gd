@@ -15,6 +15,9 @@ func resolve(state: StageState):
 
 	state.stage.discard.discard(state, card)
 	for op in opponents:
+		if not challenger.element or not op.element:
+			return
+
 		if challenge(state, card.element, challenger.element, op.element):
 			return
 	
@@ -31,17 +34,10 @@ func on_input(state: StageState, event: InputEvent):
 func challenge(state: StageState, card: Card, challenger: Element, opponent: Element):
 	card.try_challenge(state, challenger, opponent)
 
-	if not opponent.is_vital():
-		opponent.kill(state)
-
-	if not challenger.is_vital():
-		challenger.kill(state)
-
-	state.stage.friend.reserve_actor(state.friend_actors)
-	state.stage.foe.reserve_enemy(state.foe_enemies)
-
-	if state.eval_result():
+	if state.is_all_friend_or_foe_dead(opponent):
 		next_resolver(state, "Result")
-		return true
+
+	if state.is_all_friend_or_foe_dead(challenger):
+		next_resolver(state, "Result")
 	
 	return false

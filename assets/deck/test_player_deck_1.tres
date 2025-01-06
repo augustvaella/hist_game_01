@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerDeck" load_steps=4 format=3 uid="uid://dwljwnibscs3s"]
+
+[ext_resource type="Script" path="res://src/card/card.gd" id="1_3ignm"]
+[ext_resource type="Resource" uid="uid://y0jvi2c44b34" path="res://assets/card/resource/card_prompt_alpha.tres" id="2_80h8t"]
+[ext_resource type="Script" path="res://src/deck/player_deck.gd" id="3_ilja2"]
+
+[resource]
+resource_name = "test player deck"
+script = ExtResource("3_ilja2")
+cards = Array[ExtResource("1_3ignm")]([ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t"), ExtResource("2_80h8t")])

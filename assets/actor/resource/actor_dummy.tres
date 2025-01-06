@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=9 format=3 uid="uid://csg8oef386l80"]
+
+[ext_resource type="Script" path="res://src/actor/army.gd" id="1_ds0i4"]
+[ext_resource type="Script" path="res://src/actor/actor.gd" id="1_j0lpi"]
+[ext_resource type="Texture2D" uid="uid://cnrotifyonj13" path="res://assets/actor/texture/up/ashikaga_little_up.png" id="2_5hxdy"]
+[ext_resource type="Script" path="res://src/actor/morale.gd" id="2_ro5bk"]
+[ext_resource type="Script" path="res://src/actor/supply.gd" id="4_hpmjf"]
+
+[sub_resource type="Resource" id="Resource_7lurw"]
+script = ExtResource("1_ds0i4")
+_value = 0
+_min_value = 0
+_max_value = 0
+
+[sub_resource type="Resource" id="Resource_qkul8"]
+script = ExtResource("2_ro5bk")
+_value = 0
+_min_value = 0
+_max_value = 0
+
+[sub_resource type="Resource" id="Resource_agf31"]
+script = ExtResource("4_hpmjf")
+_value = 0
+_min_value = 0
+_max_value = 0
+
+[resource]
+resource_name = "actor dummy"
+script = ExtResource("1_j0lpi")
+morale = SubResource("Resource_qkul8")
+army = SubResource("Resource_7lurw")
+supply = SubResource("Resource_agf31")
+duel_texture = ExtResource("2_5hxdy")
+display_name = "ACTOR_DUMMY"

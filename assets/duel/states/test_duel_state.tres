@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
 [ext_resource type="Script" path="res://src/duel/test_duel_state.gd" id="1_ispbk"]
 [ext_resource type="Resource" uid="uid://dpexeovn25651" path="res://assets/chat/states/test_chat_state.tres" id="1_sudcx"]
+[ext_resource type="Resource" uid="uid://dwljwnibscs3s" path="res://assets/deck/test_player_deck_1.tres" id="1_w67wu"]
 [ext_resource type="Script" path="res://src/actor/actor.gd" id="2_8t55l"]
 [ext_resource type="Script" path="res://src/card/card.gd" id="2_l53nq"]
 [ext_resource type="Script" path="res://src/deck/discard_deck.gd" id="3_6ttpc"]
@@ -19,7 +20,6 @@
 [ext_resource type="Script" path="res://src/challenge/attack.gd" id="7_owpaj"]
 [ext_resource type="Texture2D" uid="uid://dospo4fec847n" path="res://assets/enemy/texture/enemy_2.png" id="8_gdoqm"]
 [ext_resource type="Texture2D" uid="uid://dr6rs4c6ntahb" path="res://assets/enemy/texture/enemy_3.png" id="9_cqtei"]
-[ext_resource type="Resource" uid="uid://cj02f4r8uf1tu" path="res://assets/deck/test_player_deck.tres" id="11_cb63m"]
 [ext_resource type="Script" path="res://src/deck/hand_deck.gd" id="14_0g6h2"]
 [ext_resource type="Resource" uid="uid://de745isg0a6sh" path="res://assets/duel/resolvers/test_friend_set.tres" id="15_2sjia"]
 [ext_resource type="Resource" uid="uid://duhetfmbe7seb" path="res://assets/duel/resolvers/test_foe_set.tres" id="17_4oa52"]
@@ -191,12 +191,12 @@ _max_value = 20
 resource_name = "test duel state"
 script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
-result = null
+result = 0
 turn = SubResource("Resource_0nxjy")
 friend_field_limit_count = 3
 friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
 friend_actors_dead = Array[ExtResource("2_8t55l")]([])
-deck = ExtResource("11_cb63m")
+deck = ExtResource("1_w67wu")
 hand = SubResource("Resource_7ty5t")
 discard = SubResource("Resource_681jv")
 foe_field_limit_count = 3

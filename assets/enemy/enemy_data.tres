@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ResourceSet" load_steps=5 format=3 uid="uid://bvtftgihqe6y"]
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=6 format=3 uid="uid://bvtftgihqe6y"]
 
 [ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_7yt8n"]
 [ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="1_226yn"]
+[ext_resource type="Resource" uid="uid://b4ev4r2k5qmix" path="res://assets/enemy/resource/enemy_dummy.tres" id="1_x07f3"]
 [ext_resource type="Texture2D" uid="uid://dospo4fec847n" path="res://assets/enemy/texture/enemy_2.png" id="2_4p0qn"]
 [ext_resource type="Texture2D" uid="uid://dr6rs4c6ntahb" path="res://assets/enemy/texture/enemy_3.png" id="3_uujjt"]
 
 [resource]
 resource_name = "enemy data"
 script = ExtResource("1_7yt8n")
-childs = Array[Resource]([ExtResource("1_226yn"), ExtResource("2_4p0qn"), ExtResource("3_uujjt")])
+childs = Array[Resource]([ExtResource("1_x07f3"), ExtResource("1_226yn"), ExtResource("2_4p0qn"), ExtResource("3_uujjt")])

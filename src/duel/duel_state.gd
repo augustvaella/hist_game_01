@@ -1,5 +1,14 @@
 class_name DuelState extends StageState
 
+# Duel Resolving
+#   Friend Set
+#   Foe Set
+#   Friend Turn
+#   Foe Turn 
+#   Eval Result -> Friend Turn / Result
+#   Result
+# End Duel Resolving
+
 # Result
 @export var result: Result
 
@@ -101,11 +110,28 @@ func cancel_select_all():
 	stage.foe.uncheck_all()
 	stage.friend.uncheck_all()
 
-	# Duel Resolving
-	#   Friend Set
-	#   Foe Set
-	#   Friend Turn
-	#   Foe Turn 
-	#   Eval Result -> Friend Turn / Result
-	#   Result
-	# End Duel Resolving
+func is_all_friend_or_foe_dead(element: Element) -> bool:
+	if element is Actor:
+		return is_all_friends_dead(element)
+	elif element is Enemy:
+		return is_all_foes_dead(element)
+	return false
+
+func is_all_friends_dead(actor: Actor) -> bool:
+	if actor and not actor.is_vital():
+		actor.kill(self)
+	stage.friend.reserve_items(friend_actors, func(item): return is_character_killed(item))
+	if eval_result():
+		return true
+	return false
+
+func is_all_foes_dead(enemy: Enemy) -> bool:
+	if enemy and not enemy.is_vital():
+		enemy.kill(self)
+	stage.foe.reserve_items(foe_enemies, func(item): return is_character_killed(item))
+	if eval_result():
+		return true
+	return false
+
+func is_character_killed(item: Item) -> bool:
+	return not item.element or not item.element.is_vital()

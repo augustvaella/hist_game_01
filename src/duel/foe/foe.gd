@@ -20,12 +20,3 @@ func reset_state():
 	for item in items:
 		remove_item(item)
 	items.resize(0)
-
-
-func reserve_enemy(enemies: Array):
-	var elm = []
-	elm.assign(enemies)
-	for item in items.filter(func(i): return not i.element.is_vital()):
-		var e = elm.pop_front()
-		if e:
-			item.set_element(e)

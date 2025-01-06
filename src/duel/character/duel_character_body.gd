@@ -5,6 +5,8 @@ class_name DuelCharacterBody extends Node2D
 func set_element(character: Element):
 	sprite.texture = character.duel_texture
 
+func reset_element():
+	sprite.texture = null
 
 # to be overriden
 func refresh_element(character: Element):

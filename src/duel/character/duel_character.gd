@@ -38,6 +38,11 @@ func refresh_element():
 
 
 func is_checkable():
+	if not element:
+		return false
+	else:
+		if not element.is_vital():
+			return false
 	return true
 
 

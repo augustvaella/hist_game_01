@@ -62,5 +62,14 @@ func add_item(index: int, element: Element):
 		items[index] = item_server.get_empty_item()
 		add_child(items[index])
 
-
+## condition: Callable<Item> -> bool
+func reserve_items(elements: Array, condition: Callable):
+	var elm = []
+	elm.assign(elements)
+	for item in items.filter(condition):
+		var e = elm.pop_front()
+		if e:
+			item.set_element(e)
+	for item in items.filter(condition):
+		item.reset_element()
 # func locate_item(index: int)
