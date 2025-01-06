@@ -11,11 +11,10 @@ func resolve(state: StageState):
 
 	state.stage.hand.check_initial()
 
-	var current_chara = state.stage.friend.next_current_character()
+	var current_chara = state.stage.friend.next_current_item()
 
-	if current_chara is DuelCharacter.Empty:
+	if not current_chara:
 		state.stage.hand.hide_hand()
-		state.stage.friend.unmark_all_characters()
 		next_resolver(state, "FoeTurn")
 		return
 

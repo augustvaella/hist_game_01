@@ -4,19 +4,6 @@ class_name DuelCharacter extends Item
 
 @export var body: DuelCharacterBody
 
-@export var _mark: bool
-var mark: bool:
-	get:
-		return _mark
-	set(v):
-		_mark = v
-		if v:
-			_mark_character()
-		else:
-			_unmark_character()
-
-@export var is_killed: bool
-
 func _listen_object(object: Object):
 	if object is Character.Killed:
 		kill(object.get_state())
@@ -24,7 +11,6 @@ func _listen_object(object: Object):
 
 
 func kill(state: StageState):
-	is_killed = true
 	body.kill(state, element)
 	info.kill(state, element)
 
@@ -36,7 +22,6 @@ func do_effect(effect_node: Node, object: Object):
 
 func set_element(character: Element):
 	super.set_element(character)
-	is_killed = false
 	body.set_element(character)
 	info.set_element(character)
 	refresh_element()
@@ -52,26 +37,7 @@ func refresh_element():
 	body.refresh_element(element)
 
 
-func mark_character():
-	mark = true
-
-
-func unmark_character():
-	mark = false
-
-
-# to be overriden
-func _mark_character():
-	pass
-
-
-# to be overriden
-func _unmark_character():
-	pass
-
 func is_checkable():
-	if is_killed:
-		return false
 	return true
 
 

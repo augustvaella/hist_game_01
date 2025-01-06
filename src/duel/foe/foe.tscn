@@ -1,26 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0uxfvkdq063n"]
+[gd_scene load_steps=2 format=3 uid="uid://b0uxfvkdq063n"]
 
 [ext_resource type="Script" path="res://src/duel/foe/foe.gd" id="1_g4rfk"]
-[ext_resource type="PackedScene" uid="uid://cchfg5x2fawuo" path="res://src/duel/enemy/enemy.tscn" id="2_0iihn"]
 
-[node name="Foe" type="Node2D" node_paths=PackedStringArray("characters")]
+[node name="Foe" type="Node2D"]
 script = ExtResource("1_g4rfk")
-characters = [NodePath("Enemy"), NodePath("Enemy2"), NodePath("Enemy3"), NodePath("Enemy4"), NodePath("Enemy5"), NodePath("Enemy6")]
-
-[node name="Enemy" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(148, 217)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(-144, 216)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(357, 143)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(-307, 144)
-
-[node name="Enemy5" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(490, 61)
-
-[node name="Enemy6" parent="." instance=ExtResource("2_0iihn")]
-position = Vector2(-499, 47)

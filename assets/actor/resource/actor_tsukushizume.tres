@@ -31,5 +31,5 @@ script = ExtResource("1_7oy1q")
 morale = SubResource("Resource_ahmdh")
 army = SubResource("Resource_ak041")
 supply = SubResource("Resource_ngbbb")
-display_name = "DISPLAY_NAME_ACTOR_TSUKUSHIZUME"
 duel_texture = ExtResource("1_1l3dh")
+display_name = "DISPLAY_NAME_ACTOR_TSUKUSHIZUME"

@@ -12,4 +12,5 @@ func refresh_element(character: Element):
 
 
 func kill(state: StageState, character: Element):
-	sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
+	pass
+	#sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)

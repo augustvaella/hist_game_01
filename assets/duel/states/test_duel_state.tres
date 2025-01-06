@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://src/card/card.gd" id="2_l53nq"]
 [ext_resource type="Script" path="res://src/deck/discard_deck.gd" id="3_6ttpc"]
 [ext_resource type="Resource" uid="uid://cffbf1jwleuvm" path="res://assets/actor/resource/actor_ashikaga.tres" id="3_fdab0"]
-[ext_resource type="Script" path="res://src/system/event.gd" id="4_4lgt2"]
 [ext_resource type="Resource" uid="uid://dpuyb06w2m3ru" path="res://assets/actor/resource/actor_ashikaga_little.tres" id="4_7p1wx"]
+[ext_resource type="Script" path="res://src/system/event.gd" id="4_ny257"]
 [ext_resource type="Resource" uid="uid://bjmw3kgydnium" path="res://assets/actor/resource/actor_doyo.tres" id="5_yhf0b"]
 [ext_resource type="Script" path="res://src/challenge/challenge.gd" id="6_4pdd5"]
 [ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="6_j81i7"]
@@ -40,6 +40,8 @@ cards = Array[ExtResource("2_l53nq")]([])
 
 [sub_resource type="Resource" id="Resource_gf183"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_8ulbd"]
 script = ExtResource("7_7n5bs")
@@ -56,11 +58,13 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_u2tmn")
 challenge_options = SubResource("Resource_8ulbd")
-display_name = "DISPLAY_NAME_ENEMY_1"
 duel_texture = ExtResource("6_j81i7")
+display_name = "DISPLAY_NAME_ENEMY_1"
 
 [sub_resource type="Resource" id="Resource_k5q46"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_xyist"]
 script = ExtResource("7_7n5bs")
@@ -77,11 +81,13 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_x1x66")
 challenge_options = SubResource("Resource_xyist")
-display_name = "DISPLAY_NAME_ENEMY_1"
 duel_texture = ExtResource("6_j81i7")
+display_name = "DISPLAY_NAME_ENEMY_1"
 
 [sub_resource type="Resource" id="Resource_anie1"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_4h2r7"]
 script = ExtResource("7_7n5bs")
@@ -98,11 +104,13 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_ot1tj")
 challenge_options = SubResource("Resource_4h2r7")
-display_name = "DISPLAY_NAME_ENEMY_2"
 duel_texture = ExtResource("8_gdoqm")
+display_name = "DISPLAY_NAME_ENEMY_2"
 
 [sub_resource type="Resource" id="Resource_1gd2l"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_kydjp"]
 script = ExtResource("7_7n5bs")
@@ -119,11 +127,13 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_mi30p")
 challenge_options = SubResource("Resource_kydjp")
-display_name = "DISPLAY_NAME_ENEMY_2"
 duel_texture = ExtResource("8_gdoqm")
+display_name = "DISPLAY_NAME_ENEMY_2"
 
 [sub_resource type="Resource" id="Resource_xslf3"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_hho6a"]
 script = ExtResource("7_7n5bs")
@@ -140,11 +150,13 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_olujt")
 challenge_options = SubResource("Resource_hho6a")
-display_name = "DISPLAY_NAME_ENEMY_3"
 duel_texture = ExtResource("9_cqtei")
+display_name = "DISPLAY_NAME_ENEMY_3"
 
 [sub_resource type="Resource" id="Resource_ceppk"]
 script = ExtResource("7_owpaj")
+display_name = ""
+display_document = ""
 
 [sub_resource type="Resource" id="Resource_6fqyf"]
 script = ExtResource("7_7n5bs")
@@ -161,8 +173,8 @@ resource_local_to_scene = true
 script = ExtResource("1_f5esq")
 vital = SubResource("Resource_1vyu8")
 challenge_options = SubResource("Resource_6fqyf")
-display_name = "DISPLAY_NAME_ENEMY_3"
 duel_texture = ExtResource("9_cqtei")
+display_name = "DISPLAY_NAME_ENEMY_3"
 
 [sub_resource type="Resource" id="Resource_7ty5t"]
 script = ExtResource("14_0g6h2")
@@ -179,12 +191,17 @@ _max_value = 5
 resource_name = "test duel state"
 script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
+result = null
 turn = SubResource("Resource_0nxjy")
+friend_field_limit_count = 3
 friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
+friend_actors_dead = Array[ExtResource("2_8t55l")]([])
 deck = ExtResource("11_cb63m")
 hand = SubResource("Resource_7ty5t")
 discard = SubResource("Resource_681jv")
+foe_field_limit_count = 3
 foe_enemies = Array[ExtResource("1_f5esq")]([SubResource("Resource_fa485"), SubResource("Resource_0q56v"), SubResource("Resource_vco22"), SubResource("Resource_kjgfw"), SubResource("Resource_kjisp"), SubResource("Resource_fgtde")])
+foe_enemies_dead = Array[ExtResource("1_f5esq")]([])
 initial_resolver = ExtResource("15_2sjia")
 resolvers = {
 "EvalResult": ExtResource("20_ejwkp"),
@@ -200,4 +217,4 @@ resolvers = {
 "friend select": ExtResource("24_4vqjf")
 }
 register = {}
-event_queue = Array[ExtResource("4_4lgt2")]([])
+event_queue = Array[ExtResource("4_ny257")]([])

@@ -7,7 +7,7 @@ extends Node
 @export var master_instance_server: InstanceServer
 @export var stage_server: InstanceServer
 @export var effect_servers: Dictionary # <String, EffectServer>
-
+@export var item_servers: Dictionary # <String, ObjectPool>
 @export var is_debug: bool
 @export var packed_scene_debug_window: PackedScene
 var debug_window: DebugWindow
@@ -18,6 +18,10 @@ func _ready():
 	effect_servers = {}
 	for s in find_child("EffectServers").get_children():
 		effect_servers[s.name] = s
+
+	item_servers = {}
+	for s in find_child("ItemServers").get_children():
+		item_servers[s.name] = s
 
 	Log.change_level(log_level)
 	

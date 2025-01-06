@@ -1,16 +1,30 @@
 class_name DuelState extends StageState
 
+# Result
+@export var result: Result
+
 # Field
 @export var turn: DuelTurn
 
 # Friend
+@export var friend_field_limit_count: int
 @export var friend_actors: Array[Actor]
+@export var friend_actors_dead: Array[Actor]
 @export var deck: PlayerDeck
 @export var hand: HandDeck
 @export var discard: DiscardDeck
-
 # Foe
+@export var foe_field_limit_count: int
 @export var foe_enemies: Array[Enemy]
+@export var foe_enemies_dead: Array[Enemy]
+
+enum Result {
+	LOSE,
+	WIN,
+	TIME_UP,
+	NO_CONTEST,
+	CANCEL,
+}
 
 
 func get_stage_name() -> String:

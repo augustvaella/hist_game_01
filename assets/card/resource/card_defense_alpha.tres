@@ -6,12 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_jko6v"]
 script = ExtResource("1_mhyra")
+display_name = ""
+display_document = ""
 
 [resource]
 resource_name = "card defense alpha"
 script = ExtResource("1_5ccix")
-display_name = "DISPLAY_NAME_CARD_DEFENSE_ALPHA"
+display_flavor_text = ""
+rarity = 0
 texture = ExtResource("1_3m2bc")
 opponent_select = 3
 card_select = 0
 challenge = SubResource("Resource_jko6v")
+display_name = "DISPLAY_NAME_CARD_DEFENSE_ALPHA"

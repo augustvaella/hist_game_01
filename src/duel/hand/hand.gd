@@ -7,7 +7,7 @@ func set_state(state: DuelState):
 
 
 func instantiate_card(state: DuelState, card: Card):
-	var c = state.stage.card_server.get_card(card)
+	var c = Master.item_servers.duel_card.get_card(card)
 	add_node(c)
 
 func return_card(state: DuelState, card: DuelCard):

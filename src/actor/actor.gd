@@ -25,3 +25,8 @@ func is_vital() -> bool:
 	return army.is_condition(func(v, d, u): return d < v) and \
 		morale.is_condition(func(v, d, u): return d < v) and \
 		supply.is_condition(func(v, d, u): return d < v)
+
+
+func _kill(state: StageState):
+	state.friend_actors.erase(self)
+	state.friend_actors_dead.push_back(self)

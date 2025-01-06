@@ -27,10 +27,10 @@ script = ExtResource("13_4xdye")
 [node name="Field" parent="." instance=ExtResource("8_8h64d")]
 
 [node name="Foe" parent="." instance=ExtResource("9_3q72p")]
-position = Vector2(754, 54)
+position = Vector2(2, 38)
 
 [node name="Friend" parent="." instance=ExtResource("10_suqlp")]
-position = Vector2(764, 692)
+position = Vector2(8, 736)
 
 [node name="Info" parent="." instance=ExtResource("12_yoepw")]
 

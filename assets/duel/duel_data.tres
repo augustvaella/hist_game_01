@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ResourceSet" load_steps=5 format=3 uid="uid://cf46imhnw5v74"]
+[gd_resource type="Resource" script_class="ResourceSet" load_steps=7 format=3 uid="uid://cf46imhnw5v74"]
 
 [ext_resource type="Resource" uid="uid://73vgv20ssoej" path="res://assets/duel/duel_states.tres" id="1_cgq2j"]
 [ext_resource type="Script" path="res://src/system/resource_set.gd" id="1_jbar2"]
 [ext_resource type="PackedScene" uid="uid://bf5qcl0cv5edn" path="res://src/duel/duel.tscn" id="1_kckgj"]
 [ext_resource type="PackedScene" uid="uid://bo57ywq3m6v0k" path="res://src/duel/card/card.tscn" id="3_s8dn5"]
+[ext_resource type="PackedScene" uid="uid://davulw8q6onlf" path="res://src/duel/actor/actor.tscn" id="4_2307k"]
+[ext_resource type="PackedScene" uid="uid://cchfg5x2fawuo" path="res://src/duel/enemy/enemy.tscn" id="5_xcg3i"]
 
 [resource]
 script = ExtResource("1_jbar2")
-childs = Array[Resource]([ExtResource("1_kckgj"), ExtResource("1_cgq2j"), ExtResource("3_s8dn5")])
+childs = Array[Resource]([ExtResource("1_kckgj"), ExtResource("1_cgq2j"), ExtResource("3_s8dn5"), ExtResource("4_2307k"), ExtResource("5_xcg3i")])

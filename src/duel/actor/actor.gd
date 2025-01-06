@@ -19,10 +19,10 @@ func _on_uncheck():
 	#info.display_name.text = "%s" % character.display_name
 
 
-func _mark_character():
+func _mark():
 	body.modulate = Color(0.5, 1.0, 0.5, 1.0)
 
-func _unmark_character():
+func _unmark():
 	body.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func get_pre_node() -> Node:

@@ -20,6 +20,7 @@ func set_element(elem: Element):
 func reset_element():
 	element.listened_object.disconnect(listen_object)
 	info.reset_element()
+	element = null
 
 
 func listen_object(object: Object):

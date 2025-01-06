@@ -17,3 +17,8 @@ func damage_normal(state: StageState, challenger: Element):
 
 func is_vital() -> bool:
 	return vital.is_condition(func(v, d, u): return d < v)
+
+
+func _kill(state: StageState):
+	state.foe_enemies.erase(self)
+	state.foe_enemies_dead.push_back(self)

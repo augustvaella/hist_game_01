@@ -14,7 +14,9 @@ func resolve(state: StageState):
 	var opponents = state.register[REGISTER_KEY_TYPE]
 
 	state.stage.discard.discard(state, card)
-	opponents.map(func(op): challenge(state, card.element, challenger.element, op.element))
+	for op in opponents:
+		if challenge(state, card.element, challenger.element, op.element):
+			return
 	
 	await state.stage.get_tree().create_timer(0.5).timeout
 	
@@ -34,3 +36,12 @@ func challenge(state: StageState, card: Card, challenger: Element, opponent: Ele
 
 	if not challenger.is_vital():
 		challenger.kill(state)
+
+	state.stage.friend.reserve_actor(state.friend_actors)
+	state.stage.foe.reserve_enemy(state.foe_enemies)
+
+	if state.eval_result():
+		next_resolver(state, "Result")
+		return true
+	
+	return false

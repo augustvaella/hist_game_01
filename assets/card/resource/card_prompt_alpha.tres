@@ -6,12 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_u7g32"]
 script = ExtResource("2_dr70b")
+display_name = ""
+display_document = ""
 
 [resource]
 resource_name = "card prompt alpha"
 script = ExtResource("1_flgdq")
-display_name = "DISPLAY_NAME_CARD_PROMPT_ALPHA"
+display_flavor_text = ""
+rarity = 0
 texture = ExtResource("1_6xwch")
 opponent_select = 1
 card_select = 0
 challenge = SubResource("Resource_u7g32")
+display_name = "DISPLAY_NAME_CARD_PROMPT_ALPHA"
