@@ -18,8 +18,6 @@ func _on_uncheck():
 	self.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	#info.display_name.text = "%s" % character.display_name
 
-func _is_checkable():
-	return true
 
 func _mark_character():
 	body.modulate = Color(0.5, 1.0, 0.5, 1.0)

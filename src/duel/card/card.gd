@@ -22,5 +22,5 @@ func _on_uncheck():
 	info.set_display_name("%s" % element.display_name)
 
 
-func _is_checkable() -> bool:
+func is_checkable() -> bool:
 	return true

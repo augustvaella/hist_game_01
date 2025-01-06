@@ -86,7 +86,11 @@ func check_initial():
 	if mode == Mode.ALL:
 		return
 	if is_exist() and not is_exist_checked():
-		collector.get_child(0).check()
+		var p = collector.get_child(0)
+		if p and not p.is_checkable():
+			p = p.get_post_node()
+		if p:
+			p.check()
 
 		
 func check_left():
@@ -98,6 +102,8 @@ func check_left():
 		check_initial()
 	else:
 		var p = a[0].get_pre_node()
+		while p and not p.is_checkable():
+			p = p.get_pre_node()
 		if p:
 			a.map(func(item): item.uncheck())
 			p.check()
@@ -112,6 +118,8 @@ func check_right():
 		check_initial()
 	else:
 		var p = a[0].get_post_node()
+		while p and not p.is_checkable():
+			p = p.get_post_node()
 		if p:
 			a.map(func(item): item.uncheck())
 			p.check()

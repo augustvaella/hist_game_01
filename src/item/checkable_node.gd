@@ -4,13 +4,13 @@ class_name CheckableNode extends Node
 @export var is_checked: bool
 
 func check():
-	if _is_checkable():
+	if is_checkable():
 		is_checked = true
 		_on_check()
 
 
 func uncheck():
-	if _is_checkable():
+	if is_checkable():
 		is_checked = false
 		_on_uncheck()
 
@@ -24,5 +24,5 @@ func _on_uncheck():
 	pass
 
 # to be overridden
-func _is_checkable() -> bool:
+func is_checkable() -> bool:
 	return false

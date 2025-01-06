@@ -15,6 +15,7 @@ var mark: bool:
 		else:
 			_unmark_character()
 
+@export var is_killed: bool
 
 func _listen_object(object: Object):
 	if object is Character.Killed:
@@ -23,8 +24,10 @@ func _listen_object(object: Object):
 
 
 func kill(state: StageState):
+	is_killed = true
 	body.kill(state, element)
 	info.kill(state, element)
+
 
 func do_effect(effect_node: Node, object: Object):
 		add_child(effect_node)
@@ -33,6 +36,7 @@ func do_effect(effect_node: Node, object: Object):
 
 func set_element(character: Element):
 	super.set_element(character)
+	is_killed = false
 	body.set_element(character)
 	info.set_element(character)
 	refresh_element()
@@ -64,6 +68,11 @@ func _mark_character():
 # to be overriden
 func _unmark_character():
 	pass
+
+func is_checkable():
+	if is_killed:
+		return false
+	return true
 
 
 class Empty extends DuelCharacter:
