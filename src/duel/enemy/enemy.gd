@@ -1,6 +1,8 @@
 class_name DuelEnemy extends DuelCharacter
 ## DuelEnemy is an envelope of Enemy to be dealed as UI(Node2D) on script.
 
+@export var effect_shaker: EffectShaker
+
 func set_element(character: Element):
 	super.set_element(character)
 
@@ -9,7 +11,8 @@ func _listen_object(object: Object):
 	super._listen_object(object)
 	if object is EffectNumber.Pop:
 		Master.effect_servers["number"].get_effect(self, object).do_effect()
-
+	elif object is EffectShaker.Normal:
+		effect_shaker.do_effect()
 	
 func _on_check():
 	self.modulate = Color(1.0, 0.5, 0.5, 1.0)

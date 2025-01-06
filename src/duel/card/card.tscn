@@ -1,12 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo57ywq3m6v0k"]
+[gd_scene load_steps=15 format=3 uid="uid://bo57ywq3m6v0k"]
 
 [ext_resource type="Script" path="res://src/duel/card/card.gd" id="1_flmr4"]
+[ext_resource type="Script" path="res://src/duel/card/category.gd" id="2_ykgup"]
+[ext_resource type="Script" path="res://src/duel/card/opponent.gd" id="3_0ewwj"]
 [ext_resource type="Script" path="res://src/duel/card/info.gd" id="3_ubo51"]
+[ext_resource type="Texture2D" uid="uid://dke7ajbkv1v37" path="res://assets/card/texture/card_beta_prompt_frame.png" id="3_v4f6j"]
+[ext_resource type="Texture2D" uid="uid://cygq4sfwe1jqd" path="res://assets/card/texture/card_beta_field.png" id="4_0a5w2"]
+[ext_resource type="Texture2D" uid="uid://dkee0cxvmgyt2" path="res://assets/card/texture/card_beta_defensive_frame.png" id="4_e4bm2"]
+[ext_resource type="Texture2D" uid="uid://dyfqw1wg12c32" path="res://assets/card/texture/card_beta_foe_single.png" id="5_bynev"]
+[ext_resource type="Texture2D" uid="uid://bnobvmbvw2t5d" path="res://assets/card/texture/card_beta_responsive_frame.png" id="5_wemc5"]
+[ext_resource type="Texture2D" uid="uid://ctuwli58u2ym6" path="res://assets/card/texture/card_beta_trick_frame.png" id="6_pd85h"]
+[ext_resource type="Texture2D" uid="uid://cq5guqk27p7cu" path="res://assets/card/texture/card_beta_foe_all.png" id="6_r2vru"]
+[ext_resource type="Texture2D" uid="uid://bs6k1dalwweeq" path="res://assets/card/texture/card_beta_friend_single.png" id="7_iiv7s"]
+[ext_resource type="Texture2D" uid="uid://cmx24uvy5g3me" path="res://assets/card/texture/card_beta.burden_frame.png" id="7_k556c"]
+[ext_resource type="Texture2D" uid="uid://cbrp24fn83wol" path="res://assets/card/texture/card_beta_friend_all.png" id="8_3mvbe"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("info")]
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("texture_category", "texture_opponent", "info")]
 stretch_mode = 2
 script = ExtResource("1_flmr4")
+texture_category = NodePath("Category")
+texture_opponent = NodePath("Opponent")
 info = NodePath("Info")
+
+[node name="Category" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ykgup")
+textures = Array[Texture2D]([ExtResource("3_v4f6j"), ExtResource("4_e4bm2"), ExtResource("5_wemc5"), ExtResource("6_pd85h"), ExtResource("7_k556c")])
+
+[node name="Opponent" type="TextureRect" parent="." node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_0ewwj")
+textures = Array[Texture2D]([ExtResource("4_0a5w2"), ExtResource("5_bynev"), ExtResource("6_r2vru"), ExtResource("7_iiv7s"), ExtResource("8_3mvbe")])
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Opponent"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
 
 [node name="Info" type="Container" parent="." node_paths=PackedStringArray("display_name")]
 layout_mode = 0

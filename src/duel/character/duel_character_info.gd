@@ -10,5 +10,9 @@ func refresh_element(character: Element):
 	super.refresh_element(character)
 
 
+func reset_element():
+	super.reset_element()
+
 func kill(state: StageState, character: Element):
-	set_display_name("KILLED")
+	reset_element()
+	#set_display_name("KILLED")

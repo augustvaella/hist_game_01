@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://v0ynx4ih8qx"]
+
+[ext_resource type="Script" path="res://src/card/card.gd" id="1_fgb3j"]
+[ext_resource type="Script" path="res://src/challenge/attack.gd" id="1_t8qur"]
+[ext_resource type="Texture2D" uid="uid://b3g16nfq44pc4" path="res://assets/card/texture/2025_0106_194846.png" id="3_887ka"]
+
+[sub_resource type="Resource" id="Resource_iv7qo"]
+script = ExtResource("1_t8qur")
+display_name = ""
+display_document = ""
+
+[resource]
+resource_name = "card beta prompt"
+script = ExtResource("1_fgb3j")
+display_flavor_text = "FLAVOR_TEXT_CARD_BETA_PROMPT"
+category = 0
+rarity = 0
+texture = ExtResource("3_887ka")
+opponent_select = 1
+card_select = 0
+challenge = SubResource("Resource_iv7qo")
+display_name = "DISPLAY_NAME_CARD_BETA_PROMPT"

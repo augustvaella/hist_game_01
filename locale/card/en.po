@@ -31,3 +31,8 @@ msgstr "Trick Alpha"
 msgid "DISPLAY_NAME_CARD_BURDEN_ALPHA"
 msgstr "Burden Alpha"
 
+msgid "DISPLAY_NAME_CARD_BETA_PROMPT"
+msgstr "Beta Prompt"
+
+msgid "FLAVOR_TEXT_CARD_BETA_PROMPT"
+msgstr "This is a flavor text."

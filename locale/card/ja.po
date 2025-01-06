@@ -31,3 +31,8 @@ msgstr "戦法アルファ"
 msgid "DISPLAY_NAME_CARD_BURDEN_ALPHA"
 msgstr "治罰アルファ"
 
+msgid "DISPLAY_NAME_CARD_BETA_PROMPT"
+msgstr "速決ベータ"
+
+msgid "FLAVOR_TEXT_CARD_BETA_PROMPT"
+msgstr "フレーバーテキストです。"

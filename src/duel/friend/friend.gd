@@ -7,10 +7,8 @@ func _ready():
 func set_state(state: StageState):
 	super.set_state(state)
 	items.resize(state.friend_field_limit_count)
-	var elm = []
-	elm.assign(state.friend_actors)
 	for i in range(items.size()):
-		var e = elm.pop_front()
+		var e = state.friend_actors.pop_front()
 		add_item(i, e)
 		items[i].position = Vector2(randf_range(100.0, 1500.0), randf_range(0.0, 100.0))
 

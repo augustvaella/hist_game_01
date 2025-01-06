@@ -12,8 +12,10 @@ func _setup():
 
 func damage_normal(state: StageState, challenger: Element):
 	if challenger is Enemy:
-		var v = army.get_value() - morale.get_ratio() * (challenger.vital.get_value())
+		var v = 300
+		#var v = army.get_value() - morale.get_ratio() * (challenger.vital.get_value())
 		listened_object.emit(EffectNumber.Pop.new(v))
+		listened_object.emit(EffectShaker.Normal.new())
 		army.set_value(v)
 	elif challenger is Actor:
 		var v = army.get_value() - morale.get_ratio() * (challenger.army.get_value())

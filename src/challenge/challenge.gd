@@ -9,6 +9,8 @@ signal challenged(challenge: Challenge)
 @export var next_challenge: Challenge
 
 func challenge(state: StageState, challenger: Element, opponent: Element):
+	Log.log_trace("[Challenge#%d] challenger#%d %s opponent#%d %s" % \
+		[get_instance_id(), challenger.get_instance_id(), challenger, opponent.get_instance_id(), opponent])
 	_challenge(state, challenger, opponent)
 	challenged.emit(self)
 	if next_challenge:

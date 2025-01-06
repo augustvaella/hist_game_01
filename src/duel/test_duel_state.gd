@@ -6,12 +6,12 @@ func get_next_stage_state() -> StageState:
 
 func eval_result() -> bool:
 	# all friends dead
-	if not friend_actors.size():
+	if stage.friend.is_all_dead():
 		result = Result.LOSE
 		return true
 	
 	# all enemies dead
-	if not foe_enemies.size():
+	if stage.foe.is_all_dead():
 		result = Result.WIN
 		return true
 

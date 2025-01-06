@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerDeck" load_steps=4 format=3 uid="uid://drgti6lp1tnxv"]
+
+[ext_resource type="Script" path="res://src/card/card.gd" id="1_41awg"]
+[ext_resource type="Resource" uid="uid://v0ynx4ih8qx" path="res://assets/card/resource/card_beta_prompt.tres" id="2_3mqhg"]
+[ext_resource type="Script" path="res://src/deck/player_deck.gd" id="3_i8uuk"]
+
+[resource]
+resource_name = "test deck beta"
+script = ExtResource("3_i8uuk")
+cards = Array[ExtResource("1_41awg")]([ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg"), ExtResource("2_3mqhg")])

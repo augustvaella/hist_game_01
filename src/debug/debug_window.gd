@@ -50,6 +50,7 @@ func set_handlers():
 		"deck": func(args: PackedStringArray): show_duel_deck(),
 		"hand": func(args: PackedStringArray): show_duel_hand(),
 		"discard": func(args: PackedStringArray): show_duel_discard(),
+		"foe": func(args: PackedStringArray): show_foe(),
 	}
 
 func _input(event: InputEvent):
@@ -67,6 +68,9 @@ func _process(delta: float):
 		return
 	var stage = _startup.get_current_stage()
 	show_stage_state(stage._state)
+
+func get_stage() -> Stage:
+	return _startup.get_current_stage()
 
 
 func show_stage_state(state: StageState):
@@ -92,3 +96,15 @@ func show_duel_discard():
 	var s = get_stage_state()
 	if s and s is DuelState:
 		show_label(var_to_str(s.discard.cards))
+
+func show_foe():
+	var s = get_stage_state()
+	var t = ""
+	for item in get_stage().foe.items:
+		if item.element:
+			t = "%s, Enemy#%d:%s" % [t, item.element.get_instance_id(), item.element]
+		else:
+			t = "%s, null" % [t]
+	if s and s is DuelState:
+		show_label("foe_enemies:%s\nfoe_enemies_dead:%sDuelEnemies.element:%s" % [\
+			s.foe_enemies, s.foe_enemies_dead, t])

@@ -4,6 +4,12 @@ class_name DuelCharacter extends Item
 
 @export var body: DuelCharacterBody
 
+func is_vital() -> bool:
+	if element and element.is_vital():
+		return true
+	return false
+
+
 func _listen_object(object: Object):
 	if object is Character.Killed:
 		kill(object.get_state())
@@ -13,6 +19,7 @@ func _listen_object(object: Object):
 func kill(state: StageState):
 	body.kill(state, element)
 	info.kill(state, element)
+	reset_element()
 
 
 func do_effect(effect_node: Node, object: Object):

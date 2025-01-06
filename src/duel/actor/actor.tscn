@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://davulw8q6onlf"]
+[gd_scene load_steps=5 format=3 uid="uid://davulw8q6onlf"]
 
 [ext_resource type="Script" path="res://src/duel/actor/actor.gd" id="1_yt5yr"]
 [ext_resource type="Script" path="res://src/duel/actor/body.gd" id="2_xaoy4"]
 [ext_resource type="Script" path="res://src/duel/actor/info.gd" id="3_47udh"]
+[ext_resource type="Script" path="res://src/effect/shaker/shaker.gd" id="4_olouv"]
 
-[node name="Actor" type="Node2D" node_paths=PackedStringArray("body", "info")]
+[node name="Actor" type="Node2D" node_paths=PackedStringArray("effect_shaker", "body", "info")]
 script = ExtResource("1_yt5yr")
+effect_shaker = NodePath("EffectShaker")
 body = NodePath("Body")
 info = NodePath("Info")
 
@@ -53,3 +55,10 @@ offset_left = 3.0
 offset_top = 104.0
 offset_right = 184.0
 offset_bottom = 127.0
+
+[node name="EffectShaker" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_olouv")
+target = NodePath("..")
+amp = 1.0
+from = 50.0
+duration = 0.5

@@ -1,9 +1,14 @@
 class_name DuelCard extends Item
 ## DuelCard is an envelope of Card to be dealed as UI(Control) on script.
 
+@export var texture_category: TextureRect
+@export var texture_opponent: TextureRect
+
 func set_element(element: Element):
 	super.set_element(element)
 	self.texture = element.texture
+	texture_category.set_element(element)
+	texture_opponent.set_element(element)
 	info.set_element(element)
 
 

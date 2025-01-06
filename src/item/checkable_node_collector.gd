@@ -85,12 +85,12 @@ func is_exist_checked() -> bool:
 func check_initial():
 	if mode == Mode.ALL:
 		return
-	if is_exist() and not is_exist_checked():
-		var p = collector.get_child(0)
-		if p and not p.is_checkable():
-			p = p.get_post_node()
-		if p:
+	var p = collector.get_child(0)
+	while p:
+		if p.is_checkable():
 			p.check()
+			return
+		p = p.get_post_node()
 
 		
 func check_left():
