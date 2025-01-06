@@ -15,10 +15,10 @@ func return_card(state: DuelState, card: DuelCard):
 	state.stage.card_server.return_card(card)
 
 func add_card_to_deck(state: DuelState, card: DuelCard, deck: Deck):
-	deck.push_back_card(card.card)
+	deck.push_back_card(card.element)
 	add_node(card)
 
 
 func remove_card_to_deck(state: DuelState, card: DuelCard, deck: Deck):
-	deck.erase_card(card.card)
+	deck.erase_card(card.element)
 	remove_node(card)

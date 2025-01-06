@@ -14,7 +14,7 @@ func resolve(state: StageState):
 	var opponents = state.register[REGISTER_KEY_TYPE]
 
 	state.stage.discard.discard(state, card)
-	opponents.map(func(op): challenge(state, card.card, challenger.element, op.element))
+	opponents.map(func(op): challenge(state, card.element, challenger.element, op.element))
 	
 	await state.stage.get_tree().create_timer(0.5).timeout
 	

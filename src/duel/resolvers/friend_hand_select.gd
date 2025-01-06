@@ -35,7 +35,7 @@ func select_opponent(state: DuelState):
 	var c = state.get_checked_hand() # DuelCard
 	state.register[REGISTER_KEY_CARD] = c
 
-	match c.card.opponent_select:
+	match c.element.opponent_select:
 		Card.OpponentSelect.NONE:
 			state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend challenge"]))
 		Card.OpponentSelect.ENEMY_SINGLE:
