@@ -63,6 +63,7 @@ instance_path = "res://src/effect/number/number.tscn"
 
 [node name="duel_card" type="Node" parent="ItemServers"]
 script = ExtResource("9_opwgx")
+instance_path = "res://src/duel/card/card.tscn"
 
 [node name="duel_actor" type="Node" parent="ItemServers"]
 script = ExtResource("10_4rpwe")

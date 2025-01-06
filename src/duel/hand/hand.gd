@@ -7,12 +7,12 @@ func set_state(state: DuelState):
 
 
 func instantiate_card(state: DuelState, card: Card):
-	var c = Master.item_servers.duel_card.get_card(card)
+	var c = Master.item_servers.duel_card.get_item(card)
 	add_node(c)
 
 func return_card(state: DuelState, card: DuelCard):
 	remove_node(card)
-	state.stage.card_server.return_card(card)
+	Master.item_servers.duel_card.return_item(card)
 
 func add_card_to_deck(state: DuelState, card: DuelCard, deck: Deck):
 	deck.push_back_card(card.element)
