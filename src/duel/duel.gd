@@ -8,8 +8,6 @@ class_name Duel extends Stage
 @export var discard: DuelDiscard
 @export var info: DuelInfo
 
-@export var card_server: DuelCardServer
-
 func _ready():
 	pass
 

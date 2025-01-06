@@ -12,21 +12,13 @@ func set_state(state: StageState):
 	elm.assign(state.foe_enemies)
 	for i in range(items.size()):
 		var e = elm.pop_front()
-		if e:
-			e.setup()
-			items[i] = item_server.get_item(e)
-			add_child(items[i])
-		else:
-			items[i] = item_server.get_empty_item()
-			add_child(items[i])
+		add_item(i, e)
 		items[i].position = Vector2(randf_range(100.0, 1500.0), randf_range(0.0, 100.0))
 
 func reset_state():
 	super.reset_state()
-	reset_elements()
 	for item in items:
-		remove_child(item)
-		Master.item_servers.duel_enemy.return_enemy(item)
+		remove_item(item)
 	items.resize(0)
 
 

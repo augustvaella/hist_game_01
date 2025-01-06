@@ -185,7 +185,7 @@ cards = Array[ExtResource("2_l53nq")]([])
 script = ExtResource("33_r7fj5")
 _value = 0
 _min_value = 0
-_max_value = 5
+_max_value = 20
 
 [resource]
 resource_name = "test duel state"
