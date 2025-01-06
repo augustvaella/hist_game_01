@@ -14,5 +14,5 @@ func reset_element():
 	display_name.text = String()
 
 
-func reflesh_element(element: Element):
+func refresh_element(element: Element):
 	set_display_name(element.display_name)

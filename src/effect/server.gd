@@ -12,7 +12,7 @@ func _create_object() -> Object:
 
 func get_effect(parent: Node, object: Object) -> Effect:
 	var c = get_object()
-	c.setup_effect(parent, object)
+	c.set_effect(parent, object)
 	return c
 
 

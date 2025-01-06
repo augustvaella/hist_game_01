@@ -13,19 +13,19 @@ func do_effect():
 func reset_effect():
 	get_parent().remove_child(self)
 
-func setup_effect(parent: Node, object: Object):
+func set_effect(parent: Node, object: Object):
 	parent.add_child(self)
 	if object is Pop:
 		self.text = "%d" % object.get_number()
 
-		var duration:float = 0.7
-		var tp:float = 17.0
-		var rt:float = 28.0
+		var duration: float = 0.7
+		var tp: float = 17.0
+		var rt: float = 28.0
 
 		tween = parent.get_tree().create_tween()
 		tween.tween_property(self, "position", Vector2(0, 0), 0)
 		tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0)
-		tween.tween_method(func(p:float): self.position = Vector2(p, (p - tp / 2.0) ** 2 - (tp ** 2) / 4.0), 0.0, rt, duration)
+		tween.tween_method(func(p: float): self.position=Vector2(p, (p - tp / 2.0) ** 2 - (tp ** 2) / 4.0), 0.0, rt, duration)
 		tween.parallel().tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.2), duration)
 	
 class Pop extends RefCounted:

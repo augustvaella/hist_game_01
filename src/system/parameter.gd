@@ -51,10 +51,10 @@ func get_min() -> int:
 	return min_value
 
 func get_calc(callable: Callable) -> int:
-	return callable.call(value, min, max)
+	return callable.call(value, min_value, max_value)
 
 func set_calc(callable: Callable) -> int:
-	value = callable.call(value, min, max)
+	value = callable.call(value, min_value, max_value)
 	return self.value
 
 func is_min() -> bool:
@@ -64,4 +64,4 @@ func is_max() -> bool:
 	return value == max_value
 
 func is_condition(callable: Callable) -> bool:
-	return callable.call(value, min, max)
+	return callable.call(value, min_value, max_value)

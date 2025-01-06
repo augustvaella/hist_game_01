@@ -16,6 +16,16 @@ var mark: bool:
 			_unmark_character()
 
 
+func _listen_object(object: Object):
+	if object is Character.Killed:
+		kill(object.get_state())
+		#Master.effect_servers["number"].get_effect(self, object).do_effect()
+
+
+func kill(state: StageState):
+	body.kill(state, element)
+	info.kill(state, element)
+
 func do_effect(effect_node: Node, object: Object):
 		add_child(effect_node)
 		await effect_node.do_effect(object)
@@ -23,10 +33,9 @@ func do_effect(effect_node: Node, object: Object):
 
 func set_element(character: Element):
 	super.set_element(character)
-	character.listened_object.connect(listen_object)
 	body.set_element(character)
 	info.set_element(character)
-	reflesh_element()
+	refresh_element()
 
 
 func reset_element():
@@ -34,9 +43,9 @@ func reset_element():
 	body.reset_element()
 
 
-func reflesh_element():
-	super.reflesh_element()
-	body.reflesh_element(element)
+func refresh_element():
+	super.refresh_element()
+	body.refresh_element(element)
 
 
 func mark_character():

@@ -7,6 +7,6 @@ func set_element(character: Element):
 	#vital.text = "%d" % [character.vital.value]
 	#character.vital.changed_value.connect(func(v, d, u): vital.text = "%d" % [v])
 
-func reflesh_element(character: Element):
-	super.reflesh_element(character)
+func refresh_element(character: Element):
+	super.refresh_element(character)
 	vital.text = "%d" % [character.vital.value]

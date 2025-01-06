@@ -6,6 +6,7 @@ func set_element(character: Element):
 
 
 func _listen_object(object: Object):
+	super._listen_object(object)
 	if object is EffectNumber.Pop:
 		Master.effect_servers["number"].get_effect(self, object).do_effect()
 

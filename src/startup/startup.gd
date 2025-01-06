@@ -10,8 +10,8 @@ signal changed_stage(stage: Stage)
 func _ready():
 	Master.set_startup(self)
 
-	Master.master_resource_server.loading_resource.connect(Loading.reflesh_load_status)
-	Master.user_resource_server.loading_resource.connect(Loading.reflesh_load_status)
+	Master.master_resource_server.loading_resource.connect(Loading.refresh_load_status)
+	Master.user_resource_server.loading_resource.connect(Loading.refresh_load_status)
 
 	Master.master_resource_server.request_load_resource(MASTER_RESOURCE_SET_PATH)
 	await Master.master_resource_server.cleared_all_requested_load

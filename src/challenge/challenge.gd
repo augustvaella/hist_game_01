@@ -1,5 +1,5 @@
 class_name Challenge extends Resource
-## Challenge executes processes that challenger Element to opponent Characters.
+## Challenge executes processes that challenger Element to opponent Element.
 
 signal challenged(challenge: Challenge)
 

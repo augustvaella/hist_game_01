@@ -6,5 +6,9 @@ func set_element(character: Element):
 
 
 # to be overriden
-func reflesh_element(character: Element):
-	super.reflesh_element(character)
+func refresh_element(character: Element):
+	super.refresh_element(character)
+
+
+func kill(state: StageState, character: Element):
+	set_display_name("KILLED")

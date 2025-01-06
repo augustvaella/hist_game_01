@@ -7,5 +7,9 @@ func set_element(character: Element):
 
 
 # to be overriden
-func reflesh_element(character: Element):
+func refresh_element(character: Element):
 	pass
+
+
+func kill(state: StageState, character: Element):
+	sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)

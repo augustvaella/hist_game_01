@@ -1,11 +1,12 @@
 class_name Effect extends Node
+## Effect is a standalone Node to effecting on game.
 
 # to be overriden
 func do_effect():
 	pass
 
 # to be overriden
-func setup_effect(parent: Node, object: Object):
+func set_effect(parent: Node, object: Object):
 	pass
 
 # to be overriden

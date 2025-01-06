@@ -7,26 +7,19 @@ class_name DuelActorInfo extends DuelCharacterInfo
 func set_element(character: Element):
 	super.set_element(character)
 
-	#army.text = "%d" % [character.army.value]
-	#morale.text = "%d" % [character.morale.value]
-	#supply.text = "%d" % [character.supply.value]
-	
-	#character.army.changed_value.connect(reflesh_army)
-	#character.morale.changed_value.connect(reflesh_morale)
-	#character.supply.changed_value.connect(reflesh_supply)
 
-func reflesh_element(character: Element):
-	super.reflesh_element(character)
-	army.text = "%d" % [character.army.value]
-	morale.text = "%d" % [character.morale.value]
-	supply.text = "%d" % [character.supply.value]
+func refresh_element(character: Element):
+	super.refresh_element(character)
+	refresh_army(character.army.value)
+	refresh_morale(character.morale.value)
+	refresh_supply(character.supply.value)
 	
 
-func reflesh_army(value: int, min: int, max: int):
+func refresh_army(value: int):
 	army.text = "%d" % [value]
 
-func reflesh_morale(value: int, min: int, max: int):
+func refresh_morale(value: int):
 	morale.text = "%d" % [value]
 
-func reflesh_supply(value: int, min: int, max: int):
+func refresh_supply(value: int):
 	supply.text = "%d" % [value]

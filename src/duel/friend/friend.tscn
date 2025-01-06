@@ -9,25 +9,15 @@ characters = [NodePath("Actor0"), NodePath("Actor1"), NodePath("Actor2"), NodePa
 
 [node name="Actor0" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(-3, -43)
-_mark = null
-is_checked = null
 
 [node name="Actor1" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(254, -30)
-_mark = null
-is_checked = null
 
 [node name="Actor2" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(-246, -4)
-_mark = null
-is_checked = null
 
 [node name="Actor3" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(466, 14)
-_mark = null
-is_checked = null
 
 [node name="Actor4" parent="." instance=ExtResource("2_78qwj")]
 position = Vector2(-480, 4)
-_mark = null
-is_checked = null
