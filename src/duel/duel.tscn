@@ -43,6 +43,6 @@ offset_bottom = 846.0
 
 [node name="Hand" parent="." instance=ExtResource("9_moj6x")]
 offset_left = 800.0
-offset_top = 880.0
+offset_top = 1050.0
 offset_right = 800.0
-offset_bottom = 880.0
+offset_bottom = 1050.0

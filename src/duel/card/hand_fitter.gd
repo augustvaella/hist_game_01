@@ -59,8 +59,8 @@ func get_direction(target_global_position: Vector2) -> Vector2:
 	return origin_global_position.direction_to(target_global_position)
 
 
-func get_distance() -> float:
-	return Vector2(target.size.x * normal_scale.x, target.size.y * normal_scale.y).length()
+#
+	#return Vector2(target.size.x * normal_scale.x, target.size.y * normal_scale.y).length()
 
 
 func locate_card():
@@ -69,13 +69,16 @@ func locate_card():
 	var d = r.global_position if r else top_node_direction * top_node_length - origin_global_position
 
 	var dir = get_direction(d)
-	var dis = get_distance()
+	#var dis = get_distance()
+	var dis = top_node_length
+	var target_length = Vector2(target.size.x * target.scale.x, target.size.y * target.scale.y).length()
 
 	checkable_node.position = dir.rotated(rotation) * dis if r else dir * dis
-	
+	checkable_node.position += Vector2(target_length, 0).rotated(checkable_node.position.angle())
+	#target.position = -Vector2(target.size.x * target.scale.x / 2, target.size.y * target.scale.y)
 	target.rotation = dir.angle() + ROTATION_MOD
 
-	Log.trace(checkable_node, "HandFitter dir:%s dis:%f" % [dir, dis])
+	Log.trace(checkable_node, "HandFitter dir:%s dis:%f x:%s" % [dir, dis, target_length])
 	Log.trace(checkable_node, "HandFitter O%s P%s, R%f, S%s" % [origin_global_position, checkable_node.position, target.rotation, target.scale])
 
 
