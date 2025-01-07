@@ -11,8 +11,6 @@ signal removed ## emitted on removed from some deck
 @export var texture_category: TextureRect
 @export var texture_opponent: TextureRect
 
-@export var hand_origin_position: Vector2
-
 func _ready():
 	super._ready()
 
