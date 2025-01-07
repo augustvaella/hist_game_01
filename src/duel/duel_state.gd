@@ -133,8 +133,10 @@ func _on_event(event: Event):
 		var chara = event.get_character()
 		Log.trace(self, "%s" % [Log.gd(chara)])
 		if chara is Actor:
+			friend_party.withdraw_character(chara)
 			stage.friend.reserve_character(chara, friend_party)
 		elif chara is Enemy:
+			foe_party.withdraw_character(chara)
 			stage.foe.reserve_character(chara, foe_party)
 		if eval_result():
 			stage.listened_event.emit(NextResolver.new().ini(resolvers["Result"]))

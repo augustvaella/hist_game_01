@@ -62,16 +62,13 @@ func is_checkable():
 
 
 func reserve_character(party: DuelParty):
-	Log.trace(self, "reserve_character()" % [])
-	if element:
-		party.withdraw_character(element)
-		Log.debug(self, "reserve_characters() %s.withdraw_character(%s)" % \
-			[Log.gd(party), Log.gd(element)])
-	var e = party.reserve_character()
-	if e:
-		Log.debug(self, "reserve_characters() %s.reserve_character(%s)" % \
-			[Log.gd(party), Log.gd(e)])
-		set_element(e)
+	Log.trace(self, "reserve_character() from %s" % [Log.gd(party)])
+	if not element:
+		var e = party.reserve_character()
+		if e:
+			Log.debug(self, "reserve_characters() %s.reserve_character(%s)" % \
+				[Log.gd(party), Log.gd(e)])
+			set_element(e)
 
 
 class Empty extends DuelCharacter:
