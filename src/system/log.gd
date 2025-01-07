@@ -172,7 +172,7 @@ func _print_trace(text: String):
 
 func get_rich_text(text: String, color: String) -> String:
 	if is_rich_text:
-		return "[color=%s]%s" %[color, text]
+		return "[color=%s]%s[/color]" % [color, text]
 	return text
 
 

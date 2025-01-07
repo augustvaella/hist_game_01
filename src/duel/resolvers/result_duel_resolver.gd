@@ -1,4 +1,4 @@
 class_name ResultDuelResolver extends DuelResolver
 
 func resolve(state: StageState):
-	print("Result")
+	Log.log_info("Result: %s" % [state.result])

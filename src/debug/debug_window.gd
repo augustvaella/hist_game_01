@@ -5,6 +5,7 @@ class_name DebugWindow extends Window
 @export var init_position: Vector2
 @export var label: RichTextLabel
 @export var line_edit: LineEdit
+@export var handlers: DebugWindowHandlers
 
 var _splitter: RegEx
 var _handlers: Dictionary
@@ -21,7 +22,10 @@ func _ready():
 
 	_splitter = RegEx.new()
 	_splitter.compile("(\"[^\"]*\")|[^\\s+]+")
-	set_handlers()
+
+	_handlers = {}
+	if handlers:
+		handlers.set_handlers(_handlers)
 	
 	show()
 	Master.get_tree().root.grab_focus()
@@ -42,19 +46,9 @@ func input_line_edit():
 	#for e in elm:
 	#	show_label(e)
 	if elm.size() > 0 and _handlers.has(elm[0]):
-		_handlers[elm[0]].call(elm.slice(1, elm.size()))
+		_handlers[elm[0]].call(self, get_stage_state(), elm.slice(1, elm.size()))
 	clear_line_edit()
 	
-
-func set_handlers():
-	_handlers = {
-		"echo": func(args: PackedStringArray): show_label(args[0]),
-		"deck": func(args: PackedStringArray): show_duel_deck(),
-		"hand": func(args: PackedStringArray): show_duel_hand(),
-		"discard": func(args: PackedStringArray): show_duel_discard(),
-		"foe": func(args: PackedStringArray): show_foe(),
-		"all": func(args: PackedStringArray): instance_list(),
-	}
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("DebugEnter"):
@@ -84,34 +78,3 @@ func get_stage_state() -> StageState:
 	if not _startup or _startup.get_child_count() == 0:
 		return null
 	return _startup.get_current_stage()._state
-	
-func show_duel_deck():
-	var s = get_stage_state()
-	if s and s is DuelState:
-		show_label(var_to_str(s.deck.cards))
-
-func show_duel_hand():
-	var s = get_stage_state()
-	if s and s is DuelState:
-		show_label(var_to_str(s.hand.cards))
-
-func show_duel_discard():
-	var s = get_stage_state()
-	if s and s is DuelState:
-		show_label(var_to_str(s.discard.cards))
-
-func show_foe():
-	var s = get_stage_state()
-	var t = ""
-	if s and s is DuelState:
-		var r = []
-		var v = []
-		var d = []
-		s.foe_party.get_reserves(r)
-		s.foe_party.get_vitals(v)
-		s.foe_party.get_deads(d)
-		show_label("foe: Re:%s\nVi:%sDe:%s" % [ \
-			r, v, d])
-
-func instance_list():
-	show_label("instances:")
