@@ -47,7 +47,9 @@ func draw(state: DuelState):
 func add_card(state: DuelState, card: DuelCard):
 	#card.scale = Vector2(0.25, 0.25)
 	add_card_to_deck(state, card, state.deck)
+	card.decked.emit()
 
 func remove_card(state: DuelState, card: DuelCard):
 	#card.scale = Vector2(1.0, 1.0)
 	remove_card_to_deck(state, card, state.deck)
+	card.removed.emit()

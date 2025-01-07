@@ -1,11 +1,21 @@
 class_name DuelCard extends Item
+
+signal decked ## emitted on Player's Deck
+signal handed ## emitted on Player's Hand
+signal discarded ## emitted on Player's Discard
+signal removed ## emitted on removed from some deck
+
+
 ## DuelCard is an envelope of Card to be dealed as UI(Control) on script.
 @export var texture_card: TextureRect
 @export var texture_category: TextureRect
 @export var texture_opponent: TextureRect
 
+@export var hand_origin_position: Vector2
+
 func _ready():
 	super._ready()
+
 
 func get_card_body() -> TextureRect:
 	return texture_card

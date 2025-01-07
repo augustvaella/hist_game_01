@@ -45,6 +45,8 @@ func salvage(state: DuelState) -> DuelCard:
 
 func add_card(state: DuelState, card: DuelCard):
 	add_card_to_deck(state, card, state.discard)
+	card.discarded.emit()
 
 func remove_card(state: DuelState, card: DuelCard):
 	remove_card_to_deck(state, card, state.discard)
+	card.discarded.emit()

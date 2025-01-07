@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bs6k1dalwweeq" path="res://assets/card/texture/card_beta_friend_single.png" id="7_iiv7s"]
 [ext_resource type="Texture2D" uid="uid://cmx24uvy5g3me" path="res://assets/card/texture/card_beta.burden_frame.png" id="7_k556c"]
 [ext_resource type="Texture2D" uid="uid://cbrp24fn83wol" path="res://assets/card/texture/card_beta_friend_all.png" id="8_3mvbe"]
-[ext_resource type="Script" path="res://src/duel/card/scale_fitter.gd" id="14_rjf5s"]
+[ext_resource type="Script" path="res://src/duel/card/hand_fitter.gd" id="14_6h2rc"]
 
 [sub_resource type="Theme" id="Theme_2xm1p"]
 Label/font_sizes/font_size = 26
@@ -66,10 +66,17 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "1"
 
-[node name="ScaleFitter" type="Node" parent="TextureRect"]
-script = ExtResource("14_rjf5s")
-scale_current_hand = Vector2(0.3, 0.3)
-scale_hand = Vector2(0.25, 0.25)
+[node name="FitterHand" type="Node" parent="TextureRect" node_paths=PackedStringArray("checkable_node", "target")]
+script = ExtResource("14_6h2rc")
+origin_position = Vector2(800, 450)
+init_position = Vector2(-500, -50)
+current_position_rotation = 0.3
+normal_position_rotation = 0.3
+rotation = 100.0
+current_scale = Vector2(0.35, 0.35)
+normal_scale = Vector2(0.25, 0.25)
+checkable_node = NodePath("../..")
+target = NodePath("..")
 
 [node name="Info" type="Panel" parent="." node_paths=PackedStringArray("label_category", "label_rarity", "label_opponent_select", "label_sacrifice", "label_challenges", "label_flavor", "display_name")]
 custom_minimum_size = Vector2(200, 300)
