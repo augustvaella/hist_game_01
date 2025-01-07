@@ -1,5 +1,8 @@
 class_name DuelCard extends Item
 
+signal piled ## emitted on self and sibling card added
+signal unpiled ## emitted on self and sibling card removed
+
 signal decked ## emitted on Player's Deck
 signal handed ## emitted on Player's Hand
 signal discarded ## emitted on Player's Discard

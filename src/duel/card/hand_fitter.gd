@@ -3,9 +3,12 @@ class_name DuelCardHandFitter extends DuelCardFitter
 const ROTATION_MOD: float = PI / 2
 
 @export var origin_global_position: Vector2
+@export var default_direction: Vector2
 
-@export var init_position: Vector2
+@export var top_node_direction: Vector2
+@export var top_node_length: float
 @export var rotation: float
+@export var piling_rotation: float
 
 @export var length_current_proceed: float
 
@@ -14,10 +17,25 @@ const ROTATION_MOD: float = PI / 2
 
 func _ready():
 	super._ready()
+	checkable_node.piled.connect(on_pile)
+	checkable_node.unpiled.connect(on_unpile)
+
+func on_pile():
+	top_node_direction = top_node_direction.rotated(-piling_rotation)
+	fit_node()
+	Log.trace(checkable_node, "DuelCardHandFitter piled init%s" % [top_node_direction])
+
+
+func on_unpile():
+	top_node_direction = top_node_direction.rotated(piling_rotation)
+	fit_node()
+	Log.trace(checkable_node, "DuelCardHandFitter unpiled init%s" % [top_node_direction])
+
 
 func on_hand():
 	is_enable = true
 	origin_global_position = checkable_node.get_parent().global_position
+	top_node_direction = default_direction
 	fit_node()
 
 func on_deck():
@@ -48,7 +66,7 @@ func get_distance() -> float:
 func locate_card():
 	var r = checkable_node.get_pre_node()
 
-	var d = init_position + origin_global_position
+	var d = top_node_direction * top_node_length - origin_global_position
 	if r:
 		d = r.global_position
 

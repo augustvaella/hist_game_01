@@ -22,7 +22,10 @@ func hide_hand():
 func add_card(state: DuelState, card: DuelCard):
 	add_card_to_deck(state, card, state.hand)
 	card.handed.emit()
+	map_all(func(c): c.piled.emit())
 
+	
 func remove_card(state: DuelState, card: DuelCard):
 	remove_card_to_deck(state, card, state.hand)
 	card.removed.emit()
+	map_all(func(c): c.unpiled.emit())

@@ -1,5 +1,5 @@
 class_name CheckableNodeCollector extends Node
-## CheckableNodeCollector deals CheckableNode to govern checking.
+## CheckableNodeCollector deals LinkedNode to govern checking.
 
 signal changed
 
@@ -35,6 +35,14 @@ func enable_checkable():
 func disable_checkable():
 	is_checkable = false
 	uncheck_all()
+
+## callable: Callable<LinkedNode>
+func map_all(callable: Callable):
+	collector.get_children().map(callable)
+
+
+func get_all(array: Array):
+	array.assign(collector.get_children())
 
 
 func get_count() -> int:

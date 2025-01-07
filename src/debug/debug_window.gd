@@ -43,7 +43,7 @@ func set_startup(startup: Startup):
 
 
 func show_label(text: String):
-	label.text = "%s\n%s" % [label.text, text]
+	label.text = "%s\n<%s> %s" % [label.text, Time.get_datetime_string_from_system(), text]
 
 func clear_line_edit():
 	line_edit.text = String()
