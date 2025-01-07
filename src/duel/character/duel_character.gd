@@ -14,6 +14,7 @@ func is_vital() -> bool:
 
 func _listen_object(object: Object):
 	if object is Character.Killed:
+		Log.trace(self, "#%d._listen_object(%s)" % [get_instance_id(), object])
 		Log.log_debug("#%d DuelCharacter._listen_object(%s)" % \
 			[get_instance_id(), object])
 		kill()

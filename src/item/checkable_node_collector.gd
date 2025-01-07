@@ -133,7 +133,7 @@ func check_single(index: int):
 		if chk:
 			chk.check()
 		return
-	Log.warn("[CheckableNodeCollector#%d] check_single(%d)" % [get_instance_id(), index])
+	Log.log_warn("[CheckableNodeCollector#%d] check_single(%d)" % [get_instance_id(), index])
 
 
 func check_at(index: int):
@@ -143,7 +143,7 @@ func check_at(index: int):
 		var chk = collector.get_child(index)
 		collector.get_children().map(func(c): c.check() if c == chk else c.uncheck())
 		return
-	Log.warn("[CheckableNodeCollector#%d] check_at(%d)" % [get_instance_id(), index])
+	Log.log_warn("[CheckableNodeCollector#%d] check_at(%d)" % [get_instance_id(), index])
 
 
 func uncheck_single(index: int):
@@ -153,7 +153,7 @@ func uncheck_single(index: int):
 		var chk = collector.get_child(index)
 		collector.get_children().map(func(c): c.uncheck() if c == chk else c.check())
 		return
-	Log.warn("[CheckableNodeCollector#%d] uncheck_single(%d)" % [get_instance_id(), index])
+	Log.log_warn("[CheckableNodeCollector#%d] uncheck_single(%d)" % [get_instance_id(), index])
 
 
 func uncheck_at(index: int):
@@ -164,7 +164,7 @@ func uncheck_at(index: int):
 		if chk:
 			chk.uncheck()
 		return
-	Log.warn("[CheckableNodeCollector#%d] uncheck_at(%d)" % [get_instance_id(), index])
+	Log.log_warn("[CheckableNodeCollector#%d] uncheck_at(%d)" % [get_instance_id(), index])
 
 
 func check_all():

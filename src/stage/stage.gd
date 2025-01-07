@@ -47,7 +47,7 @@ func _input(event: InputEvent):
 
 func resolve_stage():
 	if not _state:
-		Log.error("[Stage#%d] resolve_stage() StageState is not found" % [get_instance_id()])
+		Log.log_error("[Stage#%d] resolve_stage() StageState is not found" % [get_instance_id()])
 		return
 
 	_state.resolve_stage()

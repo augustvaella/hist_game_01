@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ru4n0daekwy"]
+[gd_scene load_steps=3 format=3 uid="uid://c4ru4n0daekwy"]
 
 [ext_resource type="Script" path="res://src/system/log.gd" id="1_83fyl"]
+[ext_resource type="Script" path="res://src/master/log.gd" id="1_a5pwx"]
 
-[node name="Log" type="Node"]
+[node name="Log" type="Node" node_paths=PackedStringArray("_log")]
+script = ExtResource("1_a5pwx")
+_log = NodePath("Logger")
+
+[node name="Logger" type="Node" parent="."]
 script = ExtResource("1_83fyl")
 _level = 4
 is_rich_text = true
