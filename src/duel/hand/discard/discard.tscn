@@ -1,28 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnb3lfawa24q"]
+[gd_scene load_steps=2 format=3 uid="uid://bnb3lfawa24q"]
 
 [ext_resource type="Script" path="res://src/duel/hand/discard/discard.gd" id="1_1vlci"]
-[ext_resource type="Script" path="res://src/duel/hand/discard/container.gd" id="2_2ffvv"]
 
 [node name="Discard" type="Control" node_paths=PackedStringArray("panel", "collector")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_1vlci")
 panel = NodePath("Panel")
-collector = NodePath("Panel/ScrollContainer/Container")
+collector = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(800, 800)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Container" type="Container" parent="Panel/ScrollContainer"]
-custom_minimum_size = Vector2(800, 800)
-layout_mode = 2
-script = ExtResource("2_2ffvv")

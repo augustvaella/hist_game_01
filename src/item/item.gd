@@ -9,6 +9,8 @@ signal changed_element(element: Element)
 @export var element: Element
 @export var info: ItemInfo
 
+func _ready():
+	super._ready()
 
 func set_element(elem: Element):
 	element = elem

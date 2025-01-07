@@ -7,6 +7,7 @@ class_name DebugWindow extends Window
 @export var line_edit: LineEdit
 @export var handlers: DebugWindowHandlers
 
+var _integer: RegEx
 var _splitter: RegEx
 var _handlers: Dictionary
 
@@ -20,13 +21,16 @@ func _ready():
 	Log.logged_debug.connect(func(text: String): show_label(text))
 	Log.logged_trace.connect(func(text: String): show_label(text))
 
+	_integer = RegEx.new()
+	_integer.compile("[-0-9]+")
+
 	_splitter = RegEx.new()
 	_splitter.compile("(\"[^\"]*\")|[^\\s+]+")
 
 	_handlers = {}
 	_handlers["echo"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(args[0])
 	_handlers["clear"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.clear_label()
-	_handlers["#"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(get_instance_info_from_id(args[0]))
+	#_handlers["#"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(get_instance_info_from_id(args[0]))
 
 	if handlers:
 		handlers.set_handlers(_handlers)
@@ -45,6 +49,12 @@ func clear_line_edit():
 	line_edit.text = String()
 
 func input_line_edit():
+	var ins = _integer.search(line_edit.text)
+	if ins:
+		show_label(get_instance_info_from_id(ins.get_string()))
+		clear_line_edit()
+		return
+		
 	var elm = []
 	parse_line(line_edit.text, elm)
 	#for e in elm:

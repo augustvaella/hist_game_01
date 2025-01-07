@@ -1,7 +1,19 @@
 class_name CheckableNode extends MarkableNode
 ## CheckableNode is able to be checked to pointing the Node like UI options.
 
-@export var is_checked: bool
+signal changed
+
+@export var _is_checked: bool
+var is_checked: bool:
+	get:
+		return _is_checked
+	set(v):
+		if _is_checked != v:
+			_is_checked = v
+			changed.emit()
+
+func _ready():
+	super._ready()
 
 func check():
 	if is_checkable():

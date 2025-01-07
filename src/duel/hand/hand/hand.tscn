@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://calrg52rn7822"]
+[gd_scene load_steps=2 format=3 uid="uid://calrg52rn7822"]
 
 [ext_resource type="Script" path="res://src/duel/hand/hand/hand.gd" id="1_4c67p"]
-[ext_resource type="Script" path="res://src/duel/hand/hand/container.gd" id="2_sfjob"]
 
 [node name="Hand" type="Control" node_paths=PackedStringArray("collector")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_4c67p")
-collector = NodePath("Container")
-
-[node name="Container" type="Container" parent="."]
-layout_mode = 0
-offset_right = 1407.0
-offset_bottom = 294.0
-script = ExtResource("2_sfjob")
+scale_card = Vector2(0.25, 0.25)
+scale_current_card = Vector2(0.3, 0.3)
+collector = NodePath(".")

@@ -45,7 +45,7 @@ func draw(state: DuelState):
 	await get_tree().create_timer(0.01).timeout
 
 func add_card(state: DuelState, card: DuelCard):
-	card.scale = Vector2(0.25, 0.25)
+	#card.scale = Vector2(0.25, 0.25)
 	add_card_to_deck(state, card, state.deck)
 
 func remove_card(state: DuelState, card: DuelCard):

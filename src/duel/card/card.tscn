@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo57ywq3m6v0k"]
+[gd_scene load_steps=23 format=3 uid="uid://bo57ywq3m6v0k"]
 
 [ext_resource type="Script" path="res://src/duel/card/card.gd" id="1_flmr4"]
 [ext_resource type="Script" path="res://src/duel/card/category.gd" id="2_ykgup"]
@@ -14,41 +14,111 @@
 [ext_resource type="Texture2D" uid="uid://bs6k1dalwweeq" path="res://assets/card/texture/card_beta_friend_single.png" id="7_iiv7s"]
 [ext_resource type="Texture2D" uid="uid://cmx24uvy5g3me" path="res://assets/card/texture/card_beta.burden_frame.png" id="7_k556c"]
 [ext_resource type="Texture2D" uid="uid://cbrp24fn83wol" path="res://assets/card/texture/card_beta_friend_all.png" id="8_3mvbe"]
+[ext_resource type="Script" path="res://src/duel/card/scale_fitter.gd" id="14_rjf5s"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("texture_category", "texture_opponent", "info")]
-stretch_mode = 2
+[sub_resource type="Theme" id="Theme_2xm1p"]
+Label/font_sizes/font_size = 26
+
+[sub_resource type="Theme" id="Theme_0dya5"]
+Label/font_sizes/font_size = 26
+
+[sub_resource type="Theme" id="Theme_hcdn3"]
+Label/font_sizes/font_size = 26
+
+[sub_resource type="Theme" id="Theme_3ietq"]
+Label/font_sizes/font_size = 26
+
+[sub_resource type="Theme" id="Theme_at6gv"]
+Label/font_sizes/font_size = 26
+
+[sub_resource type="Theme" id="Theme_lenul"]
+Label/font_sizes/font_size = 18
+
+[sub_resource type="Theme" id="Theme_5jdq4"]
+Label/font_sizes/font_size = 16
+
+[node name="Card" type="Control" node_paths=PackedStringArray("texture_card", "texture_category", "texture_opponent", "info")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_flmr4")
-texture_category = NodePath("Category")
-texture_opponent = NodePath("Opponent")
+texture_card = NodePath("TextureRect")
+texture_category = NodePath("TextureRect/Category")
+texture_opponent = NodePath("TextureRect/Opponent")
 info = NodePath("Info")
 
-[node name="Category" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+
+[node name="Category" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
 script = ExtResource("2_ykgup")
 textures = Array[Texture2D]([ExtResource("3_v4f6j"), ExtResource("4_e4bm2"), ExtResource("5_wemc5"), ExtResource("6_pd85h"), ExtResource("7_k556c")])
 
-[node name="Opponent" type="TextureRect" parent="." node_paths=PackedStringArray("label")]
+[node name="Opponent" type="TextureRect" parent="TextureRect" node_paths=PackedStringArray("label")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("3_0ewwj")
 textures = Array[Texture2D]([ExtResource("4_0a5w2"), ExtResource("5_bynev"), ExtResource("6_r2vru"), ExtResource("7_iiv7s"), ExtResource("8_3mvbe")])
 label = NodePath("Label")
 
-[node name="Label" type="Label" parent="Opponent"]
+[node name="Label" type="Label" parent="TextureRect/Opponent"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "1"
 
-[node name="Info" type="Container" parent="." node_paths=PackedStringArray("display_name")]
+[node name="ScaleFitter" type="Node" parent="TextureRect"]
+script = ExtResource("14_rjf5s")
+scale_current_hand = Vector2(0.3, 0.3)
+scale_hand = Vector2(0.25, 0.25)
+
+[node name="Info" type="Panel" parent="." node_paths=PackedStringArray("label_category", "label_rarity", "label_opponent_select", "label_sacrifice", "label_challenges", "label_flavor", "display_name")]
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_ubo51")
-display_name = NodePath("Label")
+label_category = NodePath("VBoxContainer/VBoxContainer/Category")
+label_rarity = NodePath("VBoxContainer/VBoxContainer/Rarity")
+label_opponent_select = NodePath("VBoxContainer/VBoxContainer/OpponentSelect")
+label_sacrifice = NodePath("VBoxContainer/VBoxContainer/Sacrifice")
+label_challenges = NodePath("VBoxContainer/Challenges")
+label_flavor = NodePath("VBoxContainer/Flavor")
+offset_position = Vector2(50, -150)
+display_name = NodePath("VBoxContainer/DisplayName")
 
-[node name="Label" type="Label" parent="Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Info"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DisplayName" type="Label" parent="Info/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_2xm1p")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Info/VBoxContainer"]
+layout_mode = 2
+
+[node name="Category" type="Label" parent="Info/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0dya5")
+
+[node name="Rarity" type="Label" parent="Info/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hcdn3")
+
+[node name="OpponentSelect" type="Label" parent="Info/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3ietq")
+
+[node name="Sacrifice" type="Label" parent="Info/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_at6gv")
+
+[node name="Challenges" type="Label" parent="Info/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_lenul")
+
+[node name="Flavor" type="Label" parent="Info/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_5jdq4")

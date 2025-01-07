@@ -21,10 +21,6 @@ class_name DuelState extends StageState
 
 # Friend
 @export_category("Friend")
-@export var friend_field_limit_count: int
-@export var friend_actors: Array[Actor]
-@export var friend_actors_dead: Array[Actor]
-
 @export var friend_party: DuelParty
 @export var friend_formation: DuelFormation
 
@@ -35,10 +31,6 @@ class_name DuelState extends StageState
 
 # Foe
 @export_category("Foe")
-@export var foe_field_limit_count: int
-@export var foe_enemies: Array[Enemy]
-@export var foe_enemies_dead: Array[Enemy]
-
 @export var foe_party: DuelParty
 @export var foe_formation: DuelFormation
 

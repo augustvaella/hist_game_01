@@ -13,6 +13,69 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "PO-Revision-Date: 2024-07-15 21:30-0900\n"
 
+msgid "CARD_DISPLAY_NAME_CATEGORY_PROMPT"
+msgstr "速攻"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_DEFENSIVE"
+msgstr "守衛"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_RESPONSIVE"
+msgstr "機動"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_TRICK"
+msgstr "戦法"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_BURDEN"
+msgstr "治罰"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_NONE"
+msgstr "全体"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_SINGLE"
+msgstr "対手単騎"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_ALL"
+msgstr "対手全体"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_SINGLE"
+msgstr "味方単騎"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_ALL"
+msgstr "味方全体"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_NONE"
+msgstr "直"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_SINGLE"
+msgstr "要1枚"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_DOUBLE"
+msgstr "要2枚"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_TRIPLE"
+msgstr "要3枚"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_ALL"
+msgstr "要全枚"
+
+msgid "CARD_DISPLAY_NAME_RARITY_COMMON"
+msgstr "凡"
+
+msgid "CARD_DISPLAY_NAME_RARITY_UNCOMMON"
+msgstr "優"
+
+msgid "CARD_DISPLAY_NAME_RARITY_RARE"
+msgstr "奇"
+
+msgid "CARD_DISPLAY_NAME_RARITY_SUPERRARE"
+msgstr "稀"
+
+msgid "CARD_DISPLAY_NAME_RARITY_ULTRARARE"
+msgstr "極"
+
+msgid "CARD_DISPLAY_NAME_RARITY_SECRET"
+msgstr "密"
+
 msgid "DISPLAY_NAME_CARD_DEFAULT"
 msgstr "カードデフォルト"
 

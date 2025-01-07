@@ -13,6 +13,70 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "PO-Revision-Date: 2024-07-15 21:30-0900\n"
 
+msgid "CARD_DISPLAY_NAME_CATEGORY_PROMPT"
+msgstr "Prompt"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_DEFENSIVE"
+msgstr "Defensive"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_RESPONSIVE"
+msgstr "Responsive"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_TRICK"
+msgstr "Trick"
+
+msgid "CARD_DISPLAY_NAME_CATEGORY_BURDEN"
+msgstr "Burden"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_NONE"
+msgstr "All Range"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_SINGLE"
+msgstr "Foe Single"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_ALL"
+msgstr "Foe All"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_SINGLE"
+msgstr "Friend Single"
+
+msgid "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_ALL"
+msgstr "Friend All"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_NONE"
+msgstr "No Needs"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_SINGLE"
+msgstr "Needs Single"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_DOUBLE"
+msgstr "Needs Double"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_TRIPLE"
+msgstr "Needs Triple"
+
+msgid "CARD_DISPLAY_NAME_SACRIFICE_ALL"
+msgstr "Needs All"
+
+msgid "CARD_DISPLAY_NAME_RARITY_COMMON"
+msgstr "Common"
+
+msgid "CARD_DISPLAY_NAME_RARITY_UNCOMMON"
+msgstr "Uncommon"
+
+msgid "CARD_DISPLAY_NAME_RARITY_RARE"
+msgstr "Rare"
+
+msgid "CARD_DISPLAY_NAME_RARITY_SUPERRARE"
+msgstr "Super Rare"
+
+msgid "CARD_DISPLAY_NAME_RARITY_ULTRARARE"
+msgstr "Ultra Rare"
+
+msgid "CARD_DISPLAY_NAME_RARITY_SECRET"
+msgstr "Secret"
+
+
 msgid "DISPLAY_NAME_CARD_DEFAULT"
 msgstr "Card Default"
 

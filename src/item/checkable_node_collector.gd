@@ -1,6 +1,7 @@
 class_name CheckableNodeCollector extends Node
 ## CheckableNodeCollector deals CheckableNode to govern checking.
 
+signal changed
 
 @export var is_checkable: bool
 
@@ -34,6 +35,10 @@ func enable_checkable():
 func disable_checkable():
 	is_checkable = false
 	uncheck_all()
+
+
+func get_count() -> int:
+	return collector.get_child_count()
 
 
 func get_all_checked(array: Array):
@@ -182,9 +187,15 @@ func is_index_in_bound(index: int) -> bool:
 	return index > -count and index < count
 
 
-func add_node(node: Node):
+func add_node(node: CheckableNode):
 	collector.add_child(node)
+	node.changed.connect(emit_changed)
 
 
-func remove_node(node: Node):
+func remove_node(node: CheckableNode):
 	collector.remove_child(node)
+	node.changed.disconnect(emit_changed)
+
+
+func emit_changed():
+	changed.emit()

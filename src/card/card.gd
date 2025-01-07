@@ -48,6 +48,63 @@ enum Rarity {
 	SECRET,
 }
 
+static func get_category_display_name(category: Category) -> String:
+	match category:
+		Category.PROMPT:
+			return "CARD_DISPLAY_NAME_CATEGORY_PROMPT"
+		Category.DEFENSIVE:
+			return "CARD_DISPLAY_NAME_CATEGORY_DEFENSIVE"
+		Category.RESPONSIVE:
+			return "CARD_DISPLAY_NAME_CATEGORY_RESPONSIVE"
+		Category.TRICK:
+			return "CARD_DISPLAY_NAME_CATEGORY_TRICK"
+		Category.BURDEN:
+			return "CARD_DISPLAY_NAME_CATEGORY_BURDEN"
+	return ""
+
+static func get_opponent_select_display_name(opponent_select: OpponentSelect) -> String:
+	match opponent_select:
+		OpponentSelect.NONE:
+			return "CARD_DISPLAY_NAME_OPPONENT_SELECT_NONE"
+		OpponentSelect.ENEMY_SINGLE:
+			return "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_SINGLE"
+		OpponentSelect.ENEMY_ALL:
+			return "CARD_DISPLAY_NAME_OPPONENT_SELECT_ENEMY_ALL"
+		OpponentSelect.FRIEND_SINGLE:
+			return "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_SINGLE"
+		OpponentSelect.FRIEND_ALL:
+			return "CARD_DISPLAY_NAME_OPPONENT_SELECT_FRIEND_ALL"
+	return ""
+
+static func get_sacrifice_display_name(sacrifice: Sacrifice) -> String:
+	match sacrifice:
+		Sacrifice.NONE:
+			return "CARD_DISPLAY_NAME_SACRIFICE_NONE"
+		Sacrifice.SINGLE:
+			return "CARD_DISPLAY_NAME_SACRIFICE_SINGLE"
+		Sacrifice.DOUBLE:
+			return "CARD_DISPLAY_NAME_SACRIFICE_DOUBLE"
+		Sacrifice.TRIPLE:
+			return "CARD_DISPLAY_NAME_SACRIFICE_TRIPLE"
+		Sacrifice.ALL:
+			return "CARD_DISPLAY_NAME_SACRIFICE_ALL"
+	return ""
+
+static func get_rarity_display_name(rarity: Rarity) -> String:
+	match rarity:
+		Rarity.COMMON:
+			return "CARD_DISPLAY_NAME_RARITY_COMMON"
+		Rarity.UNCOMMON:
+			return "CARD_DISPLAY_NAME_RARITY_UNCOMMON"
+		Rarity.RARE:
+			return "CARD_DISPLAY_NAME_RARITY_RARE"
+		Rarity.SUPERRARE:
+			return "CARD_DISPLAY_NAME_RARITY_SUPERRARE"
+		Rarity.ULTRARARE:
+			return "CARD_DISPLAY_NAME_RARITY_ULTRARARE"
+		Rarity.SECRET:
+			return "CARD_DISPLAY_NAME_RARITY_SECRET"
+	return ""
 
 func try_challenge(state: StageState, challenger: Element, opponent: Element):
 	challenge.challenge(state, challenger, opponent)

@@ -22,10 +22,10 @@ info = NodePath("Info")
 [node name="Field" parent="." instance=ExtResource("8_8h64d")]
 
 [node name="Foe" parent="." instance=ExtResource("9_3q72p")]
-position = Vector2(2, 38)
+position = Vector2(800, 122)
 
 [node name="Friend" parent="." instance=ExtResource("10_suqlp")]
-position = Vector2(8, 736)
+position = Vector2(800, 658)
 
 [node name="Info" parent="." instance=ExtResource("12_yoepw")]
 
@@ -42,7 +42,7 @@ offset_right = 1490.0
 offset_bottom = 846.0
 
 [node name="Hand" parent="." instance=ExtResource("9_moj6x")]
-offset_left = 380.0
-offset_top = 822.0
-offset_right = 380.0
-offset_bottom = 822.0
+offset_left = 800.0
+offset_top = 880.0
+offset_right = 800.0
+offset_bottom = 880.0

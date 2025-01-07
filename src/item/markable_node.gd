@@ -1,5 +1,9 @@
 class_name MarkableNode extends Node
 
+
+func _ready():
+	pass
+
 @export var _marker: bool
 var marker: bool:
 	get:
