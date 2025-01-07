@@ -69,7 +69,7 @@ text = "1"
 [node name="FitterHand" type="Node" parent="TextureRect" node_paths=PackedStringArray("checkable_node", "target")]
 script = ExtResource("14_6h2rc")
 default_direction = Vector2(0, -1)
-top_node_length = 50.0
+top_node_length = 100.0
 rotation = 0.3
 piling_rotation = 0.6
 length_current_proceed = 80.0
