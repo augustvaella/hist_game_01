@@ -63,9 +63,4 @@ func instance_list(debug: DebugWindow, state: StageState, ):
 
 
 func get_name_id(object: Variant) -> String:
-	if object is Object:
-		var s = object.get_script()
-		if s:
-			return "%s#%d" % [s.get_global_name(), object.get_instance_id()]
-		return "#%d" % [object.get_instance_id()]
-	return object.to_string()
+	return Log.gd(object)

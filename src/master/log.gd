@@ -53,6 +53,8 @@ func get_text(object: Object, text: String) -> String:
 	return "[%s] %s" % [gd(object), text]
 
 func gd(variant: Variant) -> String:
-	if variant is Object:
-		return "%s#%d" % [variant.get_script().get_global_name(), variant.get_instance_id()]
-	return variant.to_string()
+	if variant:
+		if variant is Object:
+			return "%s#%d" % [variant.get_script().get_global_name(), variant.get_instance_id()]
+		return variant.to_string()
+	return "null"

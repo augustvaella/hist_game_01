@@ -26,6 +26,7 @@ func _ready():
 	_handlers = {}
 	_handlers["echo"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(args[0])
 	_handlers["clear"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.clear_label()
+	_handlers["#"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(get_instance_info_from_id(args[0]))
 
 	if handlers:
 		handlers.set_handlers(_handlers)
@@ -84,3 +85,14 @@ func get_stage_state() -> StageState:
 	if not _startup or _startup.get_child_count() == 0:
 		return null
 	return _startup.get_current_stage()._state
+
+func get_instance_info_from_id(id: String) -> String:
+	var i = id.to_int()
+	var ins = instance_from_id(i)
+	if ins:
+		if ins is Resource:
+			return "%s[%s](%s)" % [Log.gd(ins), ins.resource_name, ins.resource_path]
+		elif ins is Node:
+			return "%s[%s](%s)" % [Log.gd(ins), ins.name, ins.get_path()]
+		return Log.gd(ins) 
+	return "null"
