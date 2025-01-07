@@ -1,0 +1,1 @@
+class_name DuelOpponentSelectEnemyAllEvent extends DuelOpponentSelectEvent

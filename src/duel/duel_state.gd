@@ -129,14 +129,13 @@ func cancel_select_all():
 
 func _on_event(event: Event):
 	super._on_event(event)
-	if event is Character.KilledEvent:
+	if event is CharacterKilledEvent:
 		var chara = event.get_character()
-		Log.debug(self, "Character.KilledEvent %s" % [chara])
-		Log.trace(self, "%s is Enemy: %s" % [chara, chara is Enemy])
+		Log.trace(self, "%s" % [Log.gd(chara)])
 		if chara is Actor:
-			stage.friend.reserve_characters(friend_party)
+			stage.friend.reserve_character(chara, friend_party)
 		elif chara is Enemy:
-			stage.foe.reserve_characters(foe_party)
+			stage.foe.reserve_character(chara, foe_party)
 		if eval_result():
 			stage.listened_event.emit(NextResolver.new().ini(resolvers["Result"]))
 

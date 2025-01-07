@@ -4,6 +4,9 @@ class_name DuelCharacter extends Item
 
 @export var body: DuelCharacterBody
 
+func is_empty() -> bool:
+	return not element
+
 ## DuelCharacter.is_vital() means differently (DuelCharacter has no character or the character is dead)
 ## from Character.is_vital() (the character is dead)
 func is_vital() -> bool:
@@ -14,17 +17,17 @@ func is_vital() -> bool:
 
 func _listen_object(object: Object):
 	if object is Character.Killed:
-		Log.trace(self, "_listen_object(%s)" % [object])
+		Log.trace(self, "_listen_object(%s)" % [Log.gd(object)])
 		kill()
 
 
 func kill():
 	body.kill(element)
 	info.kill(element)
-	var e = Character.KilledEvent.new().init(self.element)
+	var e = CharacterKilledEvent.new().ini(self.element)
 	reset_element()
 	Master.emit_event_to_stage_state(e)
-
+	Log.debug(self, "kill() %s" % [Log.gd(e)])
 
 func do_effect(effect_node: Node, object: Object):
 		add_child(effect_node)
@@ -36,6 +39,7 @@ func set_element(character: Element):
 	body.set_element(character)
 	info.set_element(character)
 	refresh_element()
+	Log.debug(self, "set_element(%s)" % [Log.gd(character)])
 
 
 func reset_element():
@@ -61,12 +65,12 @@ func reserve_character(party: DuelParty):
 	Log.trace(self, "reserve_character()" % [])
 	if element:
 		party.withdraw_character(element)
-		Log.trace(self, "reserve_characters() #%d.withdraw_character(%s)" % \
-			[party.get_instance_id(), element])
+		Log.debug(self, "reserve_characters() %s.withdraw_character(%s)" % \
+			[Log.gd(party), Log.gd(element)])
 	var e = party.reserve_character()
 	if e:
-		Log.trace(self, "reserve_characters() #%d.reserve_character(%s)" % \
-			[party.get_instance_id(), e])
+		Log.debug(self, "reserve_characters() %s.reserve_character(%s)" % \
+			[Log.gd(party), Log.gd(e)])
 		set_element(e)
 
 

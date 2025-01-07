@@ -37,6 +37,7 @@ func is_exist_vital() -> bool:
 func is_exist_dead() -> bool:
 	return not is_all_vital()
 
-func reserve_characters(party: DuelParty):
-	Log.trace(self, "reserve_characters()" % [])
-	items.map(func(item): item.reserve_character(party))
+func reserve_character(chara: Character, party: DuelParty):
+	Log.trace(self, "reserve_characters(%s, %s)" % [Log.gd(chara), Log.gd(party)])
+	for item in items.filter(func(i): return i.is_empty()):
+		item.reserve_character(party)

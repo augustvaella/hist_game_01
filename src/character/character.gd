@@ -25,18 +25,10 @@ func _kill():
 
 
 func kill():
+	Log.debug(self, "kill()")
 	_kill()
 	listened_object.emit(Killed.new())
 
 
 class Killed extends RefCounted:
 	pass
-
-class KilledEvent extends Event:
-	var _character: Character
-	func init(character: Character) -> KilledEvent:
-		Log.trace(self, "%s" % [character])
-		_character = character
-		return self
-	func get_character() -> Character:
-		return _character

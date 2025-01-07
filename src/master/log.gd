@@ -6,7 +6,7 @@ signal logged_info(text: String)
 signal logged_debug(text: String)
 signal logged_trace(text: String)
 
-@export var _log:Logger
+@export var _log: Logger
  
 func _ready():
 	_log.logged_error.connect(func(text: String): self.logged_error.emit(text))
@@ -49,8 +49,10 @@ func debug(object: Object, text: String):
 func trace(object: Object, text: String):
 	_log.log_trace(get_text(object, text))
 
-func get_text(object:Object, text:String) -> String:
-	return "%s %s" % [get_log_prefix(object), text]
+func get_text(object: Object, text: String) -> String:
+	return "[%s] %s" % [gd(object), text]
 
-func get_log_prefix(object: Object) -> String:
-	return "[%s#%d]" % [object.get_script().get_global_name(), object.get_instance_id()]
+func gd(variant: Variant) -> String:
+	if variant is Object:
+		return "%s#%d" % [variant.get_script().get_global_name(), variant.get_instance_id()]
+	return variant.to_string()

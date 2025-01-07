@@ -39,18 +39,18 @@ func select_opponent(state: DuelState):
 			state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["friend challenge"]))
 		Card.OpponentSelect.ENEMY_SINGLE:
 			state.stage.foe.mode_single()
-			state.register[EnemySelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEvent.EnemySingle.new()
+			state.register[EnemySelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEnemySingleEvent.new()
 			state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["enemy select"]))
 		Card.OpponentSelect.ENEMY_ALL:
 			state.stage.foe.mode_all()
-			state.register[EnemySelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEvent.EnemyAll.new()
+			state.register[EnemySelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEnemyAllEvent.new()
 			state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["enemy select"]))
 		Card.OpponentSelect.FRIEND_SINGLE:
 			state.stage.friend.mode_single()
-			state.register[FriendSelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEvent.FriendSingle.new()
+			state.register[FriendSelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectFriendSingleEvent.new()
 			state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["friend select"]))
 		Card.OpponentSelect.FRIEND_ALL:
 			state.stage.friend.mode_all()
-			state.register[FriendSelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectEvent.FriendAll.new()
+			state.register[FriendSelectDuelResolver.REGISTER_KEY_TYPE] = DuelOpponentSelectFriendAllEvent.new()
 			state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["friend select"]))
 	state.stage.hand.hide_hand()
