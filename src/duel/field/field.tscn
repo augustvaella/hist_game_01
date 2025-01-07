@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjt1tc87m8fk"]
+[gd_scene load_steps=3 format=3 uid="uid://hjt1tc87m8fk"]
 
 [ext_resource type="Script" path="res://src/duel/field/field.gd" id="1_4jnfv"]
+[ext_resource type="Script" path="res://src/duel/field/background.gd" id="2_3u4g2"]
 
-[node name="Field" type="Node2D"]
+[node name="Field" type="Node2D" node_paths=PackedStringArray("background")]
 script = ExtResource("1_4jnfv")
+background = NodePath("Background")
+
+[node name="Background" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_3u4g2")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+centered = false

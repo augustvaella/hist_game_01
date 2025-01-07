@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ru4n0daekwy"]
+
+[ext_resource type="Script" path="res://src/system/log.gd" id="1_83fyl"]
+
+[node name="Log" type="Node"]
+script = ExtResource("1_83fyl")
+_level = 4
+is_rich_text = true

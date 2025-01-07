@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TestDuelState" load_steps=92 format=3 uid="uid://qmmqykndgnap"]
+[gd_resource type="Resource" script_class="TestDuelState" load_steps=98 format=3 uid="uid://qmmqykndgnap"]
 
 [ext_resource type="Resource" uid="uid://drgti6lp1tnxv" path="res://assets/deck/test_deck_beta.tres" id="1_1mn58"]
 [ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_f5esq"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cffbf1jwleuvm" path="res://assets/actor/resource/actor_ashikaga.tres" id="3_fdab0"]
 [ext_resource type="Resource" uid="uid://dpuyb06w2m3ru" path="res://assets/actor/resource/actor_ashikaga_little.tres" id="4_7p1wx"]
 [ext_resource type="Script" path="res://src/system/event.gd" id="4_ny257"]
+[ext_resource type="Texture2D" uid="uid://btakkgv1blpm0" path="res://assets/field/texture/waterfront_001.png" id="4_o8vjr"]
+[ext_resource type="Script" path="res://src/field/field.gd" id="5_kdmt3"]
 [ext_resource type="Resource" uid="uid://bjmw3kgydnium" path="res://assets/actor/resource/actor_doyo.tres" id="5_yhf0b"]
 [ext_resource type="Script" path="res://src/challenge/challenge.gd" id="6_4pdd5"]
 [ext_resource type="Texture2D" uid="uid://dmb4pp6eket3t" path="res://assets/enemy/texture/enemy_1.png" id="6_j81i7"]
@@ -33,13 +35,19 @@
 [ext_resource type="Resource" uid="uid://dv5o0itim8dai" path="res://assets/duel/resolvers/test_friend_draw_hand.tres" id="22_w1sef"]
 [ext_resource type="Resource" uid="uid://bmkdrrr1ba6as" path="res://assets/duel/resolvers/test_friend_hand_select.tres" id="23_3q84s"]
 [ext_resource type="Resource" uid="uid://bagmlm5sha0u0" path="res://assets/duel/resolvers/test_friend_select.tres" id="24_4vqjf"]
+[ext_resource type="Script" path="res://src/duel/resolvers/initial.gd" id="25_krl7s"]
 [ext_resource type="Resource" uid="uid://cs87nxdv0udub" path="res://assets/duel/resolvers/test_enemy_select.tres" id="25_n8ems"]
 [ext_resource type="Resource" uid="uid://ck0ulodwhltpf" path="res://assets/duel/resolvers/test_friend_challenge.tres" id="27_bsjjx"]
 [ext_resource type="Script" path="res://src/duel/parameter/turn.gd" id="33_r7fj5"]
+[ext_resource type="Resource" uid="uid://ca4eb1w7rgdo6" path="res://assets/duel/resolvers/test_field_resolver.tres" id="38_i8sjp"]
 
 [sub_resource type="Resource" id="Resource_681jv"]
 script = ExtResource("3_6ttpc")
 cards = Array[ExtResource("2_l53nq")]([])
+
+[sub_resource type="Resource" id="Resource_fyqgs"]
+script = ExtResource("5_kdmt3")
+background_texture = ExtResource("4_o8vjr")
 
 [sub_resource type="Resource" id="Resource_gf183"]
 script = ExtResource("7_owpaj")
@@ -336,6 +344,9 @@ script = ExtResource("14_0g6h2")
 default_max_count = 7
 cards = Array[ExtResource("2_l53nq")]([])
 
+[sub_resource type="Resource" id="Resource_kg5hh"]
+script = ExtResource("25_krl7s")
+
 [sub_resource type="Resource" id="Resource_0nxjy"]
 script = ExtResource("33_r7fj5")
 _value = 0
@@ -348,6 +359,7 @@ script = ExtResource("1_ispbk")
 next_stage_state = ExtResource("1_sudcx")
 result = 0
 turn = SubResource("Resource_0nxjy")
+field = SubResource("Resource_fyqgs")
 friend_field_limit_count = 3
 friend_actors = Array[ExtResource("2_8t55l")]([ExtResource("3_fdab0"), ExtResource("4_7p1wx"), ExtResource("5_yhf0b"), ExtResource("6_tfhlp"), ExtResource("7_njreg")])
 friend_actors_dead = Array[ExtResource("2_8t55l")]([])
@@ -361,7 +373,7 @@ foe_enemies = Array[ExtResource("1_f5esq")]([SubResource("Resource_fa485"), SubR
 foe_enemies_dead = Array[ExtResource("1_f5esq")]([])
 foe_party = SubResource("Resource_wlfka")
 foe_formation = SubResource("Resource_fn0um")
-initial_resolver = ExtResource("15_2sjia")
+initial_resolver = SubResource("Resource_kg5hh")
 resolvers = {
 "EvalResult": ExtResource("20_ejwkp"),
 "FoeSet": ExtResource("17_4oa52"),
@@ -371,6 +383,7 @@ resolvers = {
 "Result": ExtResource("21_dvy6f"),
 "challenge": ExtResource("27_bsjjx"),
 "enemy select": ExtResource("25_n8ems"),
+"field set": ExtResource("38_i8sjp"),
 "friend draw hand": ExtResource("22_w1sef"),
 "friend hand select": ExtResource("23_3q84s"),
 "friend select": ExtResource("24_4vqjf")

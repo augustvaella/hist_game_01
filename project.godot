@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Log="*res://src/system/log.gd"
+Log="*res://src/master/log.tscn"
 Master="*res://src/master/master.tscn"
 Loading="*res://src/loading/loading.tscn"
 

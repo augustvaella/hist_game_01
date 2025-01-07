@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FieldSetDuelResolver" load_steps=2 format=3 uid="uid://ca4eb1w7rgdo6"]
+
+[ext_resource type="Script" path="res://src/duel/resolvers/field_set.gd" id="1_e8ild"]
+
+[resource]
+script = ExtResource("1_e8ild")

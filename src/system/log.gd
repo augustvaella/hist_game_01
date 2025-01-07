@@ -1,4 +1,4 @@
-extends Node
+class_name Logger extends Node
 ## Log
 
 signal logged_error(text: String)
@@ -7,8 +7,27 @@ signal logged_info(text: String)
 signal logged_debug(text: String)
 signal logged_trace(text: String)
 
-var _level: LogLevel
+@export var _level: LogLevel
+var level: LogLevel:
+	get:
+		return _level
+	set(v):
+		change_level()
+
 var _handlers: Array[Callable]
+
+@export var _is_print: bool
+var is_print: bool:
+	get:
+		return _is_print
+	set(v):
+		if v:
+			disconnect_to_print()
+			connect_to_print()
+		else:
+			disconnect_to_print()
+
+@export var is_rich_text: bool
 
 func _ready():
 	_handlers = [
@@ -19,11 +38,50 @@ func _ready():
 		_dummy,
 	]
 	
-	change_level(LogLevel.INFO)
+	change_level()
+
+func connect_to_print():
+	match level:
+		LogLevel.ERROR:
+			logged_error.connect(_print_error)
+		LogLevel.WARN:
+			logged_error.connect(_print_error)
+			logged_warn.connect(_print_warn)
+		LogLevel.INFO:
+			logged_error.connect(_print_error)
+			logged_warn.connect(_print_warn)
+			logged_info.connect(_print_info)
+		LogLevel.DEBUG:
+			logged_error.connect(_print_error)
+			logged_warn.connect(_print_warn)
+			logged_info.connect(_print_info)
+			logged_debug.connect(_print_debug)
+		LogLevel.TRACE:
+			logged_error.connect(_print_error)
+			logged_warn.connect(_print_warn)
+			logged_info.connect(_print_info)
+			logged_debug.connect(_print_debug)
+			logged_trace.connect(_print_trace)
 
 
-func change_level(level: LogLevel):
-	_level = level
+func disconnect_to_print():
+	if logged_error.is_connected(_print_error):
+		logged_error.disconnect(_print_error)
+	if logged_warn.is_connected(_print_warn):
+		logged_warn.disconnect(_print_warn)
+	if logged_info.is_connected(_print_info):
+		logged_info.disconnect(_print_info)
+	if logged_debug.is_connected(_print_debug):
+		logged_debug.disconnect(_print_debug)
+	if logged_trace.is_connected(_print_trace):
+		logged_trace.disconnect(_print_trace)
+
+func change_level():
+	disconnect_to_print()
+
+	if _is_print:
+		connect_to_print()
+
 	match level:
 		LogLevel.ERROR:
 			_handlers[0] = _log_error
@@ -82,28 +140,40 @@ func log_trace(text: String):
 
 
 func _log_error(text: String):
-	printerr(text)
-	logged_error.emit(text)
+	logged_error.emit(get_rich_text(text, "red"))
 
+func _print_error(text: String):
+	printerr(text)
 
 func _log_warn(text: String):
-	print_rich("[color=yellow]%s" % text)
-	logged_warn.emit(text)
+	logged_warn.emit(get_rich_text(text, "yellow"))
 
+func _print_warn(text: String):
+	print_rich("%s" % get_rich_text(text, "yellow"))
 
 func _log_info(text: String):
-	print_rich("[color=green]%s" % text)
-	logged_info.emit(text)
+	logged_info.emit(get_rich_text(text, "green"))
 
+func _print_info(text: String):
+	print_rich("%s" % get_rich_text(text, "green"))
 
 func _log_debug(text: String):
-	print_rich("[color=cyan]%s" % text)
-	logged_debug.emit(text)
+	logged_debug.emit(get_rich_text(text, "cyan"))
 
+func _print_debug(text: String):
+	print_rich("%s" % get_rich_text(text, "cyan"))
+	
 
 func _log_trace(text: String):
-	print_rich("[color=purple]%s" % text)
-	logged_trace.emit(text)
+	logged_trace.emit(get_rich_text(text, "purple"))
+
+func _print_trace(text: String):
+	print_rich("%s" % get_rich_text(text, "purple"))
+
+func get_rich_text(text: String, color: String) -> String:
+	if is_rich_text:
+		return "[color=%s]%s" %[color, text]
+	return text
 
 
 enum LogLevel {

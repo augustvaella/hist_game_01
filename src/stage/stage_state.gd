@@ -1,9 +1,9 @@
 class_name StageState extends SetupResource
 
 # resolver
-@export var initial_resolver: DuelResolver
+@export var initial_resolver: Resolver
 @export var resolvers: Dictionary # Dictionary<String, DuelResolver>
-@export var current_resolver: DuelResolver
+@export var current_resolver: Resolver
 
 @export var register: Dictionary
 @export var event_queue: Array[Event]

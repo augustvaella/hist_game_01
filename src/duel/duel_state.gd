@@ -17,7 +17,7 @@ class_name DuelState extends StageState
 # Field
 @export_category("Field")
 @export var turn: DuelTurn
-
+@export var field: Field
 
 # Friend
 @export_category("Friend")

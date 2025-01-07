@@ -1,7 +1,6 @@
 extends Node
 ## Singleton Master governs the game.
 
-@export var log_level: Log.LogLevel
 @export var master_resource_server: ResourceServer
 @export var user_resource_server: ResourceServer
 @export var master_instance_server: InstanceServer
@@ -23,8 +22,6 @@ func _ready():
 	for s in find_child("ItemServers").get_children():
 		item_servers[s.name] = s
 
-	Log.change_level(log_level)
-	
 	if is_debug:
 		get_viewport().set_embedding_subwindows(false)
 		debug_window = packed_scene_debug_window.instantiate()
