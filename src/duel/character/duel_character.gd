@@ -14,9 +14,7 @@ func is_vital() -> bool:
 
 func _listen_object(object: Object):
 	if object is Character.Killed:
-		Log.trace(self, "#%d._listen_object(%s)" % [get_instance_id(), object])
-		Log.log_debug("#%d DuelCharacter._listen_object(%s)" % \
-			[get_instance_id(), object])
+		Log.trace(self, "_listen_object(%s)" % [object])
 		kill()
 
 
@@ -60,15 +58,15 @@ func is_checkable():
 
 
 func reserve_character(party: DuelParty):
-	Log.log_trace("#%d.reserve_character()" % [get_instance_id()])
+	Log.trace(self, "reserve_character()" % [])
 	if element:
 		party.withdraw_character(element)
-		Log.log_trace("#%d.reserve_characters() #%d.withdraw_character(%s)" % \
-			[get_instance_id(), party.get_instance_id(), element])
+		Log.trace(self, "reserve_characters() #%d.withdraw_character(%s)" % \
+			[party.get_instance_id(), element])
 	var e = party.reserve_character()
 	if e:
-		Log.log_trace("#%d.reserve_characters() #%d.reserve_character(%s)" % \
-			[get_instance_id(), party.get_instance_id(), e])
+		Log.trace(self, "reserve_characters() #%d.reserve_character(%s)" % \
+			[party.get_instance_id(), e])
 		set_element(e)
 
 

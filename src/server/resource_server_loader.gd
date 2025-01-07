@@ -60,27 +60,27 @@ func _on_load_resource(resource: Resource):
 	else:
 		add_resource(resource)
 	loaded_resource.emit(resource)
-	Log.log_debug("[ResourceServerLoader] loaded Resource#%d %s(%s)" \
+	Log.debug(self, "loaded Resource#%d %s(%s)" \
 		% [resource.get_instance_id(), resource.resource_name, resource.resource_path])
 
 
 func add_resource(resource: Resource):
 	if not resource:
-		Log.log_error("[ResourceServerLoader] Resource to add is null")
+		Log.error(self, "Resource to add is null")
 		return
 
 	var id = resource.get_instance_id()
 	var rn = resource.resource_name if not resource.resource_name.is_empty() else resource.resource_path
 	if has_resource_id(id):
-		Log.log_warn(\
-			"[ResourceServerLoader] the loaded Resource %s(%s) already exists in ResourceServer." \
+		Log.warn(self, \
+			"the loaded Resource %s(%s) already exists in ResourceServer." \
 			% [resource.resource_name, resource.resource_path])
 		return
 	_resources.append(resource)
 	var index = _resources.size() - 1
 	_resource_id_table[id] = index
 	_resource_name_table[rn] = index
-	Log.log_debug("[ResourceServerLoader] added Resource#%d %s(%s)" \
+	Log.debug(self, "added Resource#%d %s(%s)" \
 		% [id, resource.resource_name, resource.resource_path])
 
 
@@ -92,7 +92,7 @@ func remove_resource(resource_name: String):
 		_resource_name_table.erase(resource_name)
 		_resource_id_table.erase(id)
 		_resources[index] = null
-		Log.log_debug("[ResourceServerLoader] removed Resource#%d %s(%s)" \
+		Log.debug(self, "removed Resource#%d %s(%s)" \
 			% [id, resource_name, path])
 
 
@@ -104,7 +104,7 @@ func remove_resource_id(resource_id: int):
 		_resource_name_table.erase(nm)
 		_resource_id_table.erase(resource_id)
 		_resources[index] = null
-		Log.log_debug("[ResourceServerLoader] removed Resource#%d %s(%s)" \
+		Log.debug(self, "removed Resource#%d %s(%s)" \
 			% [resource_id, nm, path])
 
 
@@ -127,7 +127,7 @@ func _free_resource(resource: Resource):
 	var nm = resource.resource_name
 	var path = resource.resource_path
 	resource.free()
-	Log.log_debug("[ResourceServerLoader] freed Resource#%d %s(%s)" \
+	Log.debug(self, "freed Resource#%d %s(%s)" \
 		% [id, nm, path])
 
 
@@ -149,16 +149,16 @@ func _on_load_process(resource_path: String):
 			_loading_path_table.remove(resource_path)
 			_on_load_resource(res)
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED:
-			Log.log_error("[ResourceServerLoader] failed load Resource %s" \
+			Log.error(self, "failed load Resource %s" \
 				% [resource_path])
 			_loading_path_table.remove(resource_path)
 			failed_load_resource.emit(resource_path)
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
-			Log.log_trace("[ResourceServerLoader] loading %s %d" \
+			Log.trace(self, "loading %s %d" \
 				% [resource_path, progress[0]])
 			loading_resource.emit(resource_path, progress)
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE:
-			Log.log_error("[ResourceServerLoader] invalid Resource %s" \
+			Log.error(self, "invalid Resource %s" \
 				% [resource_path])
 			_loading_path_table.remove(resource_path)
 			invalid_resource.emit(resource_path)
@@ -183,7 +183,7 @@ func _process_load():
 func get_resource(resource_name: String) -> Resource:
 	if _resource_name_table.has(resource_name):
 		return _resources[_resource_name_table[resource_name]]
-	Log.log_error("[ResourceServerLoader] failed get Resource %s" \
+	Log.error(self, "failed get Resource %s" \
 		% [resource_name])
 	return null
 
@@ -191,7 +191,7 @@ func get_resource(resource_name: String) -> Resource:
 func get_resource_id(resource_id: int) -> Resource:
 	if _resource_id_table.has(resource_id):
 		return _resources[_resource_id_table[resource_id]]
-	Log.log_error("[ResourceServerLoader] failed get Resource #%d" % [resource_id])
+	Log.error(self, "failed get Resource #%d" % [resource_id])
 	return null
 
 

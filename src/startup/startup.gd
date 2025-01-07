@@ -34,7 +34,7 @@ func _ready():
 func _set_stage(stage_state: StageState):
 	var sn = stage_state.get_stage_name()
 	if not Master.stage_server.has_scene(sn):
-		Log.log_error("[Startup] Scene(%s) counldn't changed." \
+		Log.error(self, "Scene(%s) counldn't changed." \
 			% [sn])
 		return
 	var st = Master.stage_server.get_scene(sn)
@@ -56,7 +56,7 @@ func change_stage(stage_state: StageState):
 
 func get_current_stage() -> Stage:
 	if get_child_count() == 0:
-		Log.log_error("[Startup] Stage doesn't exist." \
+		Log.error(self, "Stage doesn't exist." \
 			% [])
 		return null
 

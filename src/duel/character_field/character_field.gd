@@ -38,5 +38,5 @@ func is_exist_dead() -> bool:
 	return not is_all_vital()
 
 func reserve_characters(party: DuelParty):
-	Log.trace(self, "#%d.reserve_characters()" % [get_instance_id()])
+	Log.trace(self, "reserve_characters()" % [])
 	items.map(func(item): item.reserve_character(party))

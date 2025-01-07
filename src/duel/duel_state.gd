@@ -131,8 +131,8 @@ func _on_event(event: Event):
 	super._on_event(event)
 	if event is Character.KilledEvent:
 		var chara = event.get_character()
-		Log.log_debug("[DuelState#%d] Character.KilledEvent %s" % [get_instance_id(), chara])
-		Log.log_trace("#%d %s is Enemy: %s" % [get_instance_id(), chara, chara is Enemy])
+		Log.debug(self, "Character.KilledEvent %s" % [chara])
+		Log.trace(self, "%s is Enemy: %s" % [chara, chara is Enemy])
 		if chara is Actor:
 			stage.friend.reserve_characters(friend_party)
 		elif chara is Enemy:

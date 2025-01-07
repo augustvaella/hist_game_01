@@ -18,7 +18,7 @@ func get_all_resources(resources: Array[Resource]):
 
 func set_resource(resource: Resource):
 	if not resource:
-		Log.log_error("[ResourceSet] Resource to add is null")
+		Log.error(self, "Resource to add is null")
 		return
 
 	childs.append(resource)

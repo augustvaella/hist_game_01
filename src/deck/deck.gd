@@ -13,8 +13,8 @@ func insert_card(card: Card, index: int):
 	if _is_index_in_bound(index):
 		cards.insert(index, card)
 		return
-	Log.log_error("[Deck] #%d couldn't insert_card(%s, %d)" % \
-		[get_instance_id(), index, card])
+	Log.error(self, "couldn't insert_card(%s, %d)" % \
+		[index, card])
 
 
 func erase_card(card: Card):
@@ -36,8 +36,8 @@ func pick_random_card() -> Card:
 func pop_at_card(index: int) -> Card:
 	if _is_index_in_bound(index):
 		return cards.pop_at(index)
-	Log.log_error("[Deck] #%d couldn't pick_card(%d)" % \
-		[get_instance_id(), index])
+	Log.error(self, "couldn't pick_card(%d)" % \
+		[index])
 	return null
 
 # Callable<Card> -> bool
@@ -69,7 +69,7 @@ func clear_card():
 func _is_index_in_bound(index: int) -> bool:
 	if index > -cards.size() and index < cards.size():
 		return true
-	Log.log_warn("[Deck] #%d index out of bound" % [get_instance_id()])
+	Log.warn(self, "index out of bound" % [])
 	return false
 
 
@@ -78,8 +78,8 @@ func switch_card(from: int, to: int):
 		var c = cards[to]
 		cards[to] = cards[from]
 		cards[from] = c
-	Log.log_error("[Deck] #%d couldn't switch_card(%d, %d)" % \
-		 [get_instance_id(), from, to])
+	Log.error(self, "couldn't switch_card(%d, %d)" % \
+		 [from, to])
 
 
 # Callcable<Card> -> bool

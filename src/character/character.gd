@@ -35,7 +35,7 @@ class Killed extends RefCounted:
 class KilledEvent extends Event:
 	var _character: Character
 	func init(character: Character) -> KilledEvent:
-		Log.log_trace("[Character%d]%s" % [get_instance_id(), character])
+		Log.trace(self, "%s" % [character])
 		_character = character
 		return self
 	func get_character() -> Character:
