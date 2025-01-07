@@ -24,6 +24,9 @@ func _ready():
 	_splitter.compile("(\"[^\"]*\")|[^\\s+]+")
 
 	_handlers = {}
+	_handlers["echo"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.show_label(args[0])
+	_handlers["clear"] = func(debug: DebugWindow, state: StageState, args: PackedStringArray): debug.clear_label()
+
 	if handlers:
 		handlers.set_handlers(_handlers)
 	
@@ -54,6 +57,9 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("DebugEnter"):
 		input_line_edit()
 
+
+func clear_label():
+	label.text = ""
 
 func parse_line(line: String, result: Array):
 	for r in _splitter.search_all(line):

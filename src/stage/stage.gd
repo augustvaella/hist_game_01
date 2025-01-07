@@ -42,7 +42,7 @@ func _finish():
 
 
 func _input(event: InputEvent):
-	listened_event.emit(Event.StageInput.new(event))
+	listened_event.emit(StageInput.new().ini(event))
 
 
 func resolve_stage():

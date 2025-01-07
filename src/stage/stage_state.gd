@@ -44,11 +44,11 @@ func event_loop():
 	while true:
 		while event_queue.size() > 0:
 			var event = event_queue.pop_front()
-			if event is Event.Finish:
+			if event is Finish:
 				return null
-			elif event is Event.NextResolver:
+			elif event is NextResolver:
 				return event.get_resolver()
-			elif event is Event.StageInput:
+			elif event is StageInput:
 				_on_input(event)
 			else:
 				_on_event(event)

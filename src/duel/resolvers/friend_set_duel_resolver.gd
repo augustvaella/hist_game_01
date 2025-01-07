@@ -8,4 +8,4 @@ func resolve(state: StageState):
 
 	#state.register[EvalResultDuelResolver.REGISTER_KEY_REST_TURNS] = 5
 
-	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["FoeSet"]))
+	state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["FoeSet"]))

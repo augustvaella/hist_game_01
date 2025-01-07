@@ -24,8 +24,8 @@ func select_opponent(state: DuelState):
 	state.select_foe_enemies()
 	await state.stage.get_tree().create_timer(0.5)
 	state.register[ChallengeDuelResolver.REGISTER_KEY_IS_FRIEND_TURN] = true
-	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["challenge"]))
+	state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["challenge"]))
 
 func cancel_select(state: DuelState):
 	state.cancel_select_all()
-	state.stage_emit_listened_event(Event.NextResolver.new(state.resolvers["friend hand select"]))
+	state.stage_emit_listened_event(NextResolver.new().ini(state.resolvers["friend hand select"]))

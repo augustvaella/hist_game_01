@@ -138,7 +138,7 @@ func _on_event(event: Event):
 		elif chara is Enemy:
 			stage.foe.reserve_characters(foe_party)
 		if eval_result():
-			stage.listened_event.emit(Event.NextResolver.new(resolvers["Result"]))
+			stage.listened_event.emit(NextResolver.new().ini(resolvers["Result"]))
 
 
 func _on_input(event: Event):
