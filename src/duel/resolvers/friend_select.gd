@@ -4,9 +4,9 @@ const REGISTER_KEY_TYPE: String = "friend select" # DuelOpponentSelectEvent
 
 func resolve(state: StageState):
 	match state.stage.friend.mode:
-		CheckableNodeCollector.Mode.SINGLE:
+		LinkedNodeCollector.Mode.SINGLE:
 			state.stage.friend.check_initial()
-		CheckableNodeCollector.Mode.ALL:
+		LinkedNodeCollector.Mode.ALL:
 			state.stage.friend.check_all()
 
 

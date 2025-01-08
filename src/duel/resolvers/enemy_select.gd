@@ -4,9 +4,9 @@ const REGISTER_KEY_TYPE: String = "enemy select" # DuelOpponentSelectEvent
 
 func resolve(state: StageState):
 	match state.stage.foe.mode:
-		CheckableNodeCollector.Mode.SINGLE:
+		LinkedNodeCollector.Mode.SINGLE:
 			state.stage.foe.check_initial()
-		CheckableNodeCollector.Mode.ALL:
+		LinkedNodeCollector.Mode.ALL:
 			state.stage.foe.check_all()
 
 

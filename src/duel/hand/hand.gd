@@ -1,4 +1,4 @@
-class_name DuelCardCollector extends CheckableNodeCollector
+class_name DuelCardCollector extends LinkedNodeCollector
 
 @export var deck: Deck
 

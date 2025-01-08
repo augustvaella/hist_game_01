@@ -1,5 +1,5 @@
-class_name CheckableNodeCollector extends Node
-## CheckableNodeCollector deals LinkedNode to govern checking.
+class_name LinkedNodeCollector extends Node
+## LinkedNodeCollector deals LinkedNode to govern checking.
 
 signal changed
 

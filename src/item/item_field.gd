@@ -1,4 +1,4 @@
-class_name ItemField extends CheckableNodeCollector
+class_name ItemField extends LinkedNodeCollector
 
 @export var items: Array[Item]
 @export var current_item: Item
