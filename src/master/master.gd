@@ -7,7 +7,7 @@ extends Node
 @export var stage_server: InstanceServer
 @export var effect_servers: Dictionary # <String, EffectServer>
 @export var item_servers: Dictionary # <String, ObjectPool>
-@export var is_debug: bool
+@export var is_debug_show: bool
 @export var packed_scene_debug_window: PackedScene
 var debug_window: DebugWindow
 
@@ -22,11 +22,12 @@ func _ready():
 	for s in find_child("ItemServers").get_children():
 		item_servers[s.name] = s
 
-	if is_debug:
+	if is_debug_show:
 		get_viewport().set_embedding_subwindows(false)
 		debug_window = packed_scene_debug_window.instantiate()
 		add_child(debug_window)
 		get_viewport().set_embedding_subwindows(true)
+		debug_window.show()
 
 
 func get_startup() -> Startup:
@@ -35,7 +36,7 @@ func get_startup() -> Startup:
 
 func set_startup(startup: Startup):
 	_startup = startup
-	if is_debug:
+	if is_debug_show:
 		debug_window.set_startup(startup)
 
 

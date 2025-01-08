@@ -18,7 +18,7 @@ master_resource_server = NodePath("MasterResourceServer")
 user_resource_server = NodePath("UserResourceServer")
 master_instance_server = NodePath("MasterInstanceServer")
 stage_server = NodePath("StageServer")
-is_debug = true
+is_debug_show = true
 packed_scene_debug_window = ExtResource("2_3jd1t")
 
 [node name="MasterResourceServer" type="Node" parent="." node_paths=PackedStringArray("loader", "saver")]
