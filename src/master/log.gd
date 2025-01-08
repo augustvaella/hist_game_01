@@ -89,9 +89,9 @@ func gd(variant: Variant) -> String:
 			else:
 				return "Object#%d" % [variant.get_instance_id()]
 		elif variant is Dictionary:
-			return "Dictionary#%d" % [variant.get_instance_id()]
+			return "Dictionary"
 		elif variant is Array:
-			return "Array#%d" % [variant.get_instance_id()]
+			return "Array"
 		elif variant is bool:
 			return "bool"
 		elif variant is int:
@@ -137,28 +137,28 @@ func gd(variant: Variant) -> String:
 		elif variant is RID:
 			return "RID"
 		elif variant is PackedByteArray:
-			return "PackedByteArray#%d" % [variant.get_instance_id()]
+			return "PackedByteArray"
 		elif variant is PackedInt32Array:
-			return "PackedInt32Array#%d" % [variant.get_instance_id()]
+			return "PackedInt32Array"
 		elif variant is PackedInt64Array:
-			return "PackedInt64Array#%d" % [variant.get_instance_id()]
+			return "PackedInt64Array"
 		elif variant is PackedFloat32Array:
-			return "PackedFloat32Array#%d" % [variant.get_instance_id()]
+			return "PackedFloat32Array"
 		elif variant is PackedFloat64Array:
-			return "PackedFloat64Array#%d" % [variant.get_instance_id()]
+			return "PackedFloat64Array"
 		elif variant is PackedStringArray:
-			return "PackedStringArray#%d" % [variant.get_instance_id()]
+			return "PackedStringArray"
 		elif variant is PackedVector2Array:
-			return "PackedVector2Array#%d" % [variant.get_instance_id()]
+			return "PackedVector2Array"
 		elif variant is PackedVector3Array:
-			return "PackedVector3Array#%d" % [variant.get_instance_id()]
+			return "PackedVector3Array"
 		elif variant is PackedVector4Array:
-			return "PackedVector4Array#%d" % [variant.get_instance_id()]
+			return "PackedVector4Array"
 		elif variant is PackedColorArray:
-			return "PackedColorArray#%d" % [variant.get_instance_id()]
+			return "PackedColorArray"
 		elif variant is Signal:
-			return "Signal#%d" % [variant.get_instance_id()]
+			return "Signal"
 		elif variant is Callable:
-			return "Callable#%d" % [variant.get_instance_id()]
+			return "Callable"
 		return "Variant"
 	return "null"

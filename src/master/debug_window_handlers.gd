@@ -9,6 +9,7 @@ func set_handlers(handlers: Dictionary):
 		"friend": func(debug: DebugWindow, state: StageState, args: PackedStringArray): show_friend(debug, state, ),
 		"foe": func(debug: DebugWindow, state: StageState, args: PackedStringArray): show_foe(debug, state, ),
 		"resolver": func(debug: DebugWindow, state: StageState, args: PackedStringArray): show_resolver(debug, state, ),
+		"register": func(debug: DebugWindow, state: StageState, args: PackedStringArray): show_register(debug, state, ),
 		"event_queue": func(debug: DebugWindow, state: StageState, args: PackedStringArray): show_event_queue(debug, state, ),
 		"state": func(debug: DebugWindow, state: StageState, args: PackedStringArray): instance_list(debug, state, ),
 	}
@@ -58,13 +59,18 @@ func show_resolver(debug: DebugWindow, state: StageState):
 		get_name_id(state.current_resolver)])
 
 func show_event_queue(debug: DebugWindow, state: StageState):
-	debug.show_label("%s" % [ \
-		get_name_id(state.event_queue)])
-	
+	debug.show_label("%s %s" % [ \
+		get_name_id(state.event_queue), state.event_queue])
+
+func show_register(debug: DebugWindow, state: StageState):
+	debug.show_label("%s %s" % [ \
+		get_name_id(state.register), state.register])
+
 
 func instance_list(debug: DebugWindow, state: StageState, ):
 	debug.show_label("[%s]" % [get_name_id(state)])
 	show_resolver(debug, state)
+	show_register(debug, state)
 	show_event_queue(debug, state)
 
 	if state is DuelState:
