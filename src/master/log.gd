@@ -83,6 +83,82 @@ func get_text(object: Object, text: String) -> String:
 func gd(variant: Variant) -> String:
 	if variant:
 		if variant is Object:
-			return "%s#%d" % [variant.get_script().get_global_name(), variant.get_instance_id()]
-		return variant.to_string()
+			var s = variant.get_script()
+			if s:
+				return "%s#%d" % [s.get_global_name(), variant.get_instance_id()]
+			else:
+				return "Object#%d" % [variant.get_instance_id()]
+		elif variant is Dictionary:
+			return "Dictionary#%d" % [variant.get_instance_id()]
+		elif variant is Array:
+			return "Array#%d" % [variant.get_instance_id()]
+		elif variant is bool:
+			return "bool"
+		elif variant is int:
+			return "int"
+		elif variant is float:
+			return "float"
+		elif variant is String:
+			return "String"
+		elif variant is StringName:
+			return "StringName"
+		elif variant is NodePath:
+			return "NodePath"
+		elif variant is Vector2:
+			return "Vector2"
+		elif variant is Vector2i:
+			return "Vector2i"
+		elif variant is Rect2:
+			return "Rect2"
+		elif variant is Rect2i:
+			return "Rect2i"
+		elif variant is Vector3:
+			return "Vector3"
+		elif variant is Vector3i:
+			return "Vector3i"
+		elif variant is Vector4:
+			return "Vector4"
+		elif variant is Vector4i:
+			return "Vector4i"
+		elif variant is Transform2D:
+			return "Transform2D"
+		elif variant is Plane:
+			return "Plane"
+		elif variant is Projection:
+			return "Projection"
+		elif variant is Quaternion:
+			return "Quaternion"
+		elif variant is AABB:
+			return "AABB"
+		elif variant is Transform3D:
+			return "Transform3D"
+		elif variant is Color:
+			return "Color"
+		elif variant is RID:
+			return "RID"
+		elif variant is PackedByteArray:
+			return "PackedByteArray#%d" % [variant.get_instance_id()]
+		elif variant is PackedInt32Array:
+			return "PackedInt32Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedInt64Array:
+			return "PackedInt64Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedFloat32Array:
+			return "PackedFloat32Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedFloat64Array:
+			return "PackedFloat64Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedStringArray:
+			return "PackedStringArray#%d" % [variant.get_instance_id()]
+		elif variant is PackedVector2Array:
+			return "PackedVector2Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedVector3Array:
+			return "PackedVector3Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedVector4Array:
+			return "PackedVector4Array#%d" % [variant.get_instance_id()]
+		elif variant is PackedColorArray:
+			return "PackedColorArray#%d" % [variant.get_instance_id()]
+		elif variant is Signal:
+			return "Signal#%d" % [variant.get_instance_id()]
+		elif variant is Callable:
+			return "Callable#%d" % [variant.get_instance_id()]
+		return "Variant"
 	return "null"

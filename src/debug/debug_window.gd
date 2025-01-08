@@ -130,8 +130,4 @@ func gdi(id: String) -> String:
 	return "null"
 
 func gd(variant: Variant) -> String:
-	if variant:
-		if variant is Object:
-			return "%s#%d" % [variant.get_script().get_global_name(), variant.get_instance_id()]
-		return variant.to_string()
-	return "null"
+	return Log.gd(variant)
